@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>비밀번호 찾기 - SoolPair 술페어</title>
+  <meta content="대학생 맞춤형 스마트 안주 페어링 플랫폼 SoolPair 비밀번호 찾기 페이지" name="description">
+  <meta content="SoolPair, 술페어, 비밀번호 찾기" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .find-section {
+      padding: 80px 0;
+      background-color: #f3f8fa;
+    }
+
+    .find-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      max-width: 450px;
+      margin: 0 auto;
+      border: 1px solid #eef2f5;
+    }
+
+    .find-card h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e4356;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #dcdcdc;
+      padding: 12px 15px;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus {
+      border-color: #2c5e43;
+      box-shadow: 0 0 0 0.2rem rgba(44, 94, 67, 0.15);
+    }
+
+    .btn-find {
+      background-color: #2c5e43;
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-find:hover {
+      background-color: #204531;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .back-to-login {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .back-to-login:hover {
+      color: #2c5e43;
+      text-decoration: underline;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a href="services.html">안주 페어링 센터</a></li>
+          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a href="blog.html">자취방 라운지</a></li>
+          <li><a class="active" id="nav-login" href="login.html">로그인</a></li>
+          <li><a href="basket.html">장바구니</a></li>
+          <li><a href="contact.html">제휴 문의</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>비밀번호 찾기</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">로그인</a></li>
+            <li>비밀번호 찾기</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <!-- ======= Find Password Section ======= -->
+    <section class="find-section" data-aos="fade-up">
+      <div class="container">
+        <div class="find-card">
+          <h3>비밀번호 재설정</h3>
+          <form id="findPwForm">
+            <!-- Step 1: ID 입력 -->
+            <div id="step-id">
+              <div class="form-group">
+                <label for="userId">아이디 입력</label>
+                <input type="text" id="userId" class="form-control" placeholder="비밀번호를 재설정할 아이디를 입력하세요" required>
+              </div>
+              <button type="button" id="btn-next" class="btn-find">다음</button>
+            </div>
+
+            <!-- Step 2: 새 비밀번호 생성 및 확인 (처음에 숨김) -->
+            <div id="step-pw" class="animate-fade-in" style="display: none; margin-top: 15px;">
+              <div class="form-group">
+                <label for="newPw">새 비밀번호 생성</label>
+                <input type="password" id="newPw" class="form-control" placeholder="새 비밀번호를 입력하세요">
+              </div>
+              <div class="form-group">
+                <label for="confirmPw">새 비밀번호 확인</label>
+                <input type="password" id="confirmPw" class="form-control" placeholder="새 비밀번호를 한 번 더 입력하세요">
+              </div>
+              <button type="submit" id="btn-submit" class="btn-find">비밀번호 변경</button>
+            </div>
+          </form>
+
+          <a href="login.html" class="back-to-login"><i class="bi bi-arrow-left"></i> 로그인 화면으로 돌아가기</a>
+        </div>
+      </div>
+    </section><!-- End Find Password Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>SoolPair 뉴스레터 구독</h4>
+            <p>매주 제공되는 가성비 주류 소식과 마스터의 페어링 레시피를 이메일로 받아보세요.</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요"><input type="submit" value="구독 신청">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>바로가기</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>페어링 매칭 서비스</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">냉장고 구출 안주 매칭</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>SoolPair 대학가 자취방 센터</h4>
+            <p>
+              서울특별시 마포구 대학가길 77 <br>
+              자취방 라운지 오프라인 센터<br>
+              대한민국 <br><br>
+              <strong>전화번호:</strong> 02-987-6543<br>
+              <strong>이메일:</strong> hello@soolpair.co.kr<br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>SoolPair (술페어)</h3>
+            <p>술페어는 주머니가 가벼운 대학생들을 위해 마트/편의점에서 손쉽게 살 수 있는 해외 주류의 숨겨진 가치를 전달하고 스마트한 안주 조합을 큐레이션합니다.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SoolPair</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    const btnNext = document.getElementById('btn-next');
+    const stepId = document.getElementById('step-id');
+    const stepPw = document.getElementById('step-pw');
+    const userIdInput = document.getElementById('userId');
+    const newPw = document.getElementById('newPw');
+    const confirmPw = document.getElementById('confirmPw');
+    const findPwForm = document.getElementById('findPwForm');
+
+    btnNext.addEventListener('click', () => {
+      if (userIdInput.value.trim() === '') {
+        alert('아이디를 입력해 주세요.');
+        return;
+      }
+      // Reveal Step 2 (Reset password inputs)
+      stepPw.style.display = 'block';
+      userIdInput.readOnly = true;
+      btnNext.style.display = 'none';
+
+      // Make new fields required
+      newPw.required = true;
+      confirmPw.required = true;
+      newPw.focus();
+    });
+
+    findPwForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (newPw.value !== confirmPw.value) {
+        alert('비밀번호가 다릅니다.');
+        return;
+      }
+
+      alert('새 비밀번호로 바뀌었습니다.');
+      window.location.href = 'login.html';
+    });
+  </script>
+
+</body>
+
+</html>

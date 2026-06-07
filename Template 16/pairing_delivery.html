@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>배달음식 페어링 - SoolPair 술페어</title>
+  <meta content="자취생 및 사회초년생들을 위한 배달 야식 가성비 수입 주류 매칭 시스템" name="description">
+  <meta content="SoolPair, 술페어, 배달음식 페어링, 가성비 술" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom Styles for Anju Pairing Center -->
+  <style>
+    .category-tab {
+      background-color: #f4f7f6;
+      border: 1px solid #e2e8e5;
+      color: #666;
+      border-radius: 30px;
+      font-weight: 600;
+      padding: 6px 14px;
+      font-size: 13px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .category-tab:hover {
+      background-color: #e2ede8;
+      color: #2c5e43;
+      border-color: #2c5e43;
+    }
+    .category-tab.active {
+      background-color: #2c5e43;
+      border-color: #2c5e43;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(44, 94, 67, 0.2);
+    }
+    .food-search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .food-search-input {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      border-radius: 30px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      transition: all 0.3s;
+      background-color: #fafafa;
+    }
+    .food-search-input:focus {
+      border-color: #2c5e43;
+      background-color: #fff;
+      box-shadow: 0 0 0 3px rgba(44, 94, 67, 0.15);
+      outline: none;
+    }
+    .food-search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+      font-size: 15px;
+    }
+    .food-chip {
+      border-radius: 50px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      padding: 8px 18px !important;
+      margin: 4px !important;
+      transition: all 0.25s !important;
+      border: 1px solid #e0e0e0 !important;
+      background-color: #fff !important;
+      color: #444 !important;
+    }
+    .food-chip:hover {
+      background-color: #eef7f2 !important;
+      border-color: #2c5e43 !important;
+      color: #2c5e43 !important;
+      transform: translateY(-1px);
+    }
+    .food-chip.active-chip {
+      background-color: #2c5e43 !important;
+      border-color: #2c5e43 !important;
+      color: #fff !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 12px rgba(44, 94, 67, 0.25) !important;
+      transform: scale(1.03);
+    }
+    #food-chips-wrapper::-webkit-scrollbar {
+      width: 6px;
+    }
+    #food-chips-wrapper::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    #food-chips-wrapper::-webkit-scrollbar-thumb {
+      background: #c2cfc9;
+      border-radius: 10px;
+    }
+    #food-chips-wrapper::-webkit-scrollbar-thumb:hover {
+      background: #a3b5ad;
+    }
+    
+    /* Toast Notification style */
+    .toast-notification {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: rgba(30, 67, 86, 0.95);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 14.5px;
+      font-weight: 600;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      z-index: 9999;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a class="active" href="services.html">안주 페어링 센터</a></li>
+          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a href="blog.html">자취방 라운지</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
+          <li><a href="basket.html">장바구니</a></li>
+          <li><a href="contact.html">제휴 문의</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>배달음식 주류 매칭</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">안주 페어링 센터</a></li>
+            <li>배달음식 매칭</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <!-- ======= 안주 페어링 매칭 도구 섹션 ======= -->
+    <section class="services section-bg" style="padding: 60px 0; background-color: #f8fcf9;">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center" style="margin-bottom: 40px;">
+          <h2 style="font-size: 28px; font-weight: 700; color: #1e4356;">🍕 배달음식과 페어링할 주류 찾기</h2>
+          <p style="font-size: 14.5px; color: #666; max-width: 700px; margin: 10px auto 0 auto; line-height: 1.6;">
+            오늘 저녁, 어떤 배달음식을 주문하셨나요? 아래 25종의 대표 배달음식 리스트 중 주문하신 음식을 선택하면 마트나 편의점에서 손쉽게 살 수 있는 최고의 가성비 수입 주류 꿀조합을 즉시 매칭해 드립니다.
+          </p>
+        </div>
+
+        <div class="row">
+          <!-- 음식 선택 패널 (왼쪽 7열) -->
+          <div class="col-lg-7 mb-4">
+            <div style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #eef2f0;">
+              <h3 style="font-size: 17px; font-weight: 700; color: #2c5e43; margin-bottom: 15px; border-bottom: 2px solid #2c5e43; padding-bottom: 8px;"><i class="bi bi-list-ul me-2"></i>배달음식 선택</h3>
+              
+              <!-- 실시간 검색창 -->
+              <div class="food-search-box">
+                <i class="bi bi-search food-search-icon"></i>
+                <input type="text" id="food-search-input" class="food-search-input" placeholder="먹고 싶은 배달음식을 입력해 보세요 (예: 삼겹살, 피자)...">
+              </div>
+
+              <!-- 카테고리 탭 -->
+              <div class="d-flex flex-wrap gap-1 mb-3 pb-2" style="border-bottom: 1px solid #f0f0f0;">
+                <button class="category-tab active" data-category="all">전체</button>
+                <button class="category-tab" data-category="rice-soup">🍚 식사/밥/국</button>
+                <button class="category-tab" data-category="meat-snack">🍖 고기/야식</button>
+                <button class="category-tab" data-category="pizza-burger">🍔 피자/버거/양식</button>
+                <button class="category-tab" data-category="asian-noodle">🥢 일식/중식/아시안</button>
+                <button class="category-tab" data-category="snack-dessert">🍰 분식/디저트</button>
+              </div>
+
+              <div id="food-chips-wrapper" class="d-flex flex-wrap gap-2" style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
+                <!-- JS를 통해 25종의 음식 칩 버튼들이 렌더링됩니다 -->
+              </div>
+            </div>
+          </div>
+
+          <!-- 매칭 결과 패널 (오른쪽 5열) -->
+          <div class="col-lg-5 mb-4">
+            <div id="pairing-result-panel" style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #eef2f0; border-top: 5px solid #2c5e43; min-height: 440px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: all 0.3s; position: relative;">
+              
+              <!-- 초기 대기 상태 화면 -->
+              <div id="result-placeholder" style="color: #888;">
+                <div style="font-size: 60px; color: #2c5e43; opacity: 0.15; margin-bottom: 15px;"><i class="bi bi-patch-check"></i></div>
+                <h4 style="font-size: 16px; font-weight: 700; color: #1e4356; margin-bottom: 8px;">음식을 선택해주세요</h4>
+                <p style="font-size: 13.5px; margin-bottom: 0; line-height: 1.6;">왼쪽 리스트에서 배달음식을 누르시면<br>완벽하게 어울리는 가성비 주류 추천 카드가 열립니다.</p>
+              </div>
+
+              <!-- 결과 렌더링 화면 (초기엔 display: none) -->
+              <div id="result-content" style="display: none; width: 100%; text-align: left;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span id="result-food-badge" style="background-color: #ffe6d9; color: #ff8c00; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px;">🍕 피자</span>
+                  <span style="font-size: 11px; color: #aaa; font-weight: 600;"><i class="bi bi-shield-check me-1"></i>SoolPair 매칭 인증</span>
+                </div>
+                
+                <h3 id="result-liquor-title" style="font-size: 23px; font-weight: 700; color: #2c5e43; margin-bottom: 3px;">필스너 우르켈 맥주</h3>
+                <h5 id="result-liquor-sub" style="font-size: 13px; color: #777; font-family: 'Outfit', sans-serif; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px;">Pilsner Urquell</h5>
+                
+                <!-- 궁합 지수 프로그레스바 -->
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; font-weight: 600; color: #555;">
+                    <span>🤝 페어링 매칭 궁합 지수</span>
+                    <span id="result-compatibility-score" style="color: #ff689b; font-weight: 700;">98%</span>
+                  </div>
+                  <div class="progress" style="height: 7px; background-color: #f0f0f0; border-radius: 10px;">
+                    <div id="result-compatibility-bar" class="progress-bar" role="progressbar" style="width: 98%; background: linear-gradient(90deg, #ff8c00, #ff689b); border-radius: 10px;"></div>
+                  </div>
+                </div>
+
+                <!-- ABV 도수 프로그레스바 -->
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; font-weight: 600; color: #555;">
+                    <span>🍷 알코올 도수 (ABV)</span>
+                    <span id="result-abv-text" style="color: #1e4356; font-weight: 700;">ABV 4.4%</span>
+                  </div>
+                  <div class="progress" style="height: 7px; background-color: #f0f0f0; border-radius: 10px;">
+                    <div id="result-abv-bar" class="progress-bar" role="progressbar" style="width: 10%; background-color: #1e4356; border-radius: 10px;"></div>
+                  </div>
+                </div>
+
+                <!-- 가격대 정보 -->
+                <div class="mb-3 p-2 d-flex justify-content-between align-items-center" style="background-color: #f8f9fa; border-radius: 8px; border-left: 3px solid #2c5e43;">
+                  <span style="font-size: 12.5px; font-weight: 600; color: #555;"><i class="bi bi-wallet2 me-1"></i>구매 예상가</span>
+                  <span id="result-liquor-price" style="font-size: 13.5px; font-weight: 700; color: #2c5e43;">편의점 4캔 1.1만원</span>
+                </div>
+
+                <hr style="border-top: 1px dashed #ddd; margin: 15px 0;">
+
+                <h4 style="font-size: 13.5px; font-weight: 700; color: #1e4356; margin-bottom: 6px;"><i class="bi bi-chat-quote-fill me-1" style="color: #2c5e43;"></i>전문가 코멘트</h4>
+                <div style="background-color: #fbfdfc; padding: 12px 15px; border-radius: 8px; border: 1px solid #eef6f2; margin-bottom: 20px;">
+                  <p id="result-liquor-comment" style="font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 0;">
+                    피자의 기름지고 묵직한 치즈 풍미를 홉의 쌉싸름한 쓴맛과 시원한 탄산감이 깔끔하게 씻어주어 물리지 않고 끝까지 맛있게 먹을 수 있도록 도와줍니다.
+                  </p>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button id="btn-add-to-cart" class="btn w-50" style="background-color: #2c5e43; color: white; font-weight: 700; font-size: 13px; border-radius: 30px; padding: 10px;"><i class="bi bi-cart-plus me-1"></i>장바구니 담기</button>
+                  <a href="portfolio.html" class="btn btn-outline-secondary w-50" style="font-weight: 600; font-size: 13px; border-radius: 30px; padding: 10px;"><i class="bi bi-journal-text me-1"></i>상세 도감 보기</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 토스트 알림창 -->
+    <div id="cart-toast" class="toast-notification">
+      <i class="bi bi-check-circle-fill" style="color: #41cf7e; font-size: 18px;"></i>
+      <span id="cart-toast-message">장바구니에 상품이 담겼습니다.</span>
+    </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>SoolPair 뉴스레터 구독</h4>
+            <p>매주 제공되는 가성비 주류 소식과 마스터의 페어링 레시피를 이메일로 받아보세요.</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요"><input type="submit" value="구독 신청">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>바로가기</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>페어링 매칭 서비스</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">냉장고 구출 안주 매칭</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>SoolPair 대학가 자취방 센터</h4>
+            <p>
+              서울특별시 마포구 대학가길 77 <br>
+              자취방 라운지 오프라인 센터<br>
+              대한민국 <br><br>
+              <strong>전화번호:</strong> 02-987-6543<br>
+              <strong>이메일:</strong> hello@soolpair.co.kr<br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>SoolPair (술페어)</h3>
+            <p>술페어는 주머니가 가벼운 대학생들을 위해 마트/편의점에서 손쉽게 살 수 있는 해외 주류의 숨겨진 가치를 전달하고 스마트한 안주 조합을 큐레이션합니다.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SoolPair</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- SoolPair Services interactive scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 25종 배달음식과 페어링 주류 데이터 사전 (카테고리 및 궁합 지수 추가)
+      const pairingDB = {
+        '순대국밥': { emoji: '🍲', title: '짐빔 하이볼 (캔)', sub: 'Jim Beam Citrus Highball', abv: '5.0%', price: '편의점 3천원대', score: 94, categories: ['rice-soup'], comment: '순대국밥의 뜨겁고 진한 사골 육수와 고기 기름의 묵직함을 짐빔 하이볼의 청량한 시트러스 탄산이 깔끔하게 씻어주어 한 입마다 개운함을 선사합니다.' },
+        '삼겹살': { emoji: '🐷', title: '잭 다니엘스 애플 하이볼', sub: 'Jack Daniel\'s Tennessee Apple', abv: '35.0%', price: '보틀 4.8만원대', score: 98, categories: ['meat-snack'], comment: '삼겹살의 고소하고 리치한 돼지 지방의 풍미가 상큼하고 달콤한 청사과 향의 잭애플 하이볼과 만났을 때, 고기의 느끼함은 사라지고 감칠맛이 폭발합니다.' },
+        '제육덮밥': { emoji: '🍛', title: '산토리 가쿠빈 하이볼', sub: 'Suntory Kakubin Highball', abv: '40.0%', price: '보틀 4.0만원대', score: 92, categories: ['rice-soup'], comment: '매콤달콤하고 자극적인 고추장 제육 양념의 텁텁함을 가쿠빈 하이볼 특유의 드라이하고 깔끔한 위스키 홉 향이 시원하게 잡아줍니다.' },
+        '떡튀순': { emoji: '🍢', title: '간치아 모스카토 다스티', sub: 'Gancia Moscato d\'Asti', abv: '5.5%', price: '보틀 1.9만원대', score: 95, categories: ['snack-dessert'], comment: '떡볶이의 불타는 매운맛과 튀김의 느끼함을 모스카토 와인의 기분 좋은 천연 달콤함과 미세한 기포가 입안을 달래주며 환상적으로 어우러집니다.' },
+        '김밥': { emoji: '🍙', title: '칭따오 라거 맥주', sub: 'Tsingtao Lager', abv: '4.7%', price: '편의점 4캔 1.1만원', score: 91, categories: ['rice-soup'], comment: '다양한 재료가 들어가 고소하고 든든한 김밥 한 입 후, 부드러운 목넘김과 깔끔한 홉 향의 칭따오 라거를 가볍게 들이켜면 최고의 간단 홈술이 완성됩니다.' },
+        '야채곱창': { emoji: '🥢', title: '고든스 진토닉', sub: 'Gordon\'s London Dry Gin', abv: '37.5%', price: '보틀 2.5만원대', score: 96, categories: ['meat-snack'], comment: '야채곱창 특유의 돼지 잡내를 숲속 솔향이 매력적인 고든스 진과 쌉싸름한 토닉워터의 조합이 완전히 날려주며 중독성 있는 마무리를 선사합니다.' },
+        '닭발': { emoji: '🐔', title: '피치트리 토닉 하이볼', sub: 'Peachtree Peach Schnapps', abv: '20.0%', price: '보틀 2.8만원대', score: 97, categories: ['meat-snack'], comment: '땀이 송골송골 맺히는 극강의 매운 무뼈닭발에는 달콤함의 끝판왕인 복숭아 리큐르 피치트리에 토닉을 믹스한 칵테일이 매운맛을 즉각 진화해줍니다.' },
+        '족발': { emoji: '🍖', title: '옐로우 테일 쉬라즈', sub: 'Yellow Tail Shiraz', abv: '13.5%', price: '보틀 1.5만원대', score: 98, categories: ['meat-snack'], comment: '족발 껍데기의 쫀득쫀득한 콜라겐 식감과 특유의 한방 양념 향은 호주산 쉬라즈 레드 와인의 풍부한 자두 향 및 묵직한 탄닌감과 만나 훌륭한 조화를 이룹니다.' },
+        '보쌈': { emoji: '🥬', title: '뫼비우스 샤도네이', sub: 'Moebius Chardonnay', abv: '12.5%', price: '보틀 1.8만원대', score: 95, categories: ['rice-soup', 'meat-snack'], comment: '기름기 없이 담백하고 촉촉하게 잘 삶아낸 보쌈 편육은 깔끔하고 산뜻한 과실 산미를 머금은 화이트 샤도네이 와인과 극상의 부드러운 마리아주를 이룹니다.' },
+        '피자': { emoji: '🍕', title: '필스너 우르켈 맥주', sub: 'Pilsner Urquell', abv: '4.4%', price: '편의점 4캔 1.1만원', score: 97, categories: ['pizza-burger'], comment: '피자의 짭조름한 콤비네이션 토핑과 묵직한 모짜렐라 치즈의 리치함을 체코 정통 필스너 홉의 쌉싸름한 쓴맛과 짜릿한 탄산이 단번에 상쾌하게 씻어줍니다.' },
+        '닭강정': { emoji: '🍗', title: '버드와이저 라거', sub: 'Budweiser King of Beers', abv: '5.0%', price: '편의점 4캔 1.1만원', score: 96, categories: ['meat-snack', 'pizza-burger'], comment: '바삭하고 달콤 짭조름한 닭강정 코팅과 은은한 쌀 풍미에 부드러운 탄산감이 매력적인 미국 대표 버드와이저 라거의 정통 아메리칸 치맥 페어링입니다.' },
+        '햄버거 세트': { emoji: '🍔', title: '잭 다니엘스 허니 콕', sub: 'Jack Daniel\'s Tennessee Honey', abv: '35.0%', price: '보틀 4.8만원대', score: 94, categories: ['pizza-burger'], comment: '버거의 짭조름한 소고기 패티와 감자튀김에 꿀 향 가득한 버번 잭허니 위스키와 시원한 콜라(잭콕)를 조합해 마시면 단짠단짠의 절정 케미를 경험할 수 있습니다.' },
+        '파스타': { emoji: '🍝', title: '폰타나프레다 가비', sub: 'Fontanafredda Gavi di Gavi', abv: '12.5%', price: '보틀 2.5만원대', score: 93, categories: ['pizza-burger', 'asian-noodle'], comment: '올리브 오일이나 고소한 크림 베이스 파스타에 이탈리아 피에몬테산 가비 화이트 와인의 산뜻하고 싱그러운 미네랄 아로마가 가미되어 이탈리안 레스토랑의 고급스러운 분위기를 냅니다.' },
+        '짜장면': { emoji: '🍜', title: '연태고량주 토닉 하이볼', sub: 'Yantai Guniang Tonic', abv: '34.0%', price: '보틀 1.5만원대', score: 94, categories: ['asian-noodle'], comment: '짜장면 춘장 양념 특유의 느끼함을 향긋하고 은은한 파인애플 꽃향기의 연태고량주 하이볼이 향기롭고 가볍게 씻어내어 환상적인 중식 매칭을 이룹니다.' },
+        '짬뽕': { emoji: '🌶️', title: '스미노프 보드카 오렌지', sub: 'Smirnoff Red Vodka Screwdriver', abv: '40.0%', price: '보틀 2.8만원대', score: 95, categories: ['asian-noodle'], comment: '해물이 들어간 얼큰하고 칼칼한 짬뽕 국물을 마신 뒤, 깔끔한 보드카에 상큼하고 달달한 오렌지 주스를 탄 스크류드라이버 한 잔은 화끈한 매운맛을 중화하고 입안을 정돈해 줍니다.' },
+        '마라탕': { emoji: '🍲', title: '하얼빈 맥주', sub: 'Harbin Lager Beer', abv: '5.0%', price: '마트 2천원대', score: 97, categories: ['asian-noodle'], comment: '입안을 얼얼하게 마비시키는 알싸한 마라 향과 고추기름의 강력한 매운맛을 순하고 청량감이 극대화된 중국 전통 하얼빈 맥주가 입안을 즉각 정화해줍니다.' },
+        '초밥': { emoji: '🍣', title: '오이스터 베이 소비뇽 블랑', sub: 'Oyster Bay Sauvignon Blanc', abv: '13.0%', price: '보틀 2.8만원대', score: 99, categories: ['asian-noodle'], comment: '신선한 생선회 초밥의 담백함은 뉴질랜드산 소비뇽 블랑의 잘 익은 라임, 패션프루트 향과 파릇한 산미와 궁합이 탁월하여, 비린 맛을 잡고 생선 살의 풍미를 돋워줍니다.' },
+        '돈까스': { emoji: '🥩', title: '기네스 드래프트 흑맥주', sub: 'Guinness Draught Stout', abv: '4.2%', price: '편의점 4캔 1.1만원', score: 94, categories: ['rice-soup', 'pizza-burger'], comment: '바삭하게 튀겨낸 두툼한 등심 돈까스와 데미글라스 소스의 묵직함은 질소 크림이 주는 부드러운 질감과 구운 홉의 쌉쌀한 초콜릿 향인 기네스와 최상의 페어링을 뽐냅니다.' },
+        '타코': { emoji: '🌮', title: '호세 쿠엘보 데킬라 하이볼', sub: 'Jose Cuervo Especial Gold', abv: '40.0%', price: '보틀 4.2만원대', score: 96, categories: ['pizza-burger', 'asian-noodle'], comment: '라임, 고수, 이국적인 향신료가 어우러진 정통 멕시코 타코는 데킬라에 상큼한 라임 즙과 토닉을 믹스한 시원한 데킬라 토닉 하이볼과 극상의 라틴 케미를 보입니다.' },
+        '찜닭': { emoji: '🐔', title: '카사 실바 까베르네 소비뇽', sub: 'Casa Silva Cabernet Sauvignon', abv: '13.5%', price: '보틀 1.6만원대', score: 93, categories: ['rice-soup', 'meat-snack'], comment: '간장 소스에 졸여 달콤하고 짭조름한 간장 찜닭과 쫀득한 당면은 과실 풍미와 은은한 탄닌감이 매력적인 칠레산 가성비 카베르네 소비뇽 와인과 부드럽게 매칭됩니다.' },
+        '샐러드': { emoji: '🥗', title: '앙리 마티스 스파클링', sub: 'Henri Matisse Sparkling Brut', abv: '11.5%', price: '보틀 1.3만원대', score: 90, categories: ['rice-soup'], comment: '오리엔탈이나 발사믹 드레싱을 곁들인 신선하고 아삭아삭한 채소 샐러드에는 기포가 부드럽게 살아있는 산뜻한 드라이 스파클링 와인이 입맛을 싱그럽게 돋워 줍니다.' },
+        '케이크': { emoji: '🍰', title: '빌라 엠 로쏘', sub: 'Villa M Rosso', abv: '5.0%', price: '보틀 2.0만원대', score: 92, categories: ['snack-dessert'], comment: '생크림이나 진한 초코 케이크의 입안 가득한 단맛에 붉은 달콤한 장미 과일 풍미를 지닌 스파클링 레드 와인 빌라엠 로쏘 한 모금은 생일파티 등 축제 분위기를 완성합니다.' },
+        '빙수': { emoji: '🍧', title: '버니니 클래식 스파클링', sub: 'Bernini Classic Sparkling', abv: '4.5%', price: '편의점 4천원대', score: 91, categories: ['snack-dessert'], comment: '달콤하고 시원한 팥빙수나 과일빙수에 상큼하고 톡 쏘는 버니니 스파클링 와인을 살짝 곁들이거나 부어 먹으면, 대학생 감성의 환상적인 빙수 와인 칵테일이 재현됩니다.' },
+        '포케': { emoji: '🥗', title: '앱솔루트 보드카 토닉', sub: 'Absolut Vodka Plain Tonic', abv: '40.0%', price: '보틀 3.5만원대', score: 92, categories: ['rice-soup'], comment: '가벼운 웰빙 건강식인 샐러드 포케에는 설탕이나 인공 가미가 없어 도수가 깔끔하고 칼로리가 부담 없는 보드카 토닉이 식단의 균형을 완벽히 유지해 줍니다.' },
+        '돼지갈비': { emoji: '🍖', title: '메이커스 마크 버번 위스키', sub: 'Maker\'s Mark Bourbon Whiskey', abv: '45.0%', price: '보틀 6.4만원대', score: 98, categories: ['rice-soup', 'meat-snack'], comment: '숯불 양념 향 가득한 달콤 짭조름한 돼지갈비는 버번 위스키 특유의 오크통 바닐라 풍미 및 옥수수 단맛이 가미되어 고기의 육즙과 숯불 향을 한층 더 우아하게 증폭시킵니다.' }
+      };
+
+      const foodChipsWrapper = document.getElementById('food-chips-wrapper');
+      
+      const resultPlaceholder = document.getElementById('result-placeholder');
+      const resultContent = document.getElementById('result-content');
+      
+      const resultFoodBadge = document.getElementById('result-food-badge');
+      const resultLiquorTitle = document.getElementById('result-liquor-title');
+      const resultLiquorSub = document.getElementById('result-liquor-sub');
+      const resultLiquorAbvText = document.getElementById('result-abv-text');
+      const resultLiquorAbvBar = document.getElementById('result-abv-bar');
+      const resultLiquorPrice = document.getElementById('result-liquor-price');
+      const resultLiquorComment = document.getElementById('result-liquor-comment');
+      const resultCompatibilityScore = document.getElementById('result-compatibility-score');
+      const resultCompatibilityBar = document.getElementById('result-compatibility-bar');
+      
+      const btnAddToCart = document.getElementById('btn-add-to-cart');
+      const cartToast = document.getElementById('cart-toast');
+      const cartToastMessage = document.getElementById('cart-toast-message');
+
+      let currentSelectedFood = '';
+      let activeCategory = 'all';
+
+      // --- 1. 배달음식 칩 생성 ---
+      function initFoodChips() {
+        foodChipsWrapper.innerHTML = '';
+        Object.keys(pairingDB).forEach(foodName => {
+          const foodInfo = pairingDB[foodName];
+          const chipButton = document.createElement('button');
+          chipButton.className = 'btn food-chip';
+          chipButton.setAttribute('data-food', foodName);
+          chipButton.innerHTML = `${foodInfo.emoji} ${foodName}`;
+
+          // 클릭 시 페어링 매칭 결과 출력
+          chipButton.addEventListener('click', function() {
+            // 다른 칩들의 액티브 해제
+            document.querySelectorAll('#food-chips-wrapper button').forEach(btn => {
+              btn.classList.remove('active-chip');
+            });
+            
+            // 현재 칩 활성화
+            chipButton.classList.add('active-chip');
+            currentSelectedFood = foodName;
+
+            // 결과 화면 업데이트
+            showPairingResult(foodName);
+          });
+
+          foodChipsWrapper.appendChild(chipButton);
+        });
+      }
+
+      // --- 2. 페어링 결과 표출 로직 ---
+      function showPairingResult(foodName) {
+        const item = pairingDB[foodName];
+        if (!item) return;
+
+        // 플레이스홀더 가리고 결과판 노출
+        resultPlaceholder.style.display = 'none';
+        resultContent.style.display = 'block';
+
+        // 텍스트 기입
+        resultFoodBadge.innerHTML = `${item.emoji} ${foodName}`;
+        resultLiquorTitle.innerText = item.title;
+        resultLiquorSub.innerText = item.sub;
+        
+        // ABV 계산 및 렌더링
+        resultLiquorAbvText.innerText = `도수: ${item.abv}`;
+        const abvNum = parseFloat(item.abv);
+        const abvPercent = Math.max(6, Math.min(100, (abvNum / 45) * 100));
+        resultLiquorAbvBar.style.width = `${abvPercent}%`;
+        
+        // 가격 및 코멘트
+        resultLiquorPrice.innerText = item.price;
+        resultLiquorComment.innerText = item.comment;
+
+        // 궁합 지수 렌더링
+        resultCompatibilityScore.innerText = `${item.score}%`;
+        resultCompatibilityBar.style.width = `${item.score}%`;
+
+        // 결과 카드에 은은한 하이라이트 애니메이션
+        const panel = document.getElementById('pairing-result-panel');
+        panel.style.backgroundColor = '#f7faf8';
+        setTimeout(() => {
+          panel.style.backgroundColor = '#fff';
+        }, 300);
+      }
+
+      // --- 3. 실시간 검색 & 카테고리 필터링 ---
+      const searchInput = document.getElementById('food-search-input');
+      
+      function filterFoods() {
+        const query = searchInput.value.toLowerCase().trim();
+        document.querySelectorAll('#food-chips-wrapper button').forEach(btn => {
+          const foodName = btn.getAttribute('data-food');
+          const item = pairingDB[foodName];
+          if (!item) return;
+
+          const matchesCategory = (activeCategory === 'all' || item.categories.includes(activeCategory));
+          const matchesSearch = foodName.includes(query) || item.title.toLowerCase().includes(query);
+
+          if (matchesCategory && matchesSearch) {
+            btn.style.setProperty('display', 'inline-block', 'important');
+          } else {
+            btn.style.setProperty('display', 'none', 'important');
+          }
+        });
+      }
+
+      searchInput.addEventListener('input', filterFoods);
+
+      // 카테고리 탭 클릭 리스너
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          activeCategory = this.getAttribute('data-category');
+          filterFoods();
+        });
+      });
+
+      // --- 4. 장바구니 담기 기능 ---
+      btnAddToCart.addEventListener('click', function() {
+        if (!currentSelectedFood) return;
+        const item = pairingDB[currentSelectedFood];
+        if (!item) return;
+
+        // 로컬스토리지 장바구니 불러오기
+        let cart = JSON.parse(localStorage.getItem('soolpair_cart') || '[]');
+        
+        // 이미 담겼는지 확인
+        const existingIdx = cart.findIndex(x => x.title === item.title);
+        if (existingIdx > -1) {
+          cart[existingIdx].qty += 1;
+        } else {
+          cart.push({
+            title: item.title,
+            sub: item.sub,
+            price: item.price,
+            abv: item.abv,
+            emoji: item.emoji,
+            qty: 1
+          });
+        }
+        
+        localStorage.setItem('soolpair_cart', JSON.stringify(cart));
+
+        // 토스트 알림창 띄우기
+        cartToastMessage.innerHTML = `장바구니에 <strong>${item.title}</strong>이(가) 추가되었습니다!`;
+        cartToast.classList.add('show');
+        setTimeout(() => {
+          cartToast.classList.remove('show');
+        }, 2500);
+      });
+
+      // 초기 칩 로드
+      initFoodChips();
+    });
+  </script>
+
+</body>
+
+</html>
