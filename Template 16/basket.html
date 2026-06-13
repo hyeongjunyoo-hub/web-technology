@@ -491,16 +491,21 @@
         let totalPrice = 0;
         cart.forEach((item) => {
           let priceNum = 0;
-          if (item.price.includes('4캔 1.1만원')) {
+          let priceStr = item.price;
+          if (priceStr.includes('원')) {
+            priceStr = priceStr.split('원')[0] + '원';
+          }
+          
+          if (priceStr.includes('4캔 1.1만원')) {
             priceNum = 11000;
-          } else if (item.price.includes('만원')) {
-            const num = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+          } else if (priceStr.includes('만원')) {
+            const num = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
             priceNum = num * 10000;
-          } else if (item.price.includes('천원')) {
-            const num = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+          } else if (priceStr.includes('천원')) {
+            const num = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
             priceNum = num * 1000;
           } else {
-            const num = parseInt(item.price.replace(/[^0-9]/g, ''));
+            const num = parseInt(priceStr.replace(/[^0-9]/g, ''));
             priceNum = isNaN(num) ? 0 : num;
           }
           totalPrice += priceNum * item.qty;
