@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>배달음식 페어링 - SoolPair 술페어</title>
-  <meta content="자취생 및 사회초년생들을 위한 배달 야식 가성비 수입 주류 매칭 시스템" name="description">
-  <meta content="SoolPair, 술페어, 배달음식 페어링, 가성비 술" name="keywords">
+  <title>보유 주류 안주 매칭 - SoolPair 술페어</title>
+  <meta content="내가 가진 주류와 가장 잘 어울리는 편의점 가성비 안주 추천 매칭 시스템" name="description">
+  <meta content="SoolPair, 술페어, 안주 페어링, 편의점 안주, 가성비 술" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -104,18 +104,18 @@
       box-shadow: 0 4px 12px rgba(44, 94, 67, 0.25) !important;
       transform: scale(1.03);
     }
-    #food-chips-wrapper::-webkit-scrollbar {
+    #liquor-chips-wrapper::-webkit-scrollbar {
       width: 6px;
     }
-    #food-chips-wrapper::-webkit-scrollbar-track {
+    #liquor-chips-wrapper::-webkit-scrollbar-track {
       background: #f1f1f1;
       border-radius: 10px;
     }
-    #food-chips-wrapper::-webkit-scrollbar-thumb {
+    #liquor-chips-wrapper::-webkit-scrollbar-thumb {
       background: #c2cfc9;
       border-radius: 10px;
     }
-    #food-chips-wrapper::-webkit-scrollbar-thumb:hover {
+    #liquor-chips-wrapper::-webkit-scrollbar-thumb:hover {
       background: #a3b5ad;
     }
     
@@ -180,11 +180,11 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>배달음식 주류 매칭</h2>
+          <h2>보유 주류 안주 매칭</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">안주 페어링 센터</a></li>
-            <li>배달음식 매칭</li>
+            <li>보유 주류 매칭</li>
           </ol>
         </div>
 
@@ -196,36 +196,34 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title text-center" style="margin-bottom: 40px;">
-          <h2 style="font-size: 28px; font-weight: 700; color: #1e4356;">🍕 배달음식과 페어링할 주류 찾기</h2>
+          <h2 style="font-size: 28px; font-weight: 700; color: #1e4356;">🍺 보유한 주류와 어울리는 안주 찾기</h2>
           <p style="font-size: 14.5px; color: #666; max-width: 700px; margin: 10px auto 0 auto; line-height: 1.6;">
-            오늘 저녁, 어떤 배달음식을 주문하셨나요? 아래 25종의 대표 배달음식 리스트 중 주문하신 음식을 선택하면 마트나 편의점에서 손쉽게 살 수 있는 최고의 가성비 수입 주류 꿀조합을 즉시 매칭해 드립니다.
+            보유하고 계신 가성비 주류를 선택해보세요! 마트나 편의점에서 손쉽게 구할 수 있는 최고의 궁합 안주를 즉시 매칭하고 조리/준비 방식 및 예상 가격을 큐레이션해 드립니다.
           </p>
         </div>
 
         <div class="row">
-          <!-- 음식 선택 패널 (왼쪽 7열) -->
+          <!-- 주류 선택 패널 (왼쪽 7열) -->
           <div class="col-lg-7 mb-4">
             <div style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #eef2f0;">
-              <h3 style="font-size: 17px; font-weight: 700; color: #2c5e43; margin-bottom: 15px; border-bottom: 2px solid #2c5e43; padding-bottom: 8px;"><i class="bi bi-list-ul me-2"></i>배달음식 선택</h3>
+              <h3 style="font-size: 17px; font-weight: 700; color: #2c5e43; margin-bottom: 15px; border-bottom: 2px solid #2c5e43; padding-bottom: 8px;"><i class="bi bi-list-ul me-2"></i>보유 주류 선택</h3>
               
               <!-- 실시간 검색창 -->
               <div class="food-search-box">
                 <i class="bi bi-search food-search-icon"></i>
-                <input type="text" id="food-search-input" class="food-search-input" placeholder="먹고 싶은 배달음식을 입력해 보세요 (예: 삼겹살, 피자)...">
+                <input type="text" id="liquor-search-input" class="food-search-input" placeholder="보유하고 계신 주류를 입력해 보세요 (예: 잭 다니엘, 모히토)...">
               </div>
 
               <!-- 카테고리 탭 -->
               <div class="d-flex flex-wrap gap-1 mb-3 pb-2" style="border-bottom: 1px solid #f0f0f0;">
                 <button class="category-tab active" data-category="all">전체</button>
-                <button class="category-tab" data-category="rice-soup">🍚 식사/밥/국</button>
-                <button class="category-tab" data-category="meat-snack">🍖 고기/야식</button>
-                <button class="category-tab" data-category="pizza-burger">🍔 피자/버거/양식</button>
-                <button class="category-tab" data-category="asian-noodle">🥢 일식/중식/아시안</button>
-                <button class="category-tab" data-category="snack-dessert">🍰 분식/디저트</button>
+                <button class="category-tab" data-category="whiskey">🥃 위스키</button>
+                <button class="category-tab" data-category="wine">🍷 와인</button>
+                <button class="category-tab" data-category="liqueur">🍹 리큐르/기타</button>
               </div>
 
-              <div id="food-chips-wrapper" class="d-flex flex-wrap gap-2" style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
-                <!-- JS를 통해 25종의 음식 칩 버튼들이 렌더링됩니다 -->
+              <div id="liquor-chips-wrapper" class="d-flex flex-wrap gap-2" style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
+                <!-- JS를 통해 12종의 주류 칩 버튼들이 렌더링됩니다 -->
               </div>
             </div>
           </div>
@@ -237,60 +235,60 @@
               <!-- 초기 대기 상태 화면 -->
               <div id="result-placeholder" style="color: #888;">
                 <div style="font-size: 60px; color: #2c5e43; opacity: 0.15; margin-bottom: 15px;"><i class="bi bi-patch-check"></i></div>
-                <h4 style="font-size: 16px; font-weight: 700; color: #1e4356; margin-bottom: 8px;">음식을 선택해주세요</h4>
-                <p style="font-size: 13.5px; margin-bottom: 0; line-height: 1.6;">왼쪽 리스트에서 배달음식을 누르시면<br>완벽하게 어울리는 가성비 주류 추천 카드가 열립니다.</p>
+                <h4 style="font-size: 16px; font-weight: 700; color: #1e4356; margin-bottom: 8px;">보유하신 주류를 선택해주세요</h4>
+                <p style="font-size: 13.5px; margin-bottom: 0; line-height: 1.6;">왼쪽 리스트에서 보유 중인 주류를 누르시면<br>가장 잘 어울리는 편의점 안주 추천 카드가 열립니다.</p>
               </div>
 
               <!-- 결과 렌더링 화면 (초기엔 display: none) -->
               <div id="result-content" style="display: none; width: 100%; text-align: left;">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <span id="result-food-badge" style="background-color: #ffe6d9; color: #ff8c00; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px;">🍕 피자</span>
+                  <span id="result-liquor-badge" style="background-color: #ffe6d9; color: #ff8c00; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px;">🥃 잭 다니엘</span>
                   <span style="font-size: 11px; color: #aaa; font-weight: 600;"><i class="bi bi-shield-check me-1"></i>SoolPair 매칭 인증</span>
                 </div>
                 
-                <h3 id="result-liquor-title" style="font-size: 23px; font-weight: 700; color: #2c5e43; margin-bottom: 3px;">필스너 우르켈 맥주</h3>
-                <h5 id="result-liquor-sub" style="font-size: 13px; color: #777; font-family: 'Outfit', sans-serif; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px;">Pilsner Urquell</h5>
+                <h3 id="result-food-title" style="font-size: 23px; font-weight: 700; color: #2c5e43; margin-bottom: 3px;">숯불 매콤 닭꼬치</h3>
+                <h5 id="result-food-category" style="font-size: 13px; color: #777; font-family: 'Outfit', sans-serif; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px;">🍖 육류/안주</h5>
                 
                 <!-- 궁합 지수 프로그레스바 -->
                 <div class="mb-3">
                   <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; font-weight: 600; color: #555;">
                     <span>🤝 페어링 매칭 궁합 지수</span>
-                    <span id="result-compatibility-score" style="color: #ff689b; font-weight: 700;">98%</span>
+                    <span id="result-compatibility-score" style="color: #ff689b; font-weight: 700;">97%</span>
                   </div>
                   <div class="progress" style="height: 7px; background-color: #f0f0f0; border-radius: 10px;">
-                    <div id="result-compatibility-bar" class="progress-bar" role="progressbar" style="width: 98%; background: linear-gradient(90deg, #ff8c00, #ff689b); border-radius: 10px;"></div>
+                    <div id="result-compatibility-bar" class="progress-bar" role="progressbar" style="width: 97%; background: linear-gradient(90deg, #ff8c00, #ff689b); border-radius: 10px;"></div>
                   </div>
                 </div>
 
-                <!-- ABV 도수 프로그레스바 -->
+                <!-- 조리 시간 정보 -->
                 <div class="mb-3">
                   <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; font-weight: 600; color: #555;">
-                    <span>🍷 알코올 도수 (ABV)</span>
-                    <span id="result-abv-text" style="color: #1e4356; font-weight: 700;">ABV 4.4%</span>
+                    <span>🍳 조리 방식 / 조리 시간</span>
+                    <span id="result-cooktime-text" style="color: #1e4356; font-weight: 700;">전자레인지 1분 30초</span>
                   </div>
                   <div class="progress" style="height: 7px; background-color: #f0f0f0; border-radius: 10px;">
-                    <div id="result-abv-bar" class="progress-bar" role="progressbar" style="width: 10%; background-color: #1e4356; border-radius: 10px;"></div>
+                    <div id="result-cooktime-bar" class="progress-bar" role="progressbar" style="width: 25%; background-color: #1e4356; border-radius: 10px;"></div>
                   </div>
                 </div>
 
                 <!-- 가격대 정보 -->
                 <div class="mb-3 p-2 d-flex justify-content-between align-items-center" style="background-color: #f8f9fa; border-radius: 8px; border-left: 3px solid #2c5e43;">
                   <span style="font-size: 12.5px; font-weight: 600; color: #555;"><i class="bi bi-wallet2 me-1"></i>구매 예상가</span>
-                  <span id="result-liquor-price" style="font-size: 13.5px; font-weight: 700; color: #2c5e43;">편의점 4캔 1.1만원</span>
+                  <span id="result-food-price" style="font-size: 13.5px; font-weight: 700; color: #2c5e43;">약 3,500원</span>
                 </div>
 
                 <hr style="border-top: 1px dashed #ddd; margin: 15px 0;">
 
                 <h4 style="font-size: 13.5px; font-weight: 700; color: #1e4356; margin-bottom: 6px;"><i class="bi bi-chat-quote-fill me-1" style="color: #2c5e43;"></i>전문가 코멘트</h4>
                 <div style="background-color: #fbfdfc; padding: 12px 15px; border-radius: 8px; border: 1px solid #eef6f2; margin-bottom: 20px;">
-                  <p id="result-liquor-comment" style="font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 0;">
-                    피자의 기름지고 묵직한 치즈 풍미를 홉의 쌉싸름한 쓴맛과 시원한 탄산감이 깔끔하게 씻어주어 물리지 않고 끝까지 맛있게 먹을 수 있도록 도와줍니다.
+                  <p id="result-food-comment" style="font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 0;">
+                    달콤한 콜라를 믹스한 '잭콕'과 숯불 향이 가득 밴 매콤한 닭꼬치를 매칭하면 단맛과 매운맛, 버번위스키 특유의 오크 향이 기가 막히게 어우러집니다.
                   </p>
                 </div>
 
                 <div class="d-flex gap-2">
                   <button id="btn-add-to-cart" class="btn w-50" style="background-color: #2c5e43; color: white; font-weight: 700; font-size: 13px; border-radius: 30px; padding: 10px;"><i class="bi bi-cart-plus me-1"></i>장바구니 담기</button>
-                  <a href="portfolio.html" class="btn btn-outline-secondary w-50" style="font-weight: 600; font-size: 13px; border-radius: 30px; padding: 10px;"><i class="bi bi-journal-text me-1"></i>상세 도감 보기</a>
+                  <a href="portfolio.html" class="btn btn-outline-secondary w-50" style="font-weight: 600; font-size: 13px; border-radius: 30px; padding: 10px;"><i class="bi bi-journal-text me-1"></i>주류 도감 가기</a>
                 </div>
               </div>
 
@@ -408,89 +406,196 @@
   <!-- SoolPair Services interactive scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // 25종 배달음식과 페어링 주류 데이터 사전 (주류도감 12종 리스트로 전면 매핑)
+      // 12종 보유주류와 페어링 편의점 안주 데이터 사전
       const pairingDB = {
-        '순대국밥': { emoji: '🍲', title: '벨즈', sub: 'Bell\'s', abv: '40.0%', price: '13,800원', score: 94, categories: ['rice-soup'], comment: '순대국밥의 뜨겁고 진한 사골 육수와 고기 기름의 묵직함을 가성비 위스키 벨즈 하이볼의 드라이하고 깔끔한 맛이 깔끔하게 씻어줍니다.' },
-        '삼겹살': { emoji: '🐷', title: '잭 다니엘', sub: 'Jack Daniel\'s No.7', abv: '40.0%', price: '27,000원(500ml)', score: 98, categories: ['meat-snack'], comment: '삼겹살의 고소한 돼지 지방 풍미에 달콤한 콜라를 믹스한 \'잭콕\'을 매칭하면, 고기의 느끼함은 싹 사라지고 환상적인 단짠 조화가 일어납니다.' },
-        '제육덮밥': { emoji: '🍛', title: '산토리 가쿠빈', sub: 'Suntory Kakubin', abv: '40.0%', price: '39,800원', score: 92, categories: ['rice-soup'], comment: '매콤달콤한 고추장 제육 양념의 텁텁함을 산토리 가쿠빈 하이볼 특유의 청량하고 드라이한 탄산감이 깔끔하고 개운하게 잡아줍니다.' },
-        '떡튀순': { emoji: '🍢', title: '피치트리', sub: 'Peach Tree', abv: '20.0%', price: '19,800원', score: 95, categories: ['snack-dessert'], comment: '매콤한 떡볶이와 바삭하고 느끼한 튀김 조합에는 복숭아 향이 가득한 피치트리 하이볼의 기분 좋은 달콤함이 입안의 화끈함을 부드럽게 감싸줍니다.' },
-        '김밥': { emoji: '🍙', title: '벨즈', sub: 'Bell\'s', abv: '40.0%', price: '13,800원', score: 91, categories: ['rice-soup'], comment: '고소하고 담백한 김밥 한 입 후, 부드럽고 가성비 좋은 벨즈로 시원한 하이볼을 만들어 함께 곁들이면 최고의 간단 자취방 혼술 한 상이 완성됩니다.' },
-        '야채곱창': { emoji: '🥢', title: '산토리 가쿠빈', sub: 'Suntory Kakubin', abv: '40.0%', price: '39,800원', score: 96, categories: ['meat-snack'], comment: '매콤하고 쫄깃한 야채곱창 양념 맛과 깻잎 향에 탄산수와 레몬을 넣은 산토리 가쿠빈 하이볼을 곁들이면 깔끔하고 상큼한 마무리를 할 수 있습니다.' },
-        '닭발': { emoji: '🐔', title: '피치트리', sub: 'Peach Tree', abv: '20.0%', price: '19,800원', score: 97, categories: ['meat-snack'], comment: '불타는 매운맛의 무뼈닭발에는 달콤함의 대명사인 피치트리 토닉 하이볼이 필수입니다. 달달한 복숭아 향이 매운 혀를 감싸 즉각 진화해 줍니다.' },
-        '족발': { emoji: '🍖', title: '디아블로 까베르네 소비뇽', sub: 'Casillero del Diablo', abv: '13.5%', price: '11,900원', score: 98, categories: ['meat-snack'], comment: '족발의 쫀득쫀득한 콜라겐 식감과 특유의 한방 양념 향은 만원대 최강 가성비 레드 와인 디아블로의 묵직한 바디감 및 탄닌감과 최고의 마리아주를 이룹니다.' },
-        '보쌈': { emoji: '🥬', title: '오이스터 베이 소비뇽 블랑', sub: 'Oyster Bay Sauvignon Blanc', abv: '13.0%', price: '28,900원', score: 95, categories: ['rice-soup', 'meat-snack'], comment: '기름기를 빼고 촉촉하게 삶아낸 담백한 보쌈은 뉴질랜드 오이스터 베이 와인의 청량한 라임과 싱그러운 풀 향, 상큼한 산미와 함께할 때 극상의 맛을 보여줍니다.' },
-        '피자': { emoji: '🍕', title: '예거마이스터', sub: 'Jägermeister', abv: '35.0%', price: '22,000원(350ml)', score: 97, categories: ['pizza-burger'], comment: '짭조름한 콤비네이션 피자의 치즈 리치함과 허브 향 가득한 예거마이스터를 에너지 드링크에 섞은 \'예거밤\'의 짜릿한 매칭은 스트레스를 한 번에 날려 줍니다.' },
-        '닭강정': { emoji: '🍗', title: '짐빔 화이트', sub: 'Jim Beam White', abv: '40.0%', price: '22,000원(500ml)', score: 96, categories: ['meat-snack', 'pizza-burger'], comment: '바삭하고 달콤 짭조름한 닭강정의 기름진 풍미와 옥수수의 달콤하고 오크 향 가득한 짐빔 화이트 하이볼을 매칭하면 한층 더 풍성한 맛을 느낄 수 있습니다.' },
-        '햄버거 세트': { emoji: '🍔', title: '잭 다니엘', sub: 'Jack Daniel\'s No.7', abv: '40.0%', price: '27,000원(500ml)', score: 94, categories: ['pizza-burger'], comment: '햄버거 패티의 육즙과 짭조름한 소스에 꿀 또는 위스키 풍미 가득한 잭 다니엘콕을 매칭해 마시면 미국 정통의 완벽한 단짠 궁합을 경험할 수 있습니다.' },
-        '파스타': { emoji: '🍝', title: '오이스터 베이 소비뇽 블랑', sub: 'Oyster Bay Sauvignon Blanc', abv: '13.0%', price: '28,900원', score: 93, categories: ['pizza-burger', 'asian-noodle'], comment: '고소한 크림 또는 오일 베이스 파스타에 싱그럽고 파릇파릇한 뉴질랜드산 오이스터 베이 소비뇽 블랑을 곁들이면 고급 레스토랑 못지않은 우아한 홈술이 됩니다.' },
-        '짜장면': { emoji: '🍜', title: '조니워커 레드', sub: 'Johnnie Walker Red Label', abv: '40.0%', price: '18,000원(500ml)', score: 94, categories: ['asian-noodle'], comment: '짜장면 양념 특유의 느끼함을 향긋하면서도 스모키한 피니시를 가진 조니워커 레드 하이볼이 깔끔하고 시원하게 씻어내 줍니다.' },
-        '짬뽕': { emoji: '🌶️', title: '바카디 클래식 칵테일 모히토', sub: 'Bacardi Classic Cocktails Mojito', abv: '14.9%', price: '21,800원', score: 95, categories: ['asian-noodle'], comment: '얼큰하고 칼칼한 짬뽕 국물을 마신 뒤, 라임과 민트 향이 상큼하게 터지는 바카디 모히토 한 모금은 입안의 매운 불길을 잡아주고 개운하게 정돈해 줍니다.' },
-        '마라탕': { emoji: '🍲', title: '바카디 클래식 칵테일 모히토', sub: 'Bacardi Classic Cocktails Mojito', abv: '14.9%', price: '21,800원', score: 97, categories: ['asian-noodle'], comment: '얼얼하게 입안을 자극하는 마라 향과 고추기름 가득한 국물에는 상큼하고 청량한 민트와 라임 풍미의 바카디 모히토 칵테일이 입안을 즉각적으로 환기해 줍니다.' },
-        '초밥': { emoji: '🍣', title: '오이스터 베이 소비뇽 블랑', sub: 'Oyster Bay Sauvignon Blanc', abv: '13.0%', price: '28,900원', score: 99, categories: ['asian-noodle'], comment: '신선한 초밥의 담백함은 오이스터 베이 화이트 와인의 청량한 라임과 싱그러운 풀 향, 기분 좋은 산미가 회의 비린 맛을 완전히 잡고 감칠맛을 배가시켜 줍니다.' },
-        '돈까스': { emoji: '🥩', title: '짐빔 화이트', sub: 'Jim Beam White', abv: '40.0%', price: '22,000원(500ml)', score: 94, categories: ['rice-soup', 'pizza-burger'], comment: '바삭하고 두툼한 등심 돈까스와 데미글라스 소스의 묵직함에는 옥수수 향이 은은하고 탄산감이 짜릿한 짐빔 하이볼이 어우러져 최상의 페어링을 뽐냅니다.' },
-        '타코': { emoji: '🌮', title: '바카디 클래식 칵테일 모히토', sub: 'Bacardi Classic Cocktails Mojito', abv: '14.9%', price: '21,800원', score: 96, categories: ['pizza-burger', 'asian-noodle'], comment: '라임과 고수 향이 매력적인 이국적인 멕시코 타코에는 라임과 민트가 가득 들어간 상큼한 바카디 모히토가 마리아주의 끝판왕을 보여줍니다.' },
-        '찜닭': { emoji: '🐔', title: '디아블로 까베르네 소비뇽', sub: 'Casillero del Diablo', abv: '13.5%', price: '11,900원', score: 93, categories: ['rice-soup', 'meat-snack'], comment: '단짠 양념이 잘 밴 찜닭과 쫄깃한 당면은 체리와 블랙베리 과실 풍미가 가득한 디아블로 레드 와인의 적당한 탄닌과 부드럽게 어우러집니다.' },
-        '샐러드': { emoji: '🥗', title: '오이스터 베이 소비뇽 블랑', sub: 'Oyster Bay Sauvignon Blanc', abv: '13.0%', price: '28,900원', score: 90, categories: ['rice-soup'], comment: '신선하고 아삭아삭한 야채 샐러드에는 청량하고 드라이하며 풍부한 미네랄 풍미를 선사하는 오이스터 베이 소비뇽 블랑 화이트 와인이 식전 입맛을 돋우는 데 제격입니다.' },
-        '케이크': { emoji: '🍰', title: '엑스레이티드', sub: 'X-Rated', abv: '17.0%', price: '26,000원(375ml)', score: 92, categories: ['snack-dessert'], comment: '생크림이나 진한 초코 케이크의 달달하고 부드러운 맛은 핑크빛 엑스레이티드 리큐르의 열대과일 향과 상큼하고 세련된 단맛과 어우러져 로맨틱한 파티를 만들어 줍니다.' },
-        '빙수': { emoji: '🍧', title: '말리부', sub: 'Malibu', abv: '21.0%', price: '17,500원(350ml)', score: 91, categories: ['snack-dessert'], comment: '시원하고 달콤한 팥빙수나 과일빙수에 은은하게 코코넛 향이 감도는 달콤한 말리부 럼을 믹스해 곁들이면 자취방식 고품격 칵테일 빙수를 즐길 수 있습니다.' },
-        '포케': { emoji: '🥗', title: '오이스터 베이 소비뇽 블랑', sub: 'Oyster Bay Sauvignon Blanc', abv: '13.0%', price: '28,900원', score: 92, categories: ['rice-soup'], comment: '가볍고 건강하게 즐기는 웰빙 안주인 포케에는 산뜻하고 산미가 살아 있어 부담이 없는 화이트 와인 오이스터 베이를 곁들이는 것이 최고의 조화입니다.' },
-        '돼지갈비': { emoji: '🍖', title: '잭 다니엘', sub: 'Jack Daniel\'s No.7', abv: '40.0%', price: '27,000원(500ml)', score: 98, categories: ['rice-soup', 'meat-snack'], comment: '숯불 양념 향 가득한 달콤 짭조름한 돼지갈비에는 바닐라 오크 향과 묵직한 타격감이 매력적인 잭 다니엘 콕을 함께 마시면 고기의 감칠맛을 우아하게 폭발시켜 줍니다.' }
+        '산토리 가쿠빈': {
+          emoji: '🥃',
+          category: 'whiskey',
+          foodName: '반숙란 & 타코야끼',
+          foodEmoji: '🍳',
+          foodCategory: '🍢 분식/간편식',
+          score: 93,
+          cookTime: '전자레인지 2분',
+          price: '약 4,500원',
+          comment: '산토리 가쿠빈으로 만든 상큼달콤하고 쌉싸름한 레몬 하이볼은 가쓰오부시와 마요네즈가 가득한 고소한 편의점 타코야끼의 기름짐을 시원하게 중화해 주어 물리지 않게 도와줍니다.'
+        },
+        '잭 다니엘': {
+          emoji: '🥃',
+          category: 'whiskey',
+          foodName: '숯불 매콤 닭꼬치',
+          foodEmoji: '🍢',
+          foodCategory: '🍖 육류/안주',
+          score: 97,
+          cookTime: '전자레인지 1분 30초',
+          price: '약 3,500원',
+          comment: '달콤한 콜라를 믹스한 \'잭콕\'과 숯불 향이 가득 밴 매콤한 닭꼬치를 매칭하면 단맛과 매운맛, 버번위스키 특유의 오크 향이 기가 막히게 어우러집니다.'
+        },
+        '벨즈': {
+          emoji: '🥃',
+          category: 'whiskey',
+          foodName: '콘치즈 그라탕',
+          foodEmoji: '🌽',
+          foodCategory: '🧀 치즈/유제품',
+          score: 92,
+          cookTime: '전자레인지 3분',
+          price: '약 4,200원',
+          comment: '가성비 위스키 벨즈를 짜릿한 탄산수 위주로 타낸 플레인 하이볼에 달콤 고소하고 치즈가 듬뿍 들어간 콘치즈 그라탕을 곁들이면 느끼함은 잡고 풍미는 올려줍니다.'
+        },
+        '짐빔 화이트': {
+          emoji: '🥃',
+          category: 'whiskey',
+          foodName: '버터갈릭 팝콘 & 핫바',
+          foodEmoji: '🍿',
+          foodCategory: '🥨 과자/마른안주',
+          score: 94,
+          cookTime: '조리 없음',
+          price: '약 3,000원',
+          comment: '옥수수가 주원료인 짐빔 화이트의 달콤한 버번 캐릭터와 짭조름한 버터갈릭 팝콘 및 고기 핫바는 누구나 편하게 손이 가는 초간단 홈술 스낵 꿀조합을 보여줍니다.'
+        },
+        '조니워커 레드': {
+          emoji: '🥃',
+          category: 'whiskey',
+          foodName: '훈제 삼겹살 슬라이스',
+          foodEmoji: '🥓',
+          foodCategory: '🍖 육류/안주',
+          score: 95,
+          cookTime: '전자레인지 2분',
+          price: '약 5,900원',
+          comment: '조니워커 레드라벨 특유의 스모키한 피니시와 편의점 훈제 삼겹살의 은은한 참나무 훈연 향이 입안 가득 맴돌며, 기름기 도는 고기의 풍미를 위스키가 탄탄하게 받쳐줍니다.'
+        },
+        '디아블로 까베르네 소비뇽': {
+          emoji: '🍷',
+          category: 'wine',
+          foodName: '스트링 치즈 & 스모크 육포',
+          foodEmoji: '🥩',
+          foodCategory: '🧀 치즈/마른안주',
+          score: 96,
+          cookTime: '조리 없음',
+          price: '약 6,500원',
+          comment: '묵직하고 탄닌감이 살아있는 대표 가성비 레드 와인 디아블로에는 짭조름한 육포와 부드러운 스트링 치즈가 가장 클래식하고 고급스러운 자취방 와인 페어링을 완성합니다.'
+        },
+        '오이스터 베이 소비뇽 블랑': {
+          emoji: '🥂',
+          category: 'wine',
+          foodName: '크래미 & 게맛살 샐러드',
+          foodEmoji: '🦀',
+          foodCategory: '🥗 샐러드/해산물',
+          score: 98,
+          cookTime: '조리 없음',
+          price: '약 3,800원',
+          comment: '라임 향과 기분 좋은 청량한 산미가 흘러넘치는 오이스터 베이 와인은 편의점 크래미의 짭조름하고 달달한 감칠맛과 조화를 이루어, 비린 맛은 지우고 상큼함을 극대화합니다.'
+        },
+        '엑스레이티드': {
+          emoji: '🍸',
+          category: 'liqueur',
+          foodName: '샤인머스캣 젤리 & 조각 과일',
+          foodEmoji: '🍇',
+          foodCategory: '🍰 디저트/과일',
+          score: 91,
+          cookTime: '냉장 보관',
+          price: '약 4,800원',
+          comment: '엑스레이티드 핑크 칵테일의 화려하고 트렌디한 열대과일 단맛과 편의점의 상큼한 조각 과일 및 탱글한 과일 젤리는 자취방 홈파티 분위기를 띄우는 최고의 상큼한 디저트 조합입니다.'
+        },
+        '피치트리': {
+          emoji: '🍹',
+          category: 'liqueur',
+          foodName: '자이언트 매운 떡볶이',
+          foodEmoji: '🌶️',
+          foodCategory: '🍢 분식/간편식',
+          score: 96,
+          cookTime: '전자레인지 3분 30초',
+          price: '약 3,200원',
+          comment: '화끈하게 매운 편의점 국물 떡볶이에는 달콤한 복숭아 리큐르 피치트리 토닉 하이볼이 신의 한 수입니다. 강한 단맛이 혀를 진정시키고 얼얼함을 부드럽게 감싸 줍니다.'
+        },
+        '예거마이스터': {
+          emoji: '🥃',
+          category: 'liqueur',
+          foodName: '빅팜 소시지 & 감자칩',
+          foodEmoji: '🌭',
+          foodCategory: '🍖 육류/안주',
+          score: 94,
+          cookTime: '전자레인지 40초',
+          price: '약 3,500원',
+          comment: '허브 향 가득한 예거밤의 묵직하고 활력 넘치는 맛에 두툼한 소시지의 리치함 and 바삭하고 짭조름한 감자칩을 조합하면 에너지 넘치는 자취방 야식 한 상이 차려집니다.'
+        },
+        '말리부': {
+          emoji: '🥥',
+          category: 'liqueur',
+          foodName: '파인애플 통조림 & 나초 칩',
+          foodEmoji: '🍍',
+          foodCategory: '🥨 과자/과일',
+          score: 95,
+          cookTime: '조리 없음',
+          price: '약 4,000원',
+          comment: '코코넛 향이 이국적인 말리부 럼에 상큼한 오렌지나 파인애플 주스를 섞고, 편의점 파인애플 슬라이스 및 나초를 곁들이면 자취방이 즉시 휴양지 비치 바로 변신합니다.'
+        },
+        '바카디 클래식 칵테일 모히토': {
+          emoji: '🌱',
+          category: 'liqueur',
+          foodName: '편의점 조각 피자 & 프레첼',
+          foodEmoji: '🍕',
+          foodCategory: '🍕 피자/양식',
+          score: 94,
+          cookTime: '전자레인지 1분',
+          price: '약 3,900원',
+          comment: '라임과 민트 향이 상쾌하고 짜릿하게 터지는 모히토 칵테일은 자칫 기름질 수 있는 치즈 조각 피자와 짭조름하고 바삭한 프레첼 과자의 텁텁한 뒷맛을 개운하고 깔끔하게 씻어줍니다.'
+        }
       };
 
-      const foodChipsWrapper = document.getElementById('food-chips-wrapper');
+      const liquorChipsWrapper = document.getElementById('liquor-chips-wrapper');
       
       const resultPlaceholder = document.getElementById('result-placeholder');
       const resultContent = document.getElementById('result-content');
       
-      const resultFoodBadge = document.getElementById('result-food-badge');
-      const resultLiquorTitle = document.getElementById('result-liquor-title');
-      const resultLiquorSub = document.getElementById('result-liquor-sub');
-      const resultLiquorAbvText = document.getElementById('result-abv-text');
-      const resultLiquorAbvBar = document.getElementById('result-abv-bar');
-      const resultLiquorPrice = document.getElementById('result-liquor-price');
-      const resultLiquorComment = document.getElementById('result-liquor-comment');
+      const resultLiquorBadge = document.getElementById('result-liquor-badge');
+      const resultFoodTitle = document.getElementById('result-food-title');
+      const resultFoodCategory = document.getElementById('result-food-category');
       const resultCompatibilityScore = document.getElementById('result-compatibility-score');
       const resultCompatibilityBar = document.getElementById('result-compatibility-bar');
+      const resultCooktimeText = document.getElementById('result-cooktime-text');
+      const resultCooktimeBar = document.getElementById('result-cooktime-bar');
+      const resultFoodPrice = document.getElementById('result-food-price');
+      const resultFoodComment = document.getElementById('result-food-comment');
       
       const btnAddToCart = document.getElementById('btn-add-to-cart');
       const cartToast = document.getElementById('cart-toast');
       const cartToastMessage = document.getElementById('cart-toast-message');
 
-      let currentSelectedFood = '';
+      let currentSelectedLiquor = '';
       let activeCategory = 'all';
 
-      // --- 1. 배달음식 칩 생성 ---
-      function initFoodChips() {
-        foodChipsWrapper.innerHTML = '';
-        Object.keys(pairingDB).forEach(foodName => {
-          const foodInfo = pairingDB[foodName];
+      // --- 1. 주류 칩 생성 ---
+      function initLiquorChips() {
+        liquorChipsWrapper.innerHTML = '';
+        Object.keys(pairingDB).forEach(liquorName => {
+          const item = pairingDB[liquorName];
           const chipButton = document.createElement('button');
           chipButton.className = 'btn food-chip';
-          chipButton.setAttribute('data-food', foodName);
-          chipButton.innerHTML = `${foodInfo.emoji} ${foodName}`;
+          chipButton.setAttribute('data-liquor', liquorName);
+          chipButton.innerHTML = `${item.emoji} ${liquorName}`;
 
-          // 클릭 시 페어링 매칭 결과 출력
+          // 클릭 시 안주 추천 결과 출력
           chipButton.addEventListener('click', function() {
             // 다른 칩들의 액티브 해제
-            document.querySelectorAll('#food-chips-wrapper button').forEach(btn => {
+            document.querySelectorAll('#liquor-chips-wrapper button').forEach(btn => {
               btn.classList.remove('active-chip');
             });
             
             // 현재 칩 활성화
             chipButton.classList.add('active-chip');
-            currentSelectedFood = foodName;
+            currentSelectedLiquor = liquorName;
 
             // 결과 화면 업데이트
-            showPairingResult(foodName);
+            showPairingResult(liquorName);
           });
 
-          foodChipsWrapper.appendChild(chipButton);
+          liquorChipsWrapper.appendChild(chipButton);
         });
       }
 
       // --- 2. 페어링 결과 표출 로직 ---
-      function showPairingResult(foodName) {
-        const item = pairingDB[foodName];
+      function showPairingResult(liquorName) {
+        const item = pairingDB[liquorName];
         if (!item) return;
 
         // 플레이스홀더 가리고 결과판 노출
@@ -498,25 +603,29 @@
         resultContent.style.display = 'block';
 
         // 텍스트 기입
-        resultFoodBadge.innerHTML = `${item.emoji} ${foodName}`;
-        resultLiquorTitle.innerText = item.title;
-        resultLiquorSub.innerText = item.sub;
+        resultLiquorBadge.innerHTML = `${item.emoji} ${liquorName}`;
+        resultFoodTitle.innerText = item.foodName;
+        resultFoodCategory.innerText = item.foodCategory;
         
-        // ABV 계산 및 렌더링
-        resultLiquorAbvText.innerText = `도수: ${item.abv}`;
-        const abvNum = parseFloat(item.abv);
-        const abvPercent = Math.max(6, Math.min(100, (abvNum / 45) * 100));
-        resultLiquorAbvBar.style.width = `${abvPercent}%`;
+        // 조리시간 계산 및 게이지 렌더링
+        resultCooktimeText.innerText = item.cookTime;
+        let timePercent = 10;
+        if (item.cookTime.includes('1분')) timePercent = 25;
+        else if (item.cookTime.includes('2분')) timePercent = 35;
+        else if (item.cookTime.includes('3분')) timePercent = 50;
+        else if (item.cookTime.includes('3분 30초')) timePercent = 60;
+        else if (item.cookTime.includes('조리 없음') || item.cookTime.includes('냉장')) timePercent = 10;
+        resultCooktimeBar.style.width = `${timePercent}%`;
         
         // 가격 및 코멘트
-        resultLiquorPrice.innerText = item.price;
-        resultLiquorComment.innerText = item.comment;
+        resultFoodPrice.innerText = item.price;
+        resultFoodComment.innerText = item.comment;
 
         // 궁합 지수 렌더링
         resultCompatibilityScore.innerText = `${item.score}%`;
         resultCompatibilityBar.style.width = `${item.score}%`;
 
-        // 결과 카드에 은은한 하이라이트 애니메이션
+        // 결과 카드 하이라이트 애니메이션
         const panel = document.getElementById('pairing-result-panel');
         panel.style.backgroundColor = '#f7faf8';
         setTimeout(() => {
@@ -525,17 +634,17 @@
       }
 
       // --- 3. 실시간 검색 & 카테고리 필터링 ---
-      const searchInput = document.getElementById('food-search-input');
+      const searchInput = document.getElementById('liquor-search-input');
       
-      function filterFoods() {
+      function filterLiquors() {
         const query = searchInput.value.toLowerCase().trim();
-        document.querySelectorAll('#food-chips-wrapper button').forEach(btn => {
-          const foodName = btn.getAttribute('data-food');
-          const item = pairingDB[foodName];
+        document.querySelectorAll('#liquor-chips-wrapper button').forEach(btn => {
+          const liquorName = btn.getAttribute('data-liquor');
+          const item = pairingDB[liquorName];
           if (!item) return;
 
-          const matchesCategory = (activeCategory === 'all' || item.categories.includes(activeCategory));
-          const matchesSearch = foodName.includes(query) || item.title.toLowerCase().includes(query);
+          const matchesCategory = (activeCategory === 'all' || item.category === activeCategory);
+          const matchesSearch = liquorName.includes(query) || item.foodName.includes(query);
 
           if (matchesCategory && matchesSearch) {
             btn.style.setProperty('display', 'inline-block', 'important');
@@ -545,7 +654,7 @@
         });
       }
 
-      searchInput.addEventListener('input', filterFoods);
+      searchInput.addEventListener('input', filterLiquors);
 
       // 카테고리 탭 클릭 리스너
       document.querySelectorAll('.category-tab').forEach(tab => {
@@ -553,30 +662,30 @@
           document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
           this.classList.add('active');
           activeCategory = this.getAttribute('data-category');
-          filterFoods();
+          filterLiquors();
         });
       });
 
       // --- 4. 장바구니 담기 기능 ---
       btnAddToCart.addEventListener('click', function() {
-        if (!currentSelectedFood) return;
-        const item = pairingDB[currentSelectedFood];
+        if (!currentSelectedLiquor) return;
+        const item = pairingDB[currentSelectedLiquor];
         if (!item) return;
 
         // 로컬스토리지 장바구니 불러오기
         let cart = JSON.parse(localStorage.getItem('soolpair_cart') || '[]');
         
-        // 이미 담겼는지 확인
-        const existingIdx = cart.findIndex(x => x.title === item.title);
+        // 이미 담겼는지 확인 (안주 이름 매칭)
+        const existingIdx = cart.findIndex(x => x.title === item.foodName);
         if (existingIdx > -1) {
           cart[existingIdx].qty += 1;
         } else {
           cart.push({
-            title: item.title,
-            sub: item.sub,
+            title: item.foodName,
+            sub: item.foodCategory,
             price: item.price,
-            abv: item.abv,
-            emoji: item.emoji,
+            abv: item.cookTime, // ABV 대신 조리 시간 저장
+            emoji: item.foodEmoji,
             qty: 1
           });
         }
@@ -584,7 +693,7 @@
         localStorage.setItem('soolpair_cart', JSON.stringify(cart));
 
         // 토스트 알림창 띄우기
-        cartToastMessage.innerHTML = `장바구니에 <strong>${item.title}</strong>이(가) 추가되었습니다!`;
+        cartToastMessage.innerHTML = `장바구니에 안주 <strong>${item.foodName}</strong>이(가) 추가되었습니다!`;
         cartToast.classList.add('show');
         setTimeout(() => {
           cartToast.classList.remove('show');
@@ -592,10 +701,9 @@
       });
 
       // 초기 칩 로드
-      initFoodChips();
+      initLiquorChips();
     });
   </script>
-
 </body>
 
 </html>

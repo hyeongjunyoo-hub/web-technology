@@ -499,6 +499,9 @@
           } else if (item.price.includes('천원')) {
             const num = parseFloat(item.price.replace(/[^0-9.]/g, ''));
             priceNum = num * 1000;
+          } else {
+            const num = parseInt(item.price.replace(/[^0-9]/g, ''));
+            priceNum = isNaN(num) ? 0 : num;
           }
           totalPrice += priceNum * item.qty;
         });
