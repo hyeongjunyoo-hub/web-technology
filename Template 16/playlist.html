@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>홈술 플레이리스트 - SoolPair 술페어</title>
+  <meta content="자취생들의 감성적인 혼술 분위기를 완성해줄 장르별 홈술 플레이리스트 추천" name="description">
+  <meta content="SoolPair, 술페어, 혼술 음악, 홈술 플레이리스트, 칵테일 재즈, 시티팝 하이볼" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .login-section {
+      padding: 80px 0;
+      background-color: #f3f8fa;
+    }
+
+    .login-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      max-width: 520px;
+      margin: 0 auto;
+      border: 1px solid #eef2f5;
+    }
+
+    .login-card h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e4356;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .playlist-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 12px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      border: 1px solid #e2e8e5;
+      background-color: #f4f7f6;
+      color: #666;
+      padding: 10px 8px;
+      border-radius: 30px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-align: center;
+    }
+
+    .tab-btn:hover {
+      background-color: #e2ede8;
+      color: #2c5e43;
+      border-color: #2c5e43;
+    }
+
+    .tab-btn.active {
+      background-color: #2c5e43;
+      color: white;
+      border-color: #2c5e43;
+      box-shadow: 0 4px 10px rgba(44, 94, 67, 0.2);
+    }
+
+    .song-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #f5f5f5;
+      transition: all 0.2s;
+      border-radius: 8px;
+    }
+
+    .song-item:hover {
+      background-color: #fafdfb;
+      transform: translateX(4px);
+    }
+
+    .song-info {
+      flex: 1;
+    }
+
+    .song-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .song-artist {
+      font-size: 12.5px;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    .song-desc {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .btn-play {
+      background-color: #f0fdf4;
+      color: #2c5e43;
+      border: 1px solid #c2f0d5;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+
+    .btn-play:hover {
+      background-color: #2c5e43;
+      color: white;
+      border-color: #2c5e43;
+      box-shadow: 0 4px 10px rgba(44, 94, 67, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a href="services.html">안주 페어링 센터</a></li>
+          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a href="blog.html">자취방 라운지</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
+          <li><a href="basket.html">장바구니</a></li>
+          <li><a href="contact.html">제휴 문의</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>홈술 플레이리스트</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>플레이리스트</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <!-- ======= Playlist Section ======= -->
+    <section class="login-section" data-aos="fade-up">
+      <div class="container">
+        
+        <!-- 로그인 페이지와 동일한 형태의 콤팩트한 카드 -->
+        <div class="login-card">
+          <h3>🎵 홈술 감성 플레이리스트</h3>
+          
+          <!-- 분위기별 테마 탭 -->
+          <div class="playlist-tabs">
+            <div class="tab-btn active" data-genre="wine">🍷 감성 와인 펍</div>
+            <div class="tab-btn" data-genre="whiskey">🥃 위스키 바</div>
+            <div class="tab-btn" data-genre="beer">🍺 하이볼/맥주</div>
+          </div>
+
+          <!-- 노래 목록 출력 영역 -->
+          <div id="songs-container" style="display: flex; flex-direction: column; gap: 5px;">
+            <!-- JS를 통해 동적 렌더링 -->
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>SoolPair 뉴스레터 구독</h4>
+            <p>매주 제공되는 가성비 주류 소식과 마스터의 페어링 레시피를 이메일로 받아보세요.</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요"><input type="submit" value="구독 신청">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>바로가기</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>페어링 매칭 서비스</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 주류 정보</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>SoolPair 대학가 자취방 센터</h4>
+            <p>
+              서울특별시 마포구 대학가길 77 <br>
+              자취방 라운지 오프라인 센터<br>
+              대한민국 <br><br>
+              <strong>전화번호:</strong> 02-987-6543<br>
+              <strong>이메일:</strong> hello@soolpair.co.kr<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>SoolPair (술페어)</h3>
+            <p>술페어는 주머니가 가벼운 대학생들을 위해 마트/편의점에서 손쉽게 살 수 있는 해외 주류의 숨겨진 가치를 전달하고 스마트한 안주 조합을 큐레이션합니다.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SoolPair</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- 플레이리스트 렌더링 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 분위기 장르별 홈술 플레이리스트 곡 데이터
+      const playlistDB = {
+        wine: [
+          {
+            title: "Come Away With Me",
+            artist: "Norah Jones",
+            desc: "어두운 조명 아래 레드 와인을 흔들며 깊이 잠기기 좋은 재즈 보컬",
+            url: "https://www.youtube.com/results?search_query=Norah+Jones+Come+Away+With+Me"
+          },
+          {
+            title: "그대와 나, 설레는 밤",
+            artist: "어크루브 (Acourve)",
+            desc: "달콤한 피치트리 칵테일이나 로제 와인에 편안하게 깔아두기 좋은 어쿠스틱",
+            url: "https://www.youtube.com/results?search_query=%EC%96%B4%ED%81%AC%EB%A3%A8%EB%B8%8C+%EA%B7%B8%EB%8C%80%EC%99%80+%EB%82%98+%EC%84%A4%EB%A0%88%EB%8A%94+%EB%B0%A4"
+          },
+          {
+            title: "Lo-fi Cafe Rain Beat",
+            artist: "Lofi Chill Chill",
+            desc: "비 오는 날 자취방 창밖을 보며 화이트 와인을 홀짝일 때 최적인 비트",
+            url: "https://www.youtube.com/results?search_query=lofi+cafe+rain+beat"
+          }
+        ],
+        whiskey: [
+          {
+            title: "Autumn Leaves",
+            artist: "Bill Evans Trio",
+            desc: "싱글 몰트 위스키 한 모금에 묵직한 피아노 선율을 얹는 정통 재즈 피아노",
+            url: "https://www.youtube.com/results?search_query=Bill+Evans+Autumn+Leaves"
+          },
+          {
+            title: "Blue In Green",
+            artist: "Miles Davis",
+            desc: "잭콕 한 잔과 함께 고단했던 하루 끝 사색에 빠져들게 만드는 트럼펫 연주",
+            url: "https://www.youtube.com/results?search_query=Miles+Davis+Blue+In+Green"
+          },
+          {
+            title: "Cold Little Heart",
+            artist: "Michael Kiwanuka",
+            desc: "스모키하고 진한 조니워커 언더락과 환상적으로 매칭되는 소울 명곡",
+            url: "https://www.youtube.com/results?search_query=Michael+Kiwanuka+Cold+Little+Heart"
+          }
+        ],
+        beer: [
+          {
+            title: "Plastic Love",
+            artist: "Mariya Takeuchi",
+            desc: "청량한 탄산의 가쿠빈 하이볼과 즐기는 시티팝 열풍의 근본 명곡",
+            url: "https://www.youtube.com/results?search_query=Mariya+Takeuchi+Plastic+Love"
+          },
+          {
+            title: "Drive",
+            artist: "Jay Park (박재범)",
+            desc: "시원한 캔맥주를 따고 어깨를 가볍게 흔들며 들을 수 있는 그루브 힙합",
+            url: "https://www.youtube.com/results?search_query=%EB%B0%95%EC%9E%AC%EB%B2%94+Drive"
+          },
+          {
+            title: "Summer (Kikujiro)",
+            artist: "Joe Hisaishi",
+            desc: "자취방 에어컨 밑에서 모히토 칵테일을 마실 때 더없이 청량함을 채우는 뉴에이지",
+            url: "https://www.youtube.com/results?search_query=Joe+Hisaishi+Summer"
+          }
+        ]
+      };
+
+      const songsContainer = document.getElementById('songs-container');
+      let currentGenre = 'wine';
+
+      // --- 1. 곡 리스트 렌더링 로직 ---
+      function renderPlaylist() {
+        songsContainer.innerHTML = '';
+        const songs = playlistDB[currentGenre];
+        if (!songs) return;
+
+        songs.forEach(song => {
+          const item = document.createElement('div');
+          item.className = 'song-item';
+          
+          item.innerHTML = `
+            <div class="song-info">
+              <div class="song-title">${song.title}</div>
+              <div class="song-artist">${song.artist}</div>
+              <div class="song-desc">${song.desc}</div>
+            </div>
+            <a href="${song.url}" target="_blank" class="btn-play" title="유튜브로 음악 들으러 가기">
+              <i class="bi bi-play-fill"></i>
+            </a>
+          `;
+          
+          songsContainer.appendChild(item);
+        });
+      }
+
+      // --- 2. 탭 전환 리스너 ---
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentGenre = this.getAttribute('data-genre');
+          renderPlaylist();
+        });
+      });
+
+      // 초기 로드
+      renderPlaylist();
+    });
+  </script>
+
+</body>
+
+</html>
