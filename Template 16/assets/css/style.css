@@ -766,14 +766,6 @@ section {
   font-size: 32px;
 }
 
-.why-us .icon-box:hover .icon {
-  background: #68A4C4;
-}
-
-.why-us .icon-box:hover .icon i {
-  color: #fff;
-}
-
 .why-us .icon-box .title {
   margin-left: 95px;
   font-weight: 700;

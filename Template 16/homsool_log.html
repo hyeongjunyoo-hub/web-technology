@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>나만의 홈술로그 | SoolPair 술페어</title>
+  <meta content="자취생을 위한 달력 도장 형태의 홈술 기록지 및 절약 금액 대시보드" name="description">
+  <meta content="술페어, SoolPair, 홈술로그, 홈술 기록, 절약 계산기, 위스키 도장, 와인 도장, 리큐르 도장" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Custom CSS for Homsool Log -->
+  <style>
+    /* Stamp Selector styling */
+    .stamp-container {
+      background: #fdfcf7;
+      border: 1px solid #eef3ef;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .stamp-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px dashed #cbd5e1;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .stamp-item:hover {
+      border-color: #94a3b8;
+    }
+
+    /* Active colors per stamp type */
+    .stamp-item.active[data-type="whiskey"] {
+      border: 3.5px solid #d97706;
+      background: #fef3c7;
+      box-shadow: 0 8px 20px rgba(217, 119, 6, 0.25);
+    }
+
+    .stamp-item.active[data-type="wine"] {
+      border: 3.5px solid #e11d48;
+      background: #ffe4e6;
+      box-shadow: 0 8px 20px rgba(225, 29, 72, 0.25);
+    }
+
+    .stamp-item.active[data-type="liqueur"] {
+      border: 3.5px solid #0284c7;
+      background: #e0f2fe;
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+    }
+
+    .stamp-emoji {
+      font-size: 28px;
+    }
+
+    .stamp-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    .stamp-item.active .stamp-label {
+      color: #0f172a;
+    }
+
+    /* 31-Day Calendar Grid styling */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .calendar-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .calendar-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .day-card {
+      aspect-ratio: 1 / 1;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.01);
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .day-card:hover {
+      border-color: #94a3b8;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+      background: #fafaf9;
+    }
+
+    .day-num {
+      font-size: 14px;
+      font-weight: 800;
+      color: #64748b;
+    }
+
+    /* Stamped status styles */
+    .day-stamp-placeholder {
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      opacity: 0;
+      transform: scale(0.2) rotate(-30deg);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .day-card.stamped .day-stamp-placeholder {
+      opacity: 1;
+      transform: scale(1) rotate(-12deg);
+    }
+
+    .day-log-text {
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      color: #475569;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .day-card.stamped .day-log-text {
+      opacity: 1;
+    }
+
+    /* Specific stamped card looks */
+    .day-card.stamped-whiskey {
+      background: #fffbeb;
+      border-color: #fde68a;
+    }
+
+    .day-card.stamped-whiskey:hover {
+      background: #fef3c7;
+    }
+
+    .day-card.stamped-whiskey .day-num {
+      color: #b45309;
+    }
+
+    .day-card.stamped-wine {
+      background: #fff1f2;
+      border-color: #fecdd3;
+    }
+
+    .day-card.stamped-wine:hover {
+      background: #ffe4e6;
+    }
+
+    .day-card.stamped-wine .day-num {
+      color: #be123c;
+    }
+
+    .day-card.stamped-liqueur {
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .day-card.stamped-liqueur:hover {
+      background: #e0f2fe;
+    }
+
+    .day-card.stamped-liqueur .day-num {
+      color: #0369a1;
+    }
+
+    /* Dashboard styling */
+    .dashboard-card {
+      background: #fff;
+      border: 1px solid #eef3ef;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .dashboard-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #183c28;
+      border-bottom: 2px solid #2c5e43;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .saving-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #2c5e43;
+    }
+
+    .saving-compare-table {
+      font-size: 13.5px;
+    }
+
+    .saving-compare-table th {
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .saving-compare-table td {
+      font-weight: 700;
+    }
+
+    /* Custom progress bar ratio chart */
+    .ratio-bar-wrapper {
+      height: 24px;
+      border-radius: 12px;
+      display: flex;
+      overflow: hidden;
+      background: #e2e8f0;
+      margin-bottom: 12px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .ratio-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      transition: width 0.4s ease;
+    }
+
+    .ratio-segment-whiskey {
+      background: #d97706;
+    }
+
+    .ratio-segment-wine {
+      background: #e11d48;
+    }
+
+    .ratio-segment-liqueur {
+      background: #0284c7;
+    }
+
+    .ratio-legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a href="services.html">안주 페어링 센터</a></li>
+          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a class="active" href="blog.html">자취방 라운지</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
+          <li><a href="basket.html">장바구니</a></li>
+          <li><a href="contact.html">제휴 문의</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>나만의 홈술로그</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">자취방 라운지</a></li>
+            <li>나만의 홈술로그</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Homsool Log Section ======= -->
+    <section class="homsool-log py-5">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title text-center pb-2">
+          <h2 class="fw-bold" style="color: #183c28;">🗓️ 나만의 홈술로그</h2>
+          <p class="text-muted">도장을 쾅! 오늘 홈술한 주종을 스탬프로 찍고, 한 달간의 홈술 통계를 한눈에 돌아보세요.</p>
+        </div>
+
+        <div class="row mt-4">
+          <!-- 왼쪽: 캘린더 그리드 -->
+          <div class="col-lg-8 mb-4 mb-lg-0">
+            <div class="card border-0 shadow-sm p-4" style="border-radius: 16px; border: 1px solid #eef3ef;">
+              <!-- 가이드 및 도장선택 -->
+              <div class="mb-4">
+                <h5 class="fw-bold mb-3" style="color: #183c28;"><i
+                    class="bi bi-patch-check-fill text-success me-2"></i>1단계: 찍을 도장 선택</h5>
+                <div class="stamp-container d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
+                  <div class="stamp-item active" data-type="whiskey" onclick="selectStamp('whiskey')">
+                    <span class="stamp-emoji">🥃</span>
+                    <span class="stamp-label">위스키</span>
+                  </div>
+                  <div class="stamp-item" data-type="wine" onclick="selectStamp('wine')">
+                    <span class="stamp-emoji">🍷</span>
+                    <span class="stamp-label">와인</span>
+                  </div>
+                  <div class="stamp-item" data-type="liqueur" onclick="selectStamp('liqueur')">
+                    <span class="stamp-emoji">🍹</span>
+                    <span class="stamp-label">리큐르</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 달력 -->
+              <div>
+                <h5 class="fw-bold mb-3" style="color: #183c28;"><i
+                    class="bi bi-patch-check-fill text-success me-2"></i>2단계: 달력 날짜를 클릭하여 도장 찍기</h5>
+                <div class="calendar-grid" id="calendarGrid">
+                  <!-- JS로 1일부터 31일까지 카드들이 생성됩니다 -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 대시보드 통계 -->
+          <div class="col-lg-4">
+            <div class="dashboard-card shadow-sm mb-4">
+              <span class="dashboard-title">🥃 이번 달 주종 소비 비율</span>
+
+              <!-- 비율 차트 바 -->
+              <div class="ratio-bar-wrapper" id="ratioBar">
+                <!-- JS로 세그먼트 생성 -->
+              </div>
+
+              <!-- 범례 -->
+              <div class="d-flex flex-column gap-2 mb-2" id="ratioLegend">
+                <!-- JS로 범례 텍스트 생성 -->
+              </div>
+            </div>
+
+            <!-- 홈술 건강 관리 가이드 박스 -->
+            <div class="dashboard-card shadow-sm">
+              <span class="dashboard-title">⚠️ 홈술 건강 관리 가이드</span>
+
+              <!-- 동적 알림 영역 -->
+              <div id="healthAlertArea" class="p-3 rounded-3 mb-3 text-center"
+                style="font-size: 13px; line-height: 1.5; border: 1px solid #e2e8f0; background-color: #f8fafc;">
+                <!-- JS에서 동적 바인딩 -->
+              </div>
+
+              <!-- 공통 건강 정보 가이드 -->
+              <div class="pt-3 border-top" style="font-size: 13px; line-height: 1.6; color: #475569;">
+                <h6 class="fw-bold mb-2 text-dark" style="font-size: 13.5px;"><i
+                    class="bi bi-heart-pulse-fill text-danger me-1"></i>과음 시 신체적 위험성</h6>
+                <ul class="ps-3 mb-0 text-secondary" style="font-size: 12px; line-height: 1.6;">
+                  <li class="mb-2"><strong class="text-dark">뇌세포 손상</strong>: 지속적인 과음은 뇌세포 파괴를 유도하여 인지 기능 저하와 기억력 감퇴를
+                    유발합니다.</li>
+                  <li class="mb-2"><strong class="text-dark">간 질환 발생</strong>: 알코올성 지방간에서 시작하여 심할 경우 간염, 간경변증으로 진행될 위험이
+                    큽니다.</li>
+                  <li class="mb-2"><strong class="text-dark">소화기계 염증</strong>: 위장 점막을 직접 자극하여 만성 위염, 위궤양, 역류성 식도염을
+                    초래합니다.</li>
+                  <li><strong class="text-dark">심혈관계 악영향</strong>: 부정맥 및 고혈압 발생률이 높아지며 심장 근육에 무리를 주게 됩니다.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Homsool Log Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>SoolPair 뉴스레터 구독</h4>
+            <p>매주 제공되는 가성비 주류 소식과 마스터의 페어링 레시피를 이메일로 받아보세요.</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요"><input type="submit" value="구독 신청">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>바로가기</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>페어링 매칭 서비스</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>SoolPair 대학가 자취방 센터</h4>
+            <p>
+              서울특별시 마포구 대학가길 77 <br>
+              자취방 라운지 오프라인 센터<br>
+              대한민국 <br><br>
+              <strong>전화번호:</strong> 02-987-6543<br>
+              <strong>이메일:</strong> hello@soolpair.co.kr<br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>SoolPair (술페어)</h3>
+            <p>술페어는 주머니가 가벼운 대학생들을 위해 마트/편의점에서 손쉽게 살 수 있는 해외 주류의 숨겨진 가치를 전달하고 스마트한 안주 조합을 큐레이션합니다.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SoolPair</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- JavaScript logic for Homsool Log -->
+  <script>
+    // Configuration for stamp types
+    const STAMP_TYPES = {
+      whiskey: {
+        name: '위스키',
+        emoji: '🥃',
+        detail: '짐빔 화이트 구매',
+        price: 22000,
+        marketPrice: 28000,
+        class: 'stamped-whiskey'
+      },
+      wine: {
+        name: '와인',
+        emoji: '🍷',
+        detail: '디아블로 까베르네 소비뇽 구매',
+        price: 11900,
+        marketPrice: 15900,
+        class: 'stamped-wine'
+      },
+      liqueur: {
+        name: '리큐르',
+        emoji: '🍹',
+        detail: '피치트리 구매',
+        price: 18500,
+        marketPrice: 23500,
+        class: 'stamped-liqueur'
+      }
+    };
+
+    // User's active selected stamp tool
+    let selectedStampType = 'whiskey';
+
+    // Log storage (starts empty)
+    let homsoolLogs = {};
+
+    document.addEventListener("DOMContentLoaded", function () {
+      initCalendar();
+      updateDashboard();
+    });
+
+    // 1. Tool Selection Handler
+    function selectStamp(type) {
+      selectedStampType = type;
+      document.querySelectorAll('.stamp-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      document.querySelector(`.stamp-item[data-type="${type}"]`).classList.add('active');
+    }
+
+    // 2. Initialize Calendar (1 to 31 Days Grid)
+    function initCalendar() {
+      const grid = document.getElementById('calendarGrid');
+      grid.innerHTML = '';
+
+      for (let day = 1; day <= 31; day++) {
+        const card = document.createElement('div');
+        card.className = 'day-card';
+        card.dataset.day = day;
+        card.onclick = () => handleDayClick(day);
+
+        // Build HTML skeleton
+        card.innerHTML = `
+          <div class="day-num">${day}</div>
+          <div class="day-stamp-placeholder"></div>
+          <div class="day-log-text"></div>
+        `;
+
+        grid.appendChild(card);
+      }
+
+      renderLogs();
+    }
+
+    // 3. Render stamped log state into calendar UI
+    function renderLogs() {
+      for (let day = 1; day <= 31; day++) {
+        const card = document.querySelector(`.day-card[data-day="${day}"]`);
+        if (!card) continue;
+
+        // Reset classes
+        card.classList.remove('stamped', 'stamped-whiskey', 'stamped-wine', 'stamped-liqueur');
+        const stampHolder = card.querySelector('.day-stamp-placeholder');
+        const textHolder = card.querySelector('.day-log-text');
+
+        stampHolder.textContent = '';
+        textHolder.textContent = '';
+
+        if (homsoolLogs[day]) {
+          const logData = homsoolLogs[day];
+          const stampInfo = STAMP_TYPES[logData.type];
+
+          card.classList.add('stamped', stampInfo.class);
+          stampHolder.textContent = stampInfo.emoji;
+          textHolder.textContent = logData.detail;
+        }
+      }
+    }
+
+    // 4. Click day handler (Toggle stamp on the clicked day)
+    function handleDayClick(day) {
+      if (homsoolLogs[day]) {
+        // Remove stamp if already exist
+        delete homsoolLogs[day];
+      } else {
+        // Stamp the active tool type
+        const stampInfo = STAMP_TYPES[selectedStampType];
+        homsoolLogs[day] = {
+          type: selectedStampType,
+          detail: stampInfo.detail
+        };
+      }
+
+      renderLogs();
+      updateDashboard();
+    }
+
+    // 5. Update Statistics and Money Saved Dashboard
+    function updateDashboard() {
+      let totalSoolpair = 0;
+      let totalMarket = 0;
+      let counts = { whiskey: 0, wine: 0, liqueur: 0 };
+      let totalStamps = 0;
+
+      // Calculate totals
+      for (const day in homsoolLogs) {
+        const log = homsoolLogs[day];
+        const info = STAMP_TYPES[log.type];
+
+        totalSoolpair += info.price;
+        totalMarket += info.marketPrice;
+        counts[log.type]++;
+        totalStamps++;
+      }
+
+
+
+      // Update Health Warning Alert Box
+      const healthAlertArea = document.getElementById('healthAlertArea');
+      if (healthAlertArea) {
+        if (totalStamps >= 9) {
+          healthAlertArea.style.backgroundColor = '#fef2f2';
+          healthAlertArea.style.borderColor = '#fee2e2';
+          healthAlertArea.innerHTML = `
+            <span class="badge bg-danger mb-2">과음 경고 🚨</span><br>
+            <strong class="text-danger d-block mb-1">이번 달 홈술 횟수가 9회 이상으로 잦습니다!</strong>
+            잦은 음주는 만성 피로와 알코올 의존성을 유발할 수 있습니다. 당분간 간과 신체 기관에 충분한 휴식기를 주시기 바랍니다.
+          `;
+        } else if (totalStamps >= 4) {
+          healthAlertArea.style.backgroundColor = '#fffbeb';
+          healthAlertArea.style.borderColor = '#fef3c7';
+          healthAlertArea.innerHTML = `
+            <span class="badge bg-warning text-dark mb-2">과음 주의 ⚠️</span><br>
+            <strong class="d-block mb-1" style="color: #b45309;">이번 달 홈술 횟수가 4회를 초과했습니다.</strong>
+            가벼운 반주는 즐거움을 주지만, 잦은 음주는 간에 부담을 줄 수 있습니다. 주 1~2회 이하로 음주 횟수를 조절해 보시는 것을 권장합니다.
+          `;
+        } else {
+          healthAlertArea.style.backgroundColor = '#f0fdf4';
+          healthAlertArea.style.borderColor = '#bbf7d0';
+          healthAlertArea.innerHTML = `
+            <span class="badge bg-success mb-2">적정 상태 😊</span><br>
+            <strong class="text-success d-block mb-1">적당한 홈술을 즐기고 계십니다.</strong>
+            음주 시 충분한 수분을 섭취하고 영양가 있는 안주와 함께 즐거운 혼술 문화를 만들어 가세요!
+          `;
+        }
+      }
+
+      // Update Ratio Progress Bar Segments
+      const ratioBar = document.getElementById('ratioBar');
+      const ratioLegend = document.getElementById('ratioLegend');
+      ratioBar.innerHTML = '';
+      ratioLegend.innerHTML = '';
+
+      if (totalStamps === 0) {
+        ratioBar.innerHTML = '<div style="width: 100%; color: #64748b; font-size: 11px; text-align: center; line-height: 24px; font-weight: 700;">기록된 홈술이 없습니다.</div>';
+
+        // Default legend with 0%
+        ['whiskey', 'wine', 'liqueur'].forEach(type => {
+          const info = STAMP_TYPES[type];
+          const color = type === 'whiskey' ? '#d97706' : (type === 'wine' ? '#e11d48' : '#0284c7');
+          ratioLegend.innerHTML += `
+            <div class="d-flex align-items-center justify-content-between small text-secondary">
+              <div class="d-flex align-items-center">
+                <span class="ratio-legend-dot" style="background-color: ${color};"></span>
+                <span>${info.name}</span>
+              </div>
+              <span class="fw-bold">0% (0회)</span>
+            </div>
+          `;
+        });
+        return;
+      }
+
+      // Render ratio bar segments and legends
+      for (const type in STAMP_TYPES) {
+        const count = counts[type];
+        const info = STAMP_TYPES[type];
+        const pct = Math.round((count / totalStamps) * 100);
+        const segmentColor = type === 'whiskey' ? '#d97706' : (type === 'wine' ? '#e11d48' : '#0284c7');
+
+        // Add to ratio bar if percent is greater than 0
+        if (pct > 0) {
+          const seg = document.createElement('div');
+          seg.className = `ratio-segment ratio-segment-${type}`;
+          seg.style.width = `${pct}%`;
+          seg.textContent = pct >= 15 ? `${pct}%` : ''; // hide text if segment too thin
+          ratioBar.appendChild(seg);
+        }
+
+        // Add to legend list
+        ratioLegend.innerHTML += `
+          <div class="d-flex align-items-center justify-content-between small text-dark">
+            <div class="d-flex align-items-center">
+              <span class="ratio-legend-dot" style="background-color: ${segmentColor};"></span>
+              <span class="fw-bold">${info.name}</span>
+            </div>
+            <span class="text-secondary fw-semibold">${pct}% (${count}회)</span>
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+
+</html>
