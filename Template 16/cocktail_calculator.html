@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>칵테일 비율 계산기 - SoolPair 술페어</title>
+  <meta content="자취방에서 즐기는 가성비 칵테일 황금비율 계산기 서비스" name="description">
+  <meta content="SoolPair, 술페어, 칵테일 계산기, 황금비율, 하이볼 제조, 홈술 레시피" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .login-section {
+      padding: 80px 0;
+      background-color: #f3f8fa;
+    }
+
+    .login-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 40px;
+      max-width: 480px;
+      margin: 0 auto;
+      border: 1px solid #eef2f5;
+    }
+
+    .login-card h3 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1e4356;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      color: #555;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-control, .form-select {
+      border-radius: 8px;
+      border: 1px solid #dcdcdc;
+      padding: 12px 15px;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: #2c5e43;
+      box-shadow: 0 0 0 0.2rem rgba(44, 94, 67, 0.15);
+      outline: none;
+    }
+
+    .btn-calc {
+      background-color: #2c5e43;
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-calc:hover {
+      background-color: #204531;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Ratio visualization bar */
+    .ratio-bar-wrapper {
+      height: 24px;
+      background-color: #eee;
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      margin: 15px 0;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .ratio-liquor {
+      background-color: #ff8c00;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: width 0.4s ease;
+    }
+
+    .ratio-mixer {
+      background-color: #3fbfd4;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: width 0.4s ease;
+    }
+
+    .btn-group-strength {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-strength {
+      flex: 1;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      transition: all 0.2s;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-strength.active {
+      background-color: #2c5e43;
+      color: #fff;
+      border-color: #2c5e43;
+      box-shadow: 0 4px 10px rgba(44, 94, 67, 0.2);
+    }
+
+    .btn-strength:hover:not(.active) {
+      background-color: #f8fcf9;
+      border-color: #2c5e43;
+      color: #2c5e43;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a href="services.html">안주 페어링 센터</a></li>
+          <li><a class="active" href="portfolio.html">주류 도감</a></li>
+          <li><a href="blog.html">자취방 라운지</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
+          <li><a href="basket.html">장바구니</a></li>
+          <li><a href="contact.html">제휴 문의</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>칵테일 비율 계산기</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">주류 도감</a></li>
+            <li>칵테일 비율 계산기</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <!-- ======= Calculator Section ======= -->
+    <section class="login-section" data-aos="fade-up">
+      <div class="container">
+        <div class="login-card">
+          <h3>🍹 황금비율 계산기</h3>
+          
+          <div class="form-group">
+            <label for="liquorSelect">주류 선택</label>
+            <select id="liquorSelect" class="form-select">
+              <option value="Suntory">산토리 가쿠빈 (40%)</option>
+              <option value="JackDaniels">잭다니엘 (40%)</option>
+              <option value="Bells">벨즈 (40%)</option>
+              <option value="JimBeam">짐빔 화이트 (40%)</option>
+              <option value="JohnnieWalker">조니워커 레드 (40%)</option>
+              <option value="Diablo">디아블로 까베르네 소비뇽 (13.5%)</option>
+              <option value="OysterBay">오이스터 베이 소비뇽 블랑 (13%)</option>
+              <option value="XRated">엑스레이티드 (17%)</option>
+              <option value="Peachtree" selected>피치트리 (20%)</option>
+              <option value="Jagermeister">예거마이스터 (35%)</option>
+              <option value="Malibu">말리부 (21%)</option>
+              <option value="Bacardi">바카디 클래식 칵테일 모히토 (15%)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>취기 강도 선택</label>
+            <div class="btn-group-strength">
+              <div class="btn-strength" data-strength="light">연하게</div>
+              <div class="btn-strength active" data-strength="medium">보통</div>
+              <div class="btn-strength" data-strength="strong">진하게</div>
+            </div>
+          </div>
+
+          <hr style="border-top: 1px dashed #ddd; margin: 25px 0 15px 0;">
+
+          <!-- 계산 결과 표출 영역 -->
+          <div id="calculator-result">
+            <h4 style="font-size: 15.5px; font-weight: 700; color: #2c5e43; margin-bottom: 12px;"><i class="bi bi-recipe"></i> 📐 황금 배합 레시피</h4>
+            
+            <div class="p-3" style="background-color: #f8faf9; border-radius: 10px; border: 1px solid #e2ece7;">
+              <div class="d-flex justify-content-between mb-2" style="font-size: 14px; font-weight: 600; color: #444;">
+                <span>🥃 베이스 술 용량</span>
+                <span id="base-volume" style="color: #ff8c00; font-weight: 700;">40 ml</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2" style="font-size: 14px; font-weight: 600; color: #444;">
+                <span id="mixer-label">🥤 추천 믹서 용량 (토닉워터)</span>
+                <span id="mixer-volume" style="color: #3fbfd4; font-weight: 700;">100 ml</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2" style="font-size: 14px; font-weight: 600; color: #444;">
+                <span>🧊 필요 얼음 개수</span>
+                <span id="ice-count" style="font-weight: 700; color: #666;">3 ~ 4 개</span>
+              </div>
+              
+              <!-- 비율 바 -->
+              <div class="ratio-bar-wrapper">
+                <div id="bar-liquor" class="ratio-liquor" style="width: 29%;">술 29%</div>
+                <div id="bar-mixer" class="ratio-mixer" style="width: 71%;">음료 71%</div>
+              </div>
+              
+              <div style="font-size: 12px; color: #888; text-align: center; margin-top: 5px;">
+                * 얼음은 비율 계산 부피에서 제외됩니다.
+              </div>
+            </div>
+
+            <div class="mt-3" style="background-color: #fffbeb; border: 1px solid #ffeeba; padding: 12px 15px; border-radius: 8px;">
+              <h5 style="font-size: 13.5px; font-weight: 700; color: #856404; margin-bottom: 5px;"><i class="bi bi-lightbulb-fill me-1"></i>자취방 제조 꿀팁</h5>
+              <p id="recipe-tip" style="font-size: 12.5px; color: #66521a; line-height: 1.5; margin-bottom: 0;">
+                피치트리는 토닉워터와 궁합이 환상적입니다. 잔에 레몬 슬라이스를 가볍게 즙을 짜서 넣으면 맛이 배가됩니다.
+              </p>
+            </div>
+            
+            <button id="btn-add-to-cart-calc" class="btn btn-calc mt-3"><i class="bi bi-cart-plus me-1"></i>계산된 주류 장바구니 담기</button>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 토스트 알림창 -->
+    <div id="cart-toast" class="toast-notification">
+      <i class="bi bi-check-circle-fill" style="color: #41cf7e; font-size: 18px;"></i>
+      <span id="cart-toast-message">장바구니에 상품이 담겼습니다.</span>
+    </div>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>SoolPair 뉴스레터 구독</h4>
+            <p>매주 제공되는 가성비 주류 소식과 마스터의 페어링 레시피를 이메일로 받아보세요.</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요"><input type="submit" value="구독 신청">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>바로가기</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>페어링 매칭 서비스</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 주류 정보</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>SoolPair 대학가 자취방 센터</h4>
+            <p>
+              서울특별시 마포구 대학가길 77 <br>
+              자취방 라운지 오프라인 센터<br>
+              대한민국 <br><br>
+              <strong>전화번호:</strong> 02-987-6543<br>
+              <strong>이메일:</strong> hello@soolpair.co.kr<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>SoolPair (술페어)</h3>
+            <p>술페어는 주머니가 가벼운 대학생들을 위해 마트/편의점에서 손쉽게 살 수 있는 해외 주류의 숨겨진 가치를 전달하고 스마트한 안주 조합을 큐레이션합니다.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SoolPair</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- 칵테일 동적 계산 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 12종 주류 칵테일 가이드 데이터베이스
+      const liquorRecipes = {
+        'Suntory': {
+          name: '산토리 가쿠빈',
+          sub: 'Suntory Kakubin',
+          price: '39,800원',
+          mixerName: '토닉워터 / 탄산수',
+          mixerTip: '진저에일이나 토닉워터를 붓고 가볍게 슬라이스 레몬을 짜 넣으면 이자카야 하이볼이 완성됩니다.',
+          light: { liquor: 15, mixer: 120, ice: '4~5' },
+          medium: { liquor: 30, mixer: 90, ice: '3~4' },
+          strong: { liquor: 45, mixer: 75, ice: '3~4' }
+        },
+        'JackDaniels': {
+          name: '잭다니엘',
+          sub: 'Jack Daniel\'s No.7',
+          price: '27,000원',
+          mixerName: '콜라 (Coke)',
+          mixerTip: '위스키와 콜라를 차갑게 섞으면 달콤한 카라멜 향이 매력적인 \'잭콕\'이 완성됩니다.',
+          light: { liquor: 15, mixer: 120, ice: '4~5' },
+          medium: { liquor: 30, mixer: 90, ice: '3~4' },
+          strong: { liquor: 45, mixer: 75, ice: '3~4' }
+        },
+        'Bells': {
+          name: '벨즈',
+          sub: 'Bell\'s',
+          price: '13,800원',
+          mixerName: '진저에일 / 토닉워터',
+          mixerTip: '가성비가 좋아 많이 타도 부담 없습니다. 단맛을 내는 진저에일과 매칭하는 것을 가장 추천합니다.',
+          light: { liquor: 15, mixer: 120, ice: '4~5' },
+          medium: { liquor: 30, mixer: 90, ice: '3~4' },
+          strong: { liquor: 45, mixer: 75, ice: '3~4' }
+        },
+        'JimBeam': {
+          name: '짐빔 화이트',
+          sub: 'Jim Beam White',
+          price: '22,000원',
+          mixerName: '토닉워터 / 탄산수',
+          mixerTip: '버번 위스키 특유의 오크 향과 옥수수 단맛이 있으므로 탄산수와 짜릿한 레몬 한 조각이 궁합이 좋습니다.',
+          light: { liquor: 15, mixer: 120, ice: '4~5' },
+          medium: { liquor: 30, mixer: 90, ice: '3~4' },
+          strong: { liquor: 45, mixer: 75, ice: '3~4' }
+        },
+        'JohnnieWalker': {
+          name: '조니워커 레드',
+          sub: 'Johnnie Walker Red Label',
+          price: '18,000원',
+          mixerName: '진저에일 / 사이다',
+          mixerTip: '블렌디드 스카치의 피트 스모키 향이 강하므로, 달달한 사이다나 진저에일을 타서 가볍게 하이볼로 드세요.',
+          light: { liquor: 15, mixer: 120, ice: '4~5' },
+          medium: { liquor: 30, mixer: 90, ice: '3~4' },
+          strong: { liquor: 45, mixer: 75, ice: '3~4' }
+        },
+        'Diablo': {
+          name: '디아블로 까베르네 소비뇽',
+          sub: 'Casillero del Diablo',
+          price: '11,900원',
+          mixerName: '스프라이트 (사이다)',
+          mixerTip: '와인을 사이다와 1:1 정도로 타서 마시는 오스트리아식 \'스프릿처\' 혹은 과일 슬라이스를 넣어 와인에이드로 마시면 떫은 맛 없이 캐주얼하게 즐길 수 있습니다.',
+          light: { liquor: 40, mixer: 120, ice: '3~4' },
+          medium: { liquor: 80, mixer: 80, ice: '2~3' },
+          strong: { liquor: 120, mixer: 40, ice: '2~3' }
+        },
+        'OysterBay': {
+          name: '오이스터 베이 소비뇽 블랑',
+          sub: 'Oyster Bay Sauvignon Blanc',
+          price: '28,900원',
+          mixerName: '탄산수 / 스프라이트',
+          mixerTip: '시트러스 산미가 돋보이므로 시원하게 칠링하여 단독(스트레이트)으로 먹거나 탄산수를 아주 소량만 섞어 드시는 것이 향을 느끼기에 가장 좋습니다.',
+          light: { liquor: 50, mixer: 100, ice: '3~4' },
+          medium: { liquor: 90, mixer: 60, ice: '2~3' },
+          strong: { liquor: 120, mixer: 30, ice: '2~3' }
+        },
+        'XRated': {
+          name: '엑스레이티드',
+          sub: 'X-Rated',
+          price: '26,000원',
+          mixerName: '스파클링 와인 / 사이다',
+          mixerTip: '토닉워터나 사이다를 타는 \'엑스 핑크\' 하이볼이 기본이며, 샴페인/스파클링 와인과 1:1로 섞는 것이 파티의 정석 레시피입니다.',
+          light: { liquor: 30, mixer: 120, ice: '4~5' },
+          medium: { liquor: 45, mixer: 90, ice: '3~4' },
+          strong: { liquor: 60, mixer: 60, ice: '3~4' }
+        },
+        'Peachtree': {
+          name: '피치트리',
+          sub: 'Peach Tree',
+          price: '19,800원',
+          mixerName: '토닉워터',
+          mixerTip: '피치트리 1에 토닉워터 3의 칵테일 황금비율이 가장 맛있습니다. 크랜베리 주스를 타서 붉은 빛의 \'우우(Woo Woo)\' 칵테일로 즐겨도 좋습니다.',
+          light: { liquor: 20, mixer: 120, ice: '4~5' },
+          medium: { liquor: 40, mixer: 100, ice: '3~4' },
+          strong: { liquor: 60, mixer: 80, ice: '3~4' }
+        },
+        'Jagermeister': {
+          name: '예거마이스터',
+          sub: 'Jägermeister',
+          price: '22,000원',
+          mixerName: '에너지드링크 (핫식스/레드불)',
+          mixerTip: '얼린 예거마이스터 1샷과 핫식스 3샷을 섞어 기포가 올라올 때 들이키는 \'예거밤\'은 시험기간 종강파티의 단골 치트키입니다.',
+          light: { liquor: 20, mixer: 120, ice: '4~5' },
+          medium: { liquor: 30, mixer: 90, ice: '3~4' },
+          strong: { liquor: 45, mixer: 75, ice: '3~4' }
+        },
+        'Malibu': {
+          name: '말리부',
+          sub: 'Malibu',
+          price: '17,500원',
+          mixerName: '오렌지 / 파인애플주스',
+          mixerTip: '우유를 1:3으로 타면 달콤 고소한 \'말리부 밀크\', 콜라를 타면 \'말리부 콕\'이 되며 오렌지 주스와 섞어 상큼하게 마시는 것이 베스트셀러입니다.',
+          light: { liquor: 20, mixer: 120, ice: '4~5' },
+          medium: { liquor: 35, mixer: 105, ice: '3~4' },
+          strong: { liquor: 50, mixer: 80, ice: '3~4' }
+        },
+        'Bacardi': {
+          name: '바카디 클래식 칵테일 모히토',
+          sub: 'Bacardi Classic Cocktails Mojito',
+          price: '24,900원',
+          mixerName: '탄산수 / 사이다',
+          mixerTip: '이미 라임과 민트 풍미가 완성된 RTS 술입니다. 단맛이 없는 깔끔한 탄산수를 섞거나 더 달콤한 청량감을 원하면 사이다를 1:2 비율로 타 마십니다.',
+          light: { liquor: 30, mixer: 120, ice: '4~5' },
+          medium: { liquor: 50, mixer: 100, ice: '3~4' },
+          strong: { liquor: 70, mixer: 70, ice: '3~4' }
+        }
+      };
+
+      const liquorSelect = document.getElementById('liquorSelect');
+      
+      const baseVolume = document.getElementById('base-volume');
+      const mixerLabel = document.getElementById('mixer-label');
+      const mixerVolume = document.getElementById('mixer-volume');
+      const iceCount = document.getElementById('ice-count');
+      const recipeTip = document.getElementById('recipe-tip');
+      
+      const barLiquor = document.getElementById('bar-liquor');
+      const barMixer = document.getElementById('bar-mixer');
+      
+      const btnAddToCartCalc = document.getElementById('btn-add-to-cart-calc');
+      const cartToast = document.getElementById('cart-toast');
+      const cartToastMessage = document.getElementById('cart-toast-message');
+
+      let currentStrength = 'medium';
+
+      // --- 1. 취기 강도 선택 버튼 핸들링 ---
+      document.querySelectorAll('.btn-strength').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.btn-strength').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentStrength = this.getAttribute('data-strength');
+          calculateRatio();
+        });
+      });
+
+      // --- 2. 실시간 황금비율 계산 로직 ---
+      function calculateRatio() {
+        const liquorKey = liquorSelect.value;
+        const servings = 1;
+        const recipe = liquorRecipes[liquorKey];
+        
+        if (!recipe) return;
+        
+        const strengthData = recipe[currentStrength];
+        
+        const totalLiquor = strengthData.liquor * servings;
+        const totalMixer = strengthData.mixer * servings;
+        
+        // 텍스트 기입
+        baseVolume.innerText = `${totalLiquor} ml`;
+        mixerLabel.innerText = `🥤 추천 믹서 용량 (${recipe.mixerName})`;
+        mixerVolume.innerText = `${totalMixer} ml`;
+        
+        // 얼음 개수
+        iceCount.innerText = `${strengthData.ice} 개 (1잔당 기준)`;
+        
+        // 제조 꿀팁
+        recipeTip.innerHTML = `<strong>[${recipe.name} 팁]</strong> ${recipe.mixerTip}`;
+        
+        // 비율 바 업데이트
+        const totalVol = totalLiquor + totalMixer;
+        const liquorPercent = Math.round((totalLiquor / totalVol) * 100);
+        const mixerPercent = 100 - liquorPercent;
+        
+        barLiquor.style.width = `${liquorPercent}%`;
+        barLiquor.innerText = `술 ${liquorPercent}%`;
+        
+        barMixer.style.width = `${mixerPercent}%`;
+        barMixer.innerText = `음료 ${mixerPercent}%`;
+      }
+
+      liquorSelect.addEventListener('change', calculateRatio);
+
+      // --- 3. 쿼리 스트링 파싱 및 주류 매핑 ---
+      function parseQueryString() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const liquorParam = urlParams.get('liquor');
+        
+        if (liquorParam && liquorRecipes[liquorParam]) {
+          liquorSelect.value = liquorParam;
+        }
+        calculateRatio();
+      }
+
+      // --- 4. 장바구니 담기 기능 연동 ---
+      btnAddToCartCalc.addEventListener('click', function() {
+        const liquorKey = liquorSelect.value;
+        const recipe = liquorRecipes[liquorKey];
+        if (!recipe) return;
+        
+        const servings = 1;
+
+        let cart = JSON.parse(localStorage.getItem('soolpair_cart') || '[]');
+        
+        const existingIdx = cart.findIndex(x => x.title === recipe.name);
+        if (existingIdx > -1) {
+          cart[existingIdx].qty += servings;
+        } else {
+          cart.push({
+            title: recipe.name,
+            sub: recipe.sub,
+            price: recipe.price,
+            abv: liquorSelect.options[liquorSelect.selectedIndex].text.match(/\d+(\.\d+)?%/)[0], // 도수 텍스트 파싱
+            emoji: '🍾',
+            qty: servings
+          });
+        }
+        
+        localStorage.setItem('soolpair_cart', JSON.stringify(cart));
+
+        // 토스트 알림
+        cartToastMessage.innerHTML = `장바구니에 <strong>${recipe.name} ${servings}병</strong>이 추가되었습니다!`;
+        cartToast.classList.add('show');
+        setTimeout(() => {
+          cartToast.classList.remove('show');
+        }, 2500);
+      });
+
+      // 초기 기동
+      parseQueryString();
+    });
+  </script>
+
+</body>
+
+</html>
