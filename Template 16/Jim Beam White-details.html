@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>비밀번호 찾기 - SoolPair 술페어</title>
-  <meta content="대학생 맞춤형 스마트 안주 페어링 플랫폼 SoolPair 비밀번호 찾기 페이지" name="description">
-  <meta content="SoolPair, 술페어, 비밀번호 찾기" name="keywords">
+  <title>Jim Beam White 상세 정보 | SoolPair 술페어</title>
+  <meta content="짐빔 화이트 버번 위스키 - SoolPair 술페어 주류 상세 정보" name="description">
+  <meta content="짐빔, Jim Beam, 버번 위스키, 켄터키, 홈술 추천" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,106 +29,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <style>
-    .find-section {
-      padding: 80px 0;
-      background-color: #f3f8fa;
-    }
-
-    .find-card {
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
-      padding: 40px;
-      max-width: 450px;
-      margin: 0 auto;
-      border: 1px solid #eef2f5;
-    }
-
-    .find-card h3 {
-      font-size: 26px;
-      font-weight: 700;
-      color: #1e4356;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      font-size: 14px;
-      color: #555;
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .form-control {
-      border-radius: 8px;
-      border: 1px solid #dcdcdc;
-      padding: 12px 15px;
-      font-size: 15px;
-      transition: all 0.3s;
-    }
-
-    .form-control:focus {
-      border-color: #2c5e43;
-      box-shadow: 0 0 0 0.2rem rgba(44, 94, 67, 0.15);
-    }
-
-    .btn-find {
-      background-color: #2c5e43;
-      color: white;
-      font-weight: 600;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
-
-    .btn-find:hover {
-      background-color: #204531;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .back-to-login {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .back-to-login:hover {
-      color: #2c5e43;
-      text-decoration: underline;
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -146,9 +46,9 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">브랜드 소개</a></li>
           <li><a href="services.html">안주 페어링 센터</a></li>
-          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a class="active" href="portfolio.html">주류 도감</a></li>
           <li><a href="blog.html">자취방 라운지</a></li>
-          <li><a class="active" id="nav-login" href="login.html">로그인</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
           <li><a href="basket.html">장바구니</a></li>
           <li><a href="contact.html">제휴 문의</a></li>
         </ul>
@@ -160,55 +60,77 @@
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs Section ======= -->
+    <!-- ======= Our Portfolio Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>비밀번호 찾기</h2>
+          <h2>주류 상세 정보</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">로그인</a></li>
-            <li>비밀번호 찾기</li>
+            <li><a href="portfolio.html">주류 도감</a></li>
+            <li>Jim Beam White (짐빔 화이트)</li>
           </ol>
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section><!-- End Our Portfolio Section -->
 
-    <!-- ======= Find Password Section ======= -->
-    <section class="find-section" data-aos="fade-up">
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-        <div class="find-card">
-          <h3>비밀번호 재설정</h3>
-          <form id="findPwForm">
-            <!-- Step 1: ID 입력 -->
-            <div id="step-id">
-              <div class="form-group">
-                <label for="userId">아이디 입력</label>
-                <input type="text" id="userId" class="form-control" placeholder="비밀번호를 재설정할 아이디를 입력하세요" required>
-              </div>
-              <button type="button" id="btn-next" class="btn-find">다음</button>
-            </div>
 
-            <!-- Step 2: 새 비밀번호 생성 및 확인 (처음에 숨김) -->
-            <div id="step-pw" class="animate-fade-in" style="display: none; margin-top: 15px;">
-              <div class="form-group">
-                <label for="newPw">새 비밀번호 생성</label>
-                <input type="password" id="newPw" class="form-control" placeholder="새 비밀번호를 입력하세요">
-              </div>
-              <div class="form-group">
-                <label for="confirmPw">새 비밀번호 확인</label>
-                <input type="password" id="confirmPw" class="form-control" placeholder="새 비밀번호를 한 번 더 입력하세요">
-              </div>
-              <button type="submit" id="btn-submit" class="btn-find">비밀번호 변경</button>
-            </div>
-          </form>
+        <div class="row gy-4">
 
-          <a href="login.html" class="back-to-login"><i class="bi bi-arrow-left"></i> 로그인 화면으로 돌아가기</a>
+          <!-- 왼쪽: 단일 이미지 -->
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/4. 짐빔 화이트.png" alt="Jim Beam White 짐빔 화이트">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 상품 정보 + 설명 -->
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>상품 정보</h3>
+              <ul>
+                <li><strong>제품명</strong>: Jim Beam White (짐빔 화이트)</li>
+                <li><strong>한줄 소개</strong>: 옥수수 특유의 달콤함과 거친 타격감이 매력적인 미국 버번의 대명사로, 레몬 탄산수나 콜라와 섞어 마실 때 청량함이 극대화되는 홈술계의
+                  스테디셀러.</li>
+                <li><strong>카테고리</strong>: 버번 위스키 (Bourbon Whisky)</li>
+                <li><strong>원산지</strong>: 미국 (USA)</li>
+                <li><strong>도수 / 용량</strong>: 40% / 200ml ~ 750ml</li>
+                <li><strong>향 (Aroma)</strong>: 달콤한 바닐라, 구수한 옥수수와 오크통 향</li>
+                <li><strong>맛 (Taste)</strong>: 묵직한 카라멜의 단맛, 알싸한 후추 같은 스파이스</li>
+                <li><strong>피니시 (Finish)</strong>: 오크통의 탄 향이 주는 쌉싸름하고 깔끔한 여운</li>
+                <li><strong>술페어 가격</strong>: <strong>9,900원 (200ml) / 22,000원 (500ml)</strong><br>
+                  <em style="font-size: 12px; color: #888;">자취생 팁: 최근 스마트오더나 대형마트 행사 시 750ml를 2만 원대 후반에 득템할 수 있으며, 편의점
+                    포켓 사이즈(200ml)는 만 원 한 장으로 가볍게 집어올 수 있어 완벽한 지갑 구원투수입니다.</em>
+                </li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>전쟁과 금주법을 이겨낸 7대 가문의 집념, 그리고 '버번'의 유래</h2>
+              <p>
+                짐빔은 미국 개척 시대의 가난한 이민자들이 옥수수를 밀주로 만들어 마시던 거친 역사에서 탄생했습니다. 미국 정부가 세금을 매기자, 이민자들은 깊은 산속인 켄터키주 '버번 군(Bourbon
+                County)'으로 숨어들어 술을 빚기 시작했는데 이것이 오늘날 '버번 위스키'의 유래가 되었습니다.
+              </p>
+              <p>
+                미국의 금주법 시대 때문에 공장이 문을 닫고 가문이 파산하는 비극을 겪기도 했지만, 법이 폐지되자마자 당시 70세였던 짐 빔(Jim Beam)이 불과 120일 만에 증류소를 직접 손으로
+                다시 지어내며 브랜드를 부활시켰습니다. 230년이 지난 지금까지도 7대째 내려오는 가문 고유의 효모 레시피를 그대로 고수하고 있으며, 그 특유의 구수하고 강렬한 오크향은 기름진 안주나
+                콜라와 만났을 때 자취방을 순식간에 미국의 힙한 펍으로 만들어줍니다.
+              </p>
+            </div>
+          </div>
+
         </div>
+
       </div>
-    </section><!-- End Find Password Section -->
+    </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
 
@@ -252,7 +174,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 주류 정보</a></li>
             </ul>
           </div>
 
@@ -265,7 +187,6 @@
               <strong>전화번호:</strong> 02-987-6543<br>
               <strong>이메일:</strong> hello@soolpair.co.kr<br>
             </p>
-
           </div>
 
           <div class="col-lg-3 col-md-6 footer-info">
@@ -308,44 +229,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-    const btnNext = document.getElementById('btn-next');
-    const stepId = document.getElementById('step-id');
-    const stepPw = document.getElementById('step-pw');
-    const userIdInput = document.getElementById('userId');
-    const newPw = document.getElementById('newPw');
-    const confirmPw = document.getElementById('confirmPw');
-    const findPwForm = document.getElementById('findPwForm');
-
-    btnNext.addEventListener('click', () => {
-      if (userIdInput.value.trim() === '') {
-        alert('아이디를 입력해 주세요.');
-        return;
-      }
-      // Reveal Step 2 (Reset password inputs)
-      stepPw.style.display = 'block';
-      userIdInput.readOnly = true;
-      btnNext.style.display = 'none';
-
-      // Make new fields required
-      newPw.required = true;
-      confirmPw.required = true;
-      newPw.focus();
-    });
-
-    findPwForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      if (newPw.value !== confirmPw.value) {
-        alert('비밀번호가 다릅니다.');
-        return;
-      }
-
-      alert('새 비밀번호로 바뀌었습니다.');
-      window.location.href = 'login.html';
-    });
-  </script>
 
 </body>
 

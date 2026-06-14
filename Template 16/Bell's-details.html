@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>비밀번호 찾기 - SoolPair 술페어</title>
-  <meta content="대학생 맞춤형 스마트 안주 페어링 플랫폼 SoolPair 비밀번호 찾기 페이지" name="description">
-  <meta content="SoolPair, 술페어, 비밀번호 찾기" name="keywords">
+  <title>Bell's Blended Scotch Whisky 상세 정보 | SoolPair 술페어</title>
+  <meta content="벨즈 블렌디드 스카치 위스키 - SoolPair 술페어 주류 상세 정보" name="description">
+  <meta content="벨즈, Bell's, 스카치 위스키, 가성비 위스키, 하이볼 추천" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,106 +29,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <style>
-    .find-section {
-      padding: 80px 0;
-      background-color: #f3f8fa;
-    }
-
-    .find-card {
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
-      padding: 40px;
-      max-width: 450px;
-      margin: 0 auto;
-      border: 1px solid #eef2f5;
-    }
-
-    .find-card h3 {
-      font-size: 26px;
-      font-weight: 700;
-      color: #1e4356;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      font-size: 14px;
-      color: #555;
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .form-control {
-      border-radius: 8px;
-      border: 1px solid #dcdcdc;
-      padding: 12px 15px;
-      font-size: 15px;
-      transition: all 0.3s;
-    }
-
-    .form-control:focus {
-      border-color: #2c5e43;
-      box-shadow: 0 0 0 0.2rem rgba(44, 94, 67, 0.15);
-    }
-
-    .btn-find {
-      background-color: #2c5e43;
-      color: white;
-      font-weight: 600;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
-
-    .btn-find:hover {
-      background-color: #204531;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .back-to-login {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .back-to-login:hover {
-      color: #2c5e43;
-      text-decoration: underline;
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -146,9 +46,9 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">브랜드 소개</a></li>
           <li><a href="services.html">안주 페어링 센터</a></li>
-          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a class="active" href="portfolio.html">주류 도감</a></li>
           <li><a href="blog.html">자취방 라운지</a></li>
-          <li><a class="active" id="nav-login" href="login.html">로그인</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
           <li><a href="basket.html">장바구니</a></li>
           <li><a href="contact.html">제휴 문의</a></li>
         </ul>
@@ -160,55 +60,77 @@
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs Section ======= -->
+    <!-- ======= Our Portfolio Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>비밀번호 찾기</h2>
+          <h2>주류 상세 정보</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">로그인</a></li>
-            <li>비밀번호 찾기</li>
+            <li><a href="portfolio.html">주류 도감</a></li>
+            <li>Bell's Blended Scotch Whisky (벨즈)</li>
           </ol>
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section><!-- End Our Portfolio Section -->
 
-    <!-- ======= Find Password Section ======= -->
-    <section class="find-section" data-aos="fade-up">
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-        <div class="find-card">
-          <h3>비밀번호 재설정</h3>
-          <form id="findPwForm">
-            <!-- Step 1: ID 입력 -->
-            <div id="step-id">
-              <div class="form-group">
-                <label for="userId">아이디 입력</label>
-                <input type="text" id="userId" class="form-control" placeholder="비밀번호를 재설정할 아이디를 입력하세요" required>
-              </div>
-              <button type="button" id="btn-next" class="btn-find">다음</button>
-            </div>
 
-            <!-- Step 2: 새 비밀번호 생성 및 확인 (처음에 숨김) -->
-            <div id="step-pw" class="animate-fade-in" style="display: none; margin-top: 15px;">
-              <div class="form-group">
-                <label for="newPw">새 비밀번호 생성</label>
-                <input type="password" id="newPw" class="form-control" placeholder="새 비밀번호를 입력하세요">
-              </div>
-              <div class="form-group">
-                <label for="confirmPw">새 비밀번호 확인</label>
-                <input type="password" id="confirmPw" class="form-control" placeholder="새 비밀번호를 한 번 더 입력하세요">
-              </div>
-              <button type="submit" id="btn-submit" class="btn-find">비밀번호 변경</button>
-            </div>
-          </form>
+        <div class="row gy-4">
 
-          <a href="login.html" class="back-to-login"><i class="bi bi-arrow-left"></i> 로그인 화면으로 돌아가기</a>
+          <!-- 왼쪽: 슬라이더 대신 단일 이미지 -->
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/3. 벨즈.png" alt="Bell's Blended Scotch Whisky 벨즈">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 상품 정보 + 설명 -->
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>상품 정보</h3>
+              <ul>
+                <li><strong>제품명</strong>: Bell's Blended Scotch Whisky (벨즈)</li>
+                <li><strong>한줄 소개</strong>: 영국 국민들이 가장 사랑하는 가성비 위스키이자, 부담 없는 가격 덕분에 자취생 홈술 입문용 및 대용량 하이볼 제조용으로 최고의 선택지.
+                </li>
+                <li><strong>카테고리</strong>: 블렌디드 위스키 (Blended Whisky)</li>
+                <li><strong>원산지</strong>: 스코틀랜드 (Scotland)</li>
+                <li><strong>도수 / 용량</strong>: 40% / 700ml</li>
+                <li><strong>향 (Aroma)</strong>: 은은한 아몬드의 고소함, 부드러운 몰트 향</li>
+                <li><strong>맛 (Taste)</strong>: 달콤한 생강과 계피, 가벼운 헤이즐넛 풍미</li>
+                <li><strong>피니시 (Finish)</strong>: 짧고 깔끔하게 떨어지는 드라이한 여운</li>
+                <li><strong>술페어 가격</strong>: <strong>13,800원</strong><br>
+                  <em style="font-size: 12px; color: #888;">자취생 팁: 마트나 편의점에서 만 원대 중반 이하로 구할 수 있는 극가성비 위스키로, 하이볼을 대량으로 말아
+                    마실 때 지갑 부담을 완전히 덜어줍니다.</em>
+                </li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>영국의 '국민 위스키'가 된 고집불통 신부님의 비밀 레시피</h2>
+              <p>
+                만 원대라는 믿기지 않는 가격 때문에 저가형 술로 오해받곤 하지만, 벨즈는 사실 영국 소비량 1위를 차지했던 유서 깊은 위스키입니다. 19세기 스코틀랜드의 아서 벨이라는 사람이
+                만들었는데, 그는 독실한 종교적 신념을 가진 고집불통이었습니다. "가장 좋은 위스키는 정직한 가격에 제공되어야 한다"는 신념으로, 이름을 숨긴 채 최고의 원액들을 비밀리에 블렌딩해
+                저렴하게 팔기 시작했습니다.
+              </p>
+              <p>
+                그의 사후에야 비로소 '벨즈'라는 이름이 세상에 공개되었고, 왕실 결혼식이나 국가적 축제 때마다 종 모양의 특별 에디션을 출시하며 영국의 상징이 되었습니다. 특유의 고소하고 달콤한
+                스파이스 향은 탄산수와 섞었을 때 청량감이 배가되어, 돈 없는 자취생들의 밤을 달래주는 최고의 '갓성비' 구원투수로 사랑받고 있습니다.
+              </p>
+            </div>
+          </div>
+
         </div>
+
       </div>
-    </section><!-- End Find Password Section -->
+    </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
 
@@ -252,7 +174,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 주류 정보</a></li>
             </ul>
           </div>
 
@@ -265,7 +187,6 @@
               <strong>전화번호:</strong> 02-987-6543<br>
               <strong>이메일:</strong> hello@soolpair.co.kr<br>
             </p>
-
           </div>
 
           <div class="col-lg-3 col-md-6 footer-info">
@@ -308,44 +229,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-    const btnNext = document.getElementById('btn-next');
-    const stepId = document.getElementById('step-id');
-    const stepPw = document.getElementById('step-pw');
-    const userIdInput = document.getElementById('userId');
-    const newPw = document.getElementById('newPw');
-    const confirmPw = document.getElementById('confirmPw');
-    const findPwForm = document.getElementById('findPwForm');
-
-    btnNext.addEventListener('click', () => {
-      if (userIdInput.value.trim() === '') {
-        alert('아이디를 입력해 주세요.');
-        return;
-      }
-      // Reveal Step 2 (Reset password inputs)
-      stepPw.style.display = 'block';
-      userIdInput.readOnly = true;
-      btnNext.style.display = 'none';
-
-      // Make new fields required
-      newPw.required = true;
-      confirmPw.required = true;
-      newPw.focus();
-    });
-
-    findPwForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      if (newPw.value !== confirmPw.value) {
-        alert('비밀번호가 다릅니다.');
-        return;
-      }
-
-      alert('새 비밀번호로 바뀌었습니다.');
-      window.location.href = 'login.html';
-    });
-  </script>
 
 </body>
 

@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>비밀번호 찾기 - SoolPair 술페어</title>
-  <meta content="대학생 맞춤형 스마트 안주 페어링 플랫폼 SoolPair 비밀번호 찾기 페이지" name="description">
-  <meta content="SoolPair, 술페어, 비밀번호 찾기" name="keywords">
+  <title>Casillero del Diablo Cabernet Sauvignon 상세 정보 | SoolPair 술페어</title>
+  <meta content="디아블로 까베르네 소비뇽 레드 와인 - SoolPair 술페어 주류 상세 정보" name="description">
+  <meta content="디아블로, Casillero del Diablo, 까베르네 소비뇽, 칠레 와인, 가성비 와인 추천" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -29,106 +29,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <style>
-    .find-section {
-      padding: 80px 0;
-      background-color: #f3f8fa;
-    }
-
-    .find-card {
-      background: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
-      padding: 40px;
-      max-width: 450px;
-      margin: 0 auto;
-      border: 1px solid #eef2f5;
-    }
-
-    .find-card h3 {
-      font-size: 26px;
-      font-weight: 700;
-      color: #1e4356;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      font-size: 14px;
-      color: #555;
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .form-control {
-      border-radius: 8px;
-      border: 1px solid #dcdcdc;
-      padding: 12px 15px;
-      font-size: 15px;
-      transition: all 0.3s;
-    }
-
-    .form-control:focus {
-      border-color: #2c5e43;
-      box-shadow: 0 0 0 0.2rem rgba(44, 94, 67, 0.15);
-    }
-
-    .btn-find {
-      background-color: #2c5e43;
-      color: white;
-      font-weight: 600;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: all 0.3s;
-      margin-top: 10px;
-    }
-
-    .btn-find:hover {
-      background-color: #204531;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .back-to-login {
-      display: block;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #666;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .back-to-login:hover {
-      color: #2c5e43;
-      text-decoration: underline;
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -146,9 +46,9 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">브랜드 소개</a></li>
           <li><a href="services.html">안주 페어링 센터</a></li>
-          <li><a href="portfolio.html">주류 도감</a></li>
+          <li><a class="active" href="portfolio.html">주류 도감</a></li>
           <li><a href="blog.html">자취방 라운지</a></li>
-          <li><a class="active" id="nav-login" href="login.html">로그인</a></li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
           <li><a href="basket.html">장바구니</a></li>
           <li><a href="contact.html">제휴 문의</a></li>
         </ul>
@@ -160,55 +60,78 @@
 
   <main id="main">
 
-    <!-- ======= Breadcrumbs Section ======= -->
+    <!-- ======= Our Portfolio Section ======= -->
     <section class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>비밀번호 찾기</h2>
+          <h2>주류 상세 정보</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li><a href="login.html">로그인</a></li>
-            <li>비밀번호 찾기</li>
+            <li><a href="portfolio.html">주류 도감</a></li>
+            <li>Casillero del Diablo (디아블로 까베르네 소비뇽)</li>
           </ol>
         </div>
 
       </div>
-    </section><!-- End Breadcrumbs Section -->
+    </section><!-- End Our Portfolio Section -->
 
-    <!-- ======= Find Password Section ======= -->
-    <section class="find-section" data-aos="fade-up">
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-        <div class="find-card">
-          <h3>비밀번호 재설정</h3>
-          <form id="findPwForm">
-            <!-- Step 1: ID 입력 -->
-            <div id="step-id">
-              <div class="form-group">
-                <label for="userId">아이디 입력</label>
-                <input type="text" id="userId" class="form-control" placeholder="비밀번호를 재설정할 아이디를 입력하세요" required>
-              </div>
-              <button type="button" id="btn-next" class="btn-find">다음</button>
-            </div>
 
-            <!-- Step 2: 새 비밀번호 생성 및 확인 (처음에 숨김) -->
-            <div id="step-pw" class="animate-fade-in" style="display: none; margin-top: 15px;">
-              <div class="form-group">
-                <label for="newPw">새 비밀번호 생성</label>
-                <input type="password" id="newPw" class="form-control" placeholder="새 비밀번호를 입력하세요">
-              </div>
-              <div class="form-group">
-                <label for="confirmPw">새 비밀번호 확인</label>
-                <input type="password" id="confirmPw" class="form-control" placeholder="새 비밀번호를 한 번 더 입력하세요">
-              </div>
-              <button type="submit" id="btn-submit" class="btn-find">비밀번호 변경</button>
-            </div>
-          </form>
+        <div class="row gy-4">
 
-          <a href="login.html" class="back-to-login"><i class="bi bi-arrow-left"></i> 로그인 화면으로 돌아가기</a>
+          <!-- 왼쪽: 단일 이미지 -->
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/6. 디아블로 까베르네 소비뇽.png"
+                    alt="Casillero del Diablo Cabernet Sauvignon 디아블로 까베르네 소비뇽">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 오른쪽: 상품 정보 + 설명 -->
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>상품 정보</h3>
+              <ul>
+                <li><strong>제품명</strong>: Casillero del Diablo Cabernet Sauvignon (디아블로 까베르네 소비뇽)</li>
+                <li><strong>한줄 소개</strong>: "악마의 와인"이라 불리는 전 세계적인 스테디셀러이자, 묵직한 바디감과 진한 과일 향으로 육류 배달 야식과 최고의 궁합을 자랑하는 가성비
+                  와인의 대명사.</li>
+                <li><strong>카테고리</strong>: 레드 와인 (Red Wine)</li>
+                <li><strong>원산지</strong>: 칠레 센트럴 밸리 (Chile Central Valley)</li>
+                <li><strong>도수 / 용량</strong>: 13.5% / 375ml ~ 750ml</li>
+                <li><strong>향 (Aroma)</strong>: 잘 익은 블랙베리, 자두의 진한 과일 향과 은은한 바닐라 풍미</li>
+                <li><strong>맛 (Taste)</strong>: 입안을 채우는 묵직한 탄닌감, 적당한 산도와 부드러운 질감</li>
+                <li><strong>피니시 (Finish)</strong>: 오크통에서 배어난 토스트 향과 달콤한 초콜릿의 긴 여운</li>
+                <li><strong>술페어 가격</strong>: <strong>6,900원 (375ml 하프) / 11,900원 (750ml 정규)</strong><br>
+                  <em style="font-size: 12px; color: #888;">자취생 팁: 혼자 마시기 딱 좋은 375ml 하프 보틀을 편의점에서 6천 원대에 구할 수 있어, 남은 와인
+                    처리가 곤란한 자취생들에게 완벽한 솔루션을 제공합니다.</em>
+                </li>
+              </ul>
+            </div>
+            <div class="portfolio-description">
+              <h2>도둑들을 쫓아내기 위해 '악마'가 된 와이너리 주인의 기발한 거짓말</h2>
+              <p>
+                이 와인의 이름인 '카시예로 델 디아블로'는 스페인어로 '악마의 지하 창고'라는 뜻입니다. 19세기 칠레의 와이너리 창립자인 돈 멜초는 자신이 만든 와인의 품질이 너무 뛰어난 나머지,
+                지하 저장고에 보관해 둔 와인이 자꾸만 도둑맞는 문제로 골머리를 앓고 있었습니다.
+              </p>
+              <p>
+                고심 끝에 그는 도둑들을 완벽하게 쫓아낼 기발한 묘책을 세웠는데, 바로 "내가 밤마다 지하 창고에 내려가는데, 그곳에는 진짜 악마가 살고 있다"는 소문을 동네에 퍼뜨린 것이었습니다.
+                독실한 가톨릭 문화권이었던 인부들과 도둑들은 이 무시무시한 소문에 속아 넘어가 창고 근처에는 얼씬도 하지 못했고, 덕분에 이 와인은 도둑맞지 않고 무사히 지켜져 오늘날 만 원대 가격으로
+                전 세계인들의 식탁을 점령한 전설적인 가성비 와인이 되었습니다.
+              </p>
+            </div>
+          </div>
+
         </div>
+
       </div>
-    </section><!-- End Find Password Section -->
+    </section><!-- End Portfolio Details Section -->
 
   </main><!-- End #main -->
 
@@ -252,7 +175,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 주류 정보</a></li>
             </ul>
           </div>
 
@@ -265,7 +188,6 @@
               <strong>전화번호:</strong> 02-987-6543<br>
               <strong>이메일:</strong> hello@soolpair.co.kr<br>
             </p>
-
           </div>
 
           <div class="col-lg-3 col-md-6 footer-info">
@@ -308,44 +230,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-    const btnNext = document.getElementById('btn-next');
-    const stepId = document.getElementById('step-id');
-    const stepPw = document.getElementById('step-pw');
-    const userIdInput = document.getElementById('userId');
-    const newPw = document.getElementById('newPw');
-    const confirmPw = document.getElementById('confirmPw');
-    const findPwForm = document.getElementById('findPwForm');
-
-    btnNext.addEventListener('click', () => {
-      if (userIdInput.value.trim() === '') {
-        alert('아이디를 입력해 주세요.');
-        return;
-      }
-      // Reveal Step 2 (Reset password inputs)
-      stepPw.style.display = 'block';
-      userIdInput.readOnly = true;
-      btnNext.style.display = 'none';
-
-      // Make new fields required
-      newPw.required = true;
-      confirmPw.required = true;
-      newPw.focus();
-    });
-
-    findPwForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      if (newPw.value !== confirmPw.value) {
-        alert('비밀번호가 다릅니다.');
-        return;
-      }
-
-      alert('새 비밀번호로 바뀌었습니다.');
-      window.location.href = 'login.html';
-    });
-  </script>
 
 </body>
 
