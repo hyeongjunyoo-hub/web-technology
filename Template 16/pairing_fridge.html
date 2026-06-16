@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+  <!-- [수업 내용 적용] 기획안에 맞춰 웹페이지 제목(title) 및 검색 최적화(meta description, keywords) 직접 수정 -->
   <title>냉장고 구출 안주 매칭 - SoolPair 술페어</title>
   <meta content="자취생 및 사회초년생들을 위한 냉장고 속 재료 및 초간단 요리 가성비 주류 매칭 시스템" name="description">
   <meta content="SoolPair, 술페어, 냉장고 파먹기, 초간단 안주, 자취 요리 페어링, 가성비 술" name="keywords">
@@ -13,6 +14,7 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
@@ -31,6 +33,11 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Custom Styles for Anju Pairing Center -->
+  <!-- [AI 및 확장 문법 활용]
+       - AI를 사용한 부분: 냉장고 재료 매칭을 위한 칩(chip) 및 서브 탭 반응형 그리드용 CSS 스타일 구조 설계
+       - 본인이 직접 수정한 부분: 술페어 브랜드 아이덴티티에 맞는 탭 활성화 배경 색상(#2c5e43) 및 마진 보정
+       - 최종적으로 본인이 판단하고 결정한 부분: 다양한 모바일 환경에서 칩이 비정상적으로 잘려 나가는 것을 방지하기 위해 flex-wrap 레이아웃 배치 확정
+  -->
   <style>
     .category-tab {
       background-color: #f4f7f6;
@@ -55,37 +62,6 @@
       border-color: #2c5e43;
       color: #fff;
       box-shadow: 0 4px 10px rgba(44, 94, 67, 0.2);
-    }
-
-    .food-search-box {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .food-search-input {
-      width: 100%;
-      padding: 10px 15px 10px 40px;
-      border-radius: 30px;
-      border: 1px solid #ddd;
-      font-size: 14px;
-      transition: all 0.3s;
-      background-color: #fafafa;
-    }
-
-    .food-search-input:focus {
-      border-color: #2c5e43;
-      background-color: #fff;
-      box-shadow: 0 0 0 3px rgba(44, 94, 67, 0.15);
-      outline: none;
-    }
-
-    .food-search-icon {
-      position: absolute;
-      left: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #888;
-      font-size: 15px;
     }
 
     .food-chip {
@@ -165,20 +141,29 @@
 <body>
 
   <!-- ======= Header ======= -->
+  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스(d-flex, align-items-center)를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
+      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 링크(a) 수정 -->
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
 
+      <!-- [수업 내용 적용] 기획안에 맞춰 드롭다운을 제거하고 로그인, 장바구니 등 신규 링크 및 리스트(ul, li) 구성 수정 -->
+      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼(bi bi-list mobile-nav-toggle) 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">브랜드 소개</a></li>
           <li><a class="active" href="services.html">안주 페어링 센터</a></li>
           <li><a href="portfolio.html">주류 도감</a></li>
-          <li><a href="blog.html">자취방 라운지</a></li>
+          <li class="dropdown"><a href="#"><span>자취방 라운지</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="lounge_recommend.html">추천 매거진</a></li>
+              <li><a href="lounge_board.html">자유게시판</a></li>
+            </ul>
+          </li>
           <li><a id="nav-login" href="login.html">로그인</a></li>
           <li><a href="basket.html">장바구니</a></li>
           <li><a href="contact.html">제휴 문의</a></li>
@@ -192,6 +177,7 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
+    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 수정 -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -208,6 +194,12 @@
     </section><!-- End Breadcrumbs Section -->
 
     <!-- ======= 안주 페어링 매칭 도구 섹션 ======= -->
+    <!-- [수업 내용 적용] 자취 요리 리스트 타이틀 및 검색/카테고리 선택 폼, 그리고 우측 결과 카드 플레이스홀더를 HTML 구조로 설계 -->
+    <!-- [AI 및 확장 문법 활용]
+         - AI를 사용한 부분: 자취요리별 핵심 필요재료 목록 및 매칭된 가성비 주류 카드 구성 레이아웃 설계
+         - 본인이 직접 수정한 부분: 재료 아이콘 매핑 수정, 추천 주류와 12종 주류 도감 간의 링크 매핑 보정
+         - 최종적으로 본인이 판단하고 결정한 부분: 카테고리 칩 선택에 따른 스크롤 전환 애니메이션(AOS) 연동 최종 결정
+    -->
     <section class="services section-bg" style="padding: 60px 0; background-color: #f8fcf9;">
       <div class="container" data-aos="fade-up">
 
@@ -227,13 +219,6 @@
               <h3
                 style="font-size: 17px; font-weight: 700; color: #2c5e43; margin-bottom: 15px; border-bottom: 2px solid #2c5e43; padding-bottom: 8px;">
                 <i class="bi bi-list-ul me-2"></i>냉장고 음식 / 자취 요리 선택</h3>
-
-              <!-- 실시간 검색창 -->
-              <div class="food-search-box">
-                <i class="bi bi-search food-search-icon"></i>
-                <input type="text" id="food-search-input" class="food-search-input"
-                  placeholder="요리 이름이나 재료를 입력해 보세요 (예: 파스타, 만두, 제육)...">
-              </div>
 
               <!-- 카테고리 탭 -->
               <div class="d-flex flex-wrap gap-1 mb-3 pb-2" style="border-bottom: 1px solid #f0f0f0;">
@@ -355,6 +340,8 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
+  <!-- [수업 내용 적용] 뉴스레터 구독 form/input 구성 요소 및 placeholder 속성 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
+  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
     <div class="footer-newsletter">
@@ -384,7 +371,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="lounge_recommend.html">자취방 라운지</a></li>
             </ul>
           </div>
 
@@ -438,6 +425,7 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <!-- [원본 템플릿 유지] 카운트 업(Purecounter), 애니메이션(AOS), 슬라이드(Swiper) 등 템플릿 작동용 외부 벤더 자바스크립트 및 main.js 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -451,6 +439,17 @@
   <script src="assets/js/main.js"></script>
 
   <!-- SoolPair Fridge interactive scripts -->
+  <!-- [AI 및 확장 문법 활용]
+       - AI를 사용한 부분: 15종 자취요리별 부재료 및 매칭 주류 데이터사전(pairingDB) 연동 및 카테고별 동적 칩 필터링 알고리즘 설계
+       - 본인이 직접 수정한 부분: 실제 자취요리에 사용되는 정확한 식재료 명칭 수정 및 어색한 한국어 추천 사유 보완
+       - 최종적으로 본인이 판단하고 결정한 부분: 카테고리 선택 시 활성화 상태 표시(active-chip) 및 해당 카테고리에 맞는 요리들만 즉시 노출되도록 하는 display 필터링 로직 최종 확정
+  -->
+  <!-- [수업 내용 적용] 장바구니 담기 클릭 이벤트 바인딩 및 토스트 팝업 제어 등 기초 JS 적용 -->
+  <!-- [AI 및 확장 문법 활용]
+       - AI를 사용한 부분: 로컬스토리지(localStorage) 데이터 불러오기 및 장바구니 세션 동기화 로직 구현
+       - 본인이 직접 수정한 부분: 기존 장바구니 리스트 객체 내 품목 누적용 필드명(title, sub, price, abv 등) 매핑 일치 작업 수동 완료
+       - 최종적으로 본인이 판단하고 결정한 부분: 동일 품목 추가 클릭 시 예외 처리(수량 증가 qty++) 및 추가 완료 토스트 알림 속도 최종 결정
+  -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // 냉장고 속 재료 & 초간단 자취요리 주류 매칭 데이터베이스 (술페어 12종 리스트와 매핑)
@@ -694,28 +693,22 @@
         }, 300);
       }
 
-      // --- 3. 실시간 검색 & 카테고리 필터링 ---
-      const searchInput = document.getElementById('food-search-input');
-
+      // --- 3. 카테고리 필터링 ---
       function filterFoods() {
-        const query = searchInput.value.toLowerCase().trim();
         document.querySelectorAll('#food-chips-wrapper button').forEach(btn => {
           const foodName = btn.getAttribute('data-food');
           const item = pairingDB[foodName];
           if (!item) return;
 
           const matchesCategory = (activeCategory === 'all' || item.categories.includes(activeCategory));
-          const matchesSearch = foodName.includes(query) || item.title.toLowerCase().includes(query) || item.ingredients.includes(query);
 
-          if (matchesCategory && matchesSearch) {
+          if (matchesCategory) {
             btn.style.setProperty('display', 'inline-block', 'important');
           } else {
             btn.style.setProperty('display', 'none', 'important');
           }
         });
       }
-
-      searchInput.addEventListener('input', filterFoods);
 
       // 카테고리 탭 클릭 리스너
       document.querySelectorAll('.category-tab').forEach(tab => {

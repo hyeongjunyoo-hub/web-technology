@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+  <!-- [수업 내용 적용] 기획안에 맞춰 웹페이지 제목(title) 수정 -->
   <title>Services - SoolPair 술페어</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -13,6 +14,7 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 아이콘 및 애니메이션 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
 
@@ -40,20 +42,29 @@
 <body>
 
   <!-- ======= Header ======= -->
+  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스(d-flex, align-items-center)를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
+      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 링크(a) 수정 -->
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
 
+      <!-- [수업 내용 적용] 기획안에 맞춰 드롭다운을 제거하고 로그인, 장바구니 등 신규 링크 및 리스트(ul, li) 구성 수정 -->
+      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼(bi bi-list mobile-nav-toggle) 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a  href="index.html">Home</a></li>
           <li><a  href="about.html">브랜드 소개</a></li>
           <li><a class="active" href="services.html">안주 페어링 센터</a></li>
           <li><a  href="portfolio.html">주류 도감</a></li>
-          <li><a  href="blog.html">자취방 라운지</a></li>
+          <li class="dropdown"><a href="#"><span>자취방 라운지</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="lounge_recommend.html">추천 매거진</a></li>
+              <li><a href="lounge_board.html">자유게시판</a></li>
+            </ul>
+          </li>
           <li><a id="nav-login" href="login.html">로그인</a></li>
           <li><a href="basket.html">장바구니</a></li>
           <li><a  href="contact.html">제휴 문의</a></li>
@@ -62,11 +73,12 @@
       </nav>
 
     </div>
-  </header><!-- End Header --><!-- End Header -->
+  </header><!-- End Header -->
 
   <main id="main">
 
     <!-- ======= Our Services Section ======= -->
+    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 수정, 불필요한 하단 서브 섹션 전체 삭제 -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -82,6 +94,9 @@
     </section><!-- End Our Services Section -->
 
     <!-- ======= Services Section ======= -->
+    <!-- [수업 내용 적용] 각 서비스 상자의 상세 한글 텍스트(h4, p) 수정 및 기본 자바스크립트(location.href)를 이용한 클릭 이동 이벤트 구현 -->
+    <!-- [수업 내용 적용] 3열 배치를 위한 부트스트랩 그리드 수정(col-lg-4) 및 서비스 상자의 패딩, 테두리, 그림자 효과 인라인 스타일(style="...") 추가 -->
+    <!-- [원본 템플릿 유지] 스크롤 반응형 애니메이션(data-aos="fade-up") 및 아이콘 폰트(bx bx-*) 등 외부 라이브러리 기능 유지 -->
     <section class="services">
       <div class="container">
 
@@ -111,7 +126,7 @@
             <div class="icon-box icon-box-green w-100" style="padding: 40px 30px; border-radius: 10px; background: #fff; box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05); transition: 0.3s; border: 1px solid #eee; cursor: pointer;" onclick="location.href='pairing_liquor.html';">
               <div class="icon" style="margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 50px; background: #e6f6ed; transition: 0.3s; color: #41cf7e;"><i class="bx bx-wine" style="font-size: 32px;"></i></div>
               <h4 class="title" style="font-weight: 700; margin-bottom: 15px; font-size: 18px;"><a href="pairing_liquor.html" style="color: #1e4356;">보유한 주류와 어울리는 안주 찾기</a></h4>
-              <p class="description" style="font-size: 14px; line-height: 24px; color: #666; margin-bottom: 0;">현재 보유하고 있는 위스키, 와인, 하이볼 베이스 등의 술 이름만 입력하면 마트나 편의점에서 손쉽게 살 수 있는 최고의 가성비 안주를 큐레이션해 드립니다.</p>
+              <p class="description" style="font-size: 14px; line-height: 24px; color: #666; margin-bottom: 0;">현재 보유하고 있는 위스키, 와인, 하이볼 베이스 등의 술을 선택하면 마트나 편의점에서 손쉽게 살 수 있는 최고의 가성비 안주를 즉시 매칭해 드립니다.</p>
               <div class="text-center mt-3"><span style="font-size: 13px; font-weight: 700; color: #41cf7e; border-bottom: 2px solid #41cf7e; padding-bottom: 2px; cursor: pointer;">매칭 시스템 실행 &rarr;</span></div>
             </div>
           </div>
@@ -122,6 +137,9 @@
 
   </main><!-- End #main -->
 
+  <!-- ======= Footer ======= -->
+  <!-- [수업 내용 적용] 뉴스레터 구독 form/input 구성 요소 및 placeholder 속성 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
+  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
     <div class="footer-newsletter">
@@ -151,7 +169,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="lounge_recommend.html">자취방 라운지</a></li>
             </ul>
           </div>
 
@@ -205,6 +223,7 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <!-- [원본 템플릿 유지] 카운트 업(Purecounter), 애니메이션(AOS), 슬라이드(Swiper) 등 템플릿 작동용 외부 벤더 자바스크립트 및 main.js 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

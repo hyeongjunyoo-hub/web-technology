@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- [수업 내용 적용] 자취생 자유게시판 기획안에 맞춰 웹페이지 제목 및 검색 최적화(meta) 직접 수정 -->
+  <title>자취생 자유게시판 | SoolPair 술페어</title>
+  <meta content="자취생들의 솔직한 홈술 후기, 편의점 야식 꿀조합 레시피 공유 등 익명 소통을 위한 자유게시판" name="description">
+  <meta content="술페어, SoolPair, 자취생 자유게시판, 익명게시판, 홈술후기, 혼술소통" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 외부 CSS 라이브러리 연동 -->
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스를 사용한 템플릿 헤더 구조 -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 메인 링크 직접 수정 -->
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
+      </div>
+
+      <!-- [수업 내용 적용] 자취방 라운지를 드롭다운 메뉴로 분리하고, 자유게시판 서브 메뉴 활성화 처리 -->
+      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼 기능 유지 -->
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a href="services.html">안주 페어링 센터</a></li>
+          <li><a href="portfolio.html">주류 도감</a></li>
+          <li class="dropdown"><a class="active" href="#"><span>자취방 라운지</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="lounge_recommend.html">추천 매거진</a></li>
+              <li><a class="active" href="lounge_board.html">자유게시판</a></li>
+            </ul>
+          </li>
+          <li><a id="nav-login" href="login.html">로그인</a></li>
+          <li><a href="basket.html">장바구니</a></li>
+          <li><a href="contact.html">제휴 문의</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 직접 수정 -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>자취생 자유게시판</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>자취방 라운지</li>
+            <li>자유게시판</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <!-- [수업 내용 적용] 템플릿의 우측 사이드바를 삭제하고 전체(col-lg-12) 화면을 자유게시판 영역으로 확장 구조화 -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-12 entries">
+
+            <!-- 자취방 라운지 자유게시판 -->
+            <!-- [수업 내용 적용] 자유게시판 전체 프레임워크와 카드 본문 레이아웃을 직접 설계 -->
+            <!-- [AI 및 확장 문법 활용] 카드의 둥근 모서리 및 인라인 테두리, 그림자 스타일 적용 -->
+            <div class="card shadow-sm border-0 mb-4" style="border-radius: 12px; border: 1px solid #eef3ef;">
+              <div class="card-header bg-white py-3" style="border-bottom: 1px solid #f2f6f3;">
+                <h5 class="m-0 fw-bold" style="color: #183c28;"><i class="bi bi-chat-left-heart-fill me-2"
+                    style="color: #2c5e43;"></i>자취방 라운지 자유게시판</h5>
+              </div>
+              <div class="card-body">
+
+                <!-- 실시간 게시글 피드 (글목록이 위로 배치) -->
+                <!-- [수업 내용 적용] 동적으로 추가되는 게시글 카드가 삽입될 피드 컨테이너 작성 -->
+                <div id="lounge-feed-container" class="mb-4"
+                  style="max-height: 550px; overflow-y: auto; padding-right: 5px;">
+                  <!-- JS를 통해 동적으로 게시글 카드가 삽입됩니다. -->
+                </div>
+
+                <!-- 글 쓰는 칸 -->
+                <!-- [수업 내용 적용] 자취생 자유게시글 작성을 위한 폼 및 닉네임 없는 익명 한마디 textarea, 글쓰기 버튼 마크업 직접 생성 -->
+                <!-- [AI 및 확장 문법 활용] 게시글 작성 영역의 둥근 모서리, 리사이즈 방지, 테두리 스타일 등을 추가 인라인 속성으로 제어 -->
+                <div class="p-3 bg-light" style="border-radius: 10px; border: 1px solid #eef3ef;">
+                  <form id="lounge-post-form" onsubmit="event.preventDefault();">
+                    <div class="mb-3">
+                      <label for="post-content" class="form-label small fw-bold" style="color: #2c5e43;"><i
+                          class="bi bi-pencil me-1"></i>자취방 한마디 남기기</label>
+                      <textarea id="post-content" class="form-control" rows="3"
+                        placeholder="오늘 마신 술 후기, 나만의 편의점 야식 레시피 등을 익명으로 자유롭게 적어보세요!" required
+                        style="border-radius: 8px; resize: none; background: #fff; border: 1px solid #e2e8f0;"></textarea>
+                    </div>
+                    <button type="button" id="btn-submit-post" class="btn text-white fw-bold w-100"
+                      style="background-color: #2c5e43; border-radius: 8px; transition: 0.3s;">
+                      <i class="bi bi-plus-lg me-1"></i>글쓰기
+                    </button>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- End blog entries list -->
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <!-- [수업 내용 적용] 뉴스레터 구독 form 및 input 요소 직접 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
+  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
+  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+
+    <div class="footer-newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>SoolPair 뉴스레터 구독</h4>
+            <p>매주 제공되는 가성비 주류 소식과 마스터의 페어링 레시피를 이메일로 받아보세요.</p>
+          </div>
+          <div class="col-lg-6">
+            <form action="" method="post">
+              <input type="email" name="email" placeholder="이메일 주소를 입력하세요"><input type="submit" value="구독 신청">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>바로가기</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="lounge_board.html">자유게시판</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>페어링 매칭 서비스</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_delivery.html">배달 야식 페어링</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="pairing_fridge.html">냉장고 구출 안주 매칭</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="services.html">편의점 털기 꿀조합</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">가성비 8종 수입주류 정보</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>SoolPair 대학가 자취방 센터</h4>
+            <p>
+              서울특별시 마포구 대학가길 77 <br>
+              자취방 라운지 오프라인 센터<br>
+              대한민국 <br><br>
+              <strong>전화번호:</strong> 02-987-6543<br>
+              <strong>이메일:</strong> hello@soolpair.co.kr<br>
+            </p>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>SoolPair (술페어)</h3>
+            <p>술페어는 주머니가 가벼운 대학생들을 위해 마트/편의점에서 손쉽게 살 수 있는 해외 주류의 숨겨진 가치를 전달하고 스마트한 안주 조합을 큐레이션합니다.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SoolPair</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <!-- [원본 템플릿 유지] 카운트 업, 애니메이션, 슬라이드 등 템플릿 작동용 외부 벤더 JS 파일 연동 -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- SoolPair Lounge Board JavaScript Logic -->
+  <!-- [수업 내용 적용] DOMContentLoaded 이벤트 바인딩 및 기초 변수 선언(const), alert 팝업 기능 등 기본 이벤트 처리 적용 -->
+  <!-- [수업 내용 적용] 배열 탐색(find) 및 동적 HTML 카드 생성과 innerHTML 삽입을 통한 자유게시판 피드 렌더링 시스템 구현 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Free Board Elements
+      const contentTextarea = document.getElementById("post-content");
+      const submitBtn = document.getElementById("btn-submit-post");
+      const feedContainer = document.getElementById("lounge-feed-container");
+
+      // Anonymous nicknames to assign randomly
+      const anonNames = [
+        "익명의 하이볼러", "자취방술박사", "익명의 혼술족",
+        "소맥비율연구가", "편의점야식광", "가성비맥주파",
+        "자취방바리스타", "안주소믈리에", "위스키입문생",
+        "소맥장인", "밤샘자취러", "편의점마스터"
+      ];
+
+      // Default mock data matching SoolPair lounge (Free Board)
+      const defaultPosts = [
+        {
+          id: 1,
+          nickname: "소맥비율연구가",
+          content: "오늘 편의점에서 메로나 메론바에 토닉워터 타고 소주 섞어 마셔봤는데 진짜 메론맛 하이볼 같네요 ㅋㅋㅋ 달달해서 알코올 냄새도 싹 잡히고 술술 넘어갑니다. 강추!! #편의점 #메로나주 #꿀조합",
+          likes: 18,
+          liked: false,
+          date: "2026-06-07 14:15"
+        },
+        {
+          id: 2,
+          nickname: "익명의 하이볼러",
+          content: "편의점에서 피치트리 리큐르 하나 사와서 하이볼 타 마셨어요! 토닉워터랑 1:3으로 타서 시원하게 들이켜니까 복숭아 주스마냥 너무 맛있어서 한병 다 비울뻔했네요 ㅋㅋㅋ #피치트리 #하이볼",
+          likes: 15,
+          liked: false,
+          date: "2026-06-07 12:45"
+        },
+        {
+          id: 3,
+          nickname: "편의점야식광",
+          content: "이달의 가성비 조합인 피치트리 하이볼이랑 자이언트 매운 떡볶이 같이 먹어봤어요! 떡볶이가 화끈하게 매운데 하이볼 한 모금 들이키니까 달달한 복숭아 향이 매운맛을 딱 잡아주네요. 이거 진짜 미친 꿀조합입니다 ㅠㅠ #안주 #매운떡볶이 #피치하이볼",
+          likes: 14,
+          liked: false,
+          date: "2026-06-07 10:15"
+        },
+        {
+          id: 4,
+          nickname: "자취방바리스타",
+          content: "이마트에서 파는 6천원짜리 가성비 레드와인 'T7 카베르네 소비뇽' 기대 없이 샀는데 은근히 풍미 괜찮네요. 목살 구워서 같이 마시는데 반주로 가성비 아주 훌륭합니다. 자취 입문용 와인으로 추천해요. #와인 #가성비와인",
+          likes: 11,
+          liked: false,
+          date: "2026-06-06 21:30"
+        },
+        {
+          id: 5,
+          nickname: "안주소믈리에",
+          content: "진로 토닉워터 홍차맛에 위스키 조합 드셔보셨나요? 홍차 향이 위스키의 알코올 치는 맛을 부드럽게 잡아줘서 진짜 맛있어요. 요즘 최애 얼그레이 하이볼 레시피입니다. #홍차토닉 #하이볼꿀팁",
+          likes: 9,
+          liked: false,
+          date: "2026-06-06 18:22"
+        },
+        {
+          id: 6,
+          nickname: "자취방술박사",
+          content: "자취생 초간단 캔맥주 안주! 만두피나 토르티야 위에 피자 소스 바르고 모차렐라 치즈랑 베이컨/스팸 조각 올려서 에어프라이어에 5분 돌리면 초간단 미니 피자 완성됩니다. 편하게 혼술하기 좋아요! #맥주안주 #간단요리",
+          likes: 8,
+          liked: false,
+          date: "2026-06-05 23:45"
+        }
+      ];
+
+      let posts = [];
+
+      // ==========================================
+      // Data Storage Operations
+      // ==========================================
+      function loadAllData() {
+        // Initialize in-memory arrays with deep-cloned defaults
+        posts = JSON.parse(JSON.stringify(defaultPosts));
+      }
+
+      // ==========================================
+      // Rendering Free Board
+      // ==========================================
+      function renderPosts() {
+        feedContainer.innerHTML = "";
+
+        if (posts.length === 0) {
+          feedContainer.innerHTML = `
+            <div class="text-center py-5 text-muted bg-light" style="border-radius: 12px; border: 1px dashed #ddd;">
+              <i class="bi bi-chat-dots-fill" style="font-size: 32px; color: #2c5e43;"></i>
+              <p class="mt-2 mb-0 fw-bold">자유게시판에 등록된 이야기가 없습니다.</p>
+              <small class="text-secondary">아래 입력창에서 첫 소식을 전해보세요!</small>
+            </div>
+          `;
+          return;
+        }
+
+        posts.forEach(post => {
+          const postCard = document.createElement("div");
+          postCard.className = "card lounge-post-card mb-3";
+          postCard.innerHTML = `
+            <div class="card-header bg-white d-flex justify-content-between align-items-center lounge-post-header py-3" style="border-bottom: 1px solid #f2f6f3;">
+              <div class="d-flex align-items-center">
+                <div class="avatar text-white fw-bold d-flex align-items-center justify-content-center me-2" 
+                     style="width: 36px; height: 36px; border-radius: 50%; background-color: #2c5e43; font-size: 14px; box-shadow: inset 0 0 4px rgba(0,0,0,0.1);">
+                  ${post.nickname.charAt(0)}
+                </div>
+                <div>
+                  <span class="fw-bold" style="color: #183c28;">${post.nickname}</span>
+                </div>
+              </div>
+              <div>
+                <small class="text-muted" style="font-size: 12px;">${post.date}</small>
+              </div>
+            </div>
+            <div class="card-body py-3">
+              <p class="card-text text-dark" style="white-space: pre-wrap; line-height: 1.6; font-size: 14px; font-family: 'Inter', sans-serif;">${post.content}</p>
+            </div>
+            <div class="card-footer bg-white d-flex align-items-center py-2" style="border-top: 1px solid #fcfcfc;">
+              <button class="like-btn d-flex align-items-center ${post.liked ? 'liked' : ''}" onclick="toggleLike(${post.id})">
+                <i class="bi ${post.liked ? 'bi-heart-fill' : 'bi-heart'} me-2"></i>
+                <span>공감 <strong class="like-count">${post.likes}</strong></span>
+              </button>
+            </div>
+          `;
+          feedContainer.appendChild(postCard);
+        });
+      }
+
+      // Free Board Like Toggle
+      window.toggleLike = function (id) {
+        const post = posts.find(p => p.id === id);
+        if (post) {
+          if (post.liked) {
+            post.likes--;
+            post.liked = false;
+          } else {
+            post.likes++;
+            post.liked = true;
+          }
+          renderPosts();
+        }
+      };
+
+      // Free Board Post Submit
+      submitBtn.addEventListener("click", function () {
+        const content = contentTextarea.value.trim();
+
+        if (content === "") {
+          alert("글 내용을 입력해 주세요!");
+          contentTextarea.focus();
+          return;
+        }
+
+        const now = new Date();
+        const formattedDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        
+        // Randomly pick a nickname from anonNames for anonymous posting
+        const randomNickname = anonNames[Math.floor(Math.random() * anonNames.length)];
+
+        const newPost = {
+          id: Date.now(),
+          nickname: randomNickname,
+          content: content,
+          likes: 0,
+          liked: false,
+          date: formattedDate
+        };
+
+        posts.unshift(newPost);
+        renderPosts();
+
+        contentTextarea.value = "";
+        feedContainer.scrollTop = 0;
+      });
+
+      // ==========================================
+      // Initialization
+      // ==========================================
+      loadAllData();
+      renderPosts();
+    });
+  </script>
+
+</body>
+
+</html>

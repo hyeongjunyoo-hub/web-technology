@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+  <!-- [수업 내용 적용] 기획안에 맞춰 웹페이지 제목(title) 수정 -->
   <title>About - SoolPair 술페어</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
@@ -13,6 +14,7 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 아이콘 및 애니메이션 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
@@ -42,20 +44,29 @@
 <body>
 
   <!-- ======= Header ======= -->
+  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스(d-flex, align-items-center)를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
+      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 링크(a) 수정 -->
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
 
+      <!-- [수업 내용 적용] 기획안에 맞춰 드롭다운을 제거하고 로그인, 장바구니 등 신규 링크 및 리스트(ul, li) 구성 수정 -->
+      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼(bi bi-list mobile-nav-toggle) 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a class="active" href="about.html">브랜드 소개</a></li>
           <li><a href="services.html">안주 페어링 센터</a></li>
           <li><a href="portfolio.html">주류 도감</a></li>
-          <li><a href="blog.html">자취방 라운지</a></li>
+          <li class="dropdown"><a href="#"><span>자취방 라운지</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="lounge_recommend.html">추천 매거진</a></li>
+              <li><a href="lounge_board.html">자유게시판</a></li>
+            </ul>
+          </li>
           <li><a id="nav-login" href="login.html">로그인</a></li>
           <li><a href="basket.html">장바구니</a></li>
           <li><a href="contact.html">제휴 문의</a></li>
@@ -69,6 +80,8 @@
   <main id="main">
 
     <!-- ======= About Us Section ======= -->
+    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 수정 -->
+    <!-- [수업 내용 적용] 여백 미세 조정을 위해 인라인 스타일(style="padding: 10px 0; ...") 추가 -->
     <section class="breadcrumbs" style="padding: 10px 0; margin-bottom: 0;">
       <div class="container">
 
@@ -84,6 +97,9 @@
     </section><!-- End Breadcrumbs Section -->
 
     <!-- ======= About Section ======= -->
+    <!-- [수업 내용 적용] 공동창립자 2인의 프로필 이미지(img) 연동 및 기획안 맞춤형 이름, 소개 한글 텍스트(h3, p) 수정 -->
+    <!-- [수업 내용 적용] 좌우 대칭 배치를 위한 그리드 열 정렬 순서(order-lg-1/2) 및 프로필 사진 border/그림자 효과 인라인 스타일(style="...") 추가 -->
+    <!-- [원본 템플릿 유지] 구역 전체의 페이드인 애니메이션(data-aos="fade-up") 및 반응형 그리드 기본 구조 유지 -->
     <section class="about" data-aos="fade-up" style="padding: 30px 0 15px 0; margin-bottom: 0;">
       <div class="container">
 
@@ -102,7 +118,7 @@
               매칭 시스템 총괄</p>
             <p style="line-height: 1.8; color: #444; font-size: 17px; margin-bottom: 0;">
               "대학 생활 중 주머니 사정이 여의치 않은 상황에서도 맛있는 홈술과 하이볼을 즐기고 싶어하는 대학생들의 고민에서 SoolPair가 출발했습니다. 복잡한 주류 지식 없이도 마트나 편의점에서
-              손쉽게 구할 수 있는 가성비 해외 주류들의 숨겨진 매력을 전달하고, 개개인의 예산과 냉장고 상황에 어울리는 안주를 스마트하게 조합하여 매칭해주는 최고의 서비스를 제공하겠습니다."
+              손쉽게 구할 수 있는 가성비 해외 주류들의 숨겨진 매력을 전달하고, 개개인의 예산 and 냉장고 상황에 어울리는 안주를 스마트하게 조합하여 매칭해주는 최고의 서비스를 제공하겠습니다."
             </p>
           </div>
         </div>
@@ -133,6 +149,8 @@
     </section><!-- End About Section -->
 
     <!-- ======= Facts Section ======= -->
+    <!-- [수업 내용 적용] 템플릿의 4단 레이아웃을 2단 컬럼 구조(col-6)로 축소 및 카운터 라벨 한글 텍스트 수정 -->
+    <!-- [원본 템플릿 유지] Purecounter 외부 라이브러리(data-purecounter-*)를 활용한 숫자 카운트업 애니메이션 효과 유지 -->
     <section class="facts section-bg" data-aos="fade-up" style="padding: 12px 0; margin-bottom: 0;">
       <div class="container" style="max-width: 600px;">
 
@@ -167,8 +185,9 @@
     </section><!-- End Facts Section -->
 
     <!-- ======= Clients Section ======= -->
+    <!-- [수업 내용 적용] 템플릿의 복잡한 Swiper 슬라이더 회전 배너 코드를 제거하고 단일 브랜드 로고 이미지(img)가 중앙 정렬되도록 레이아웃 변경 -->
     <section class="clients" data-aos="fade-up"
-      style="padding: 20px 0; margin-bottom: 0; background-color: #fff; border-bottom: 1px solid #eee;">
+       style="padding: 20px 0; margin-bottom: 0; background-color: #fff; border-bottom: 1px solid #eee;">
       <div class="container text-center">
         <img src="assets/img/soolpair_logo.png" class="img-fluid" alt="SoolPair Logo"
           style="max-height: 220px; opacity: 1;">
@@ -176,6 +195,8 @@
     </section><!-- End Clients Section -->
 
     <!-- ======= Our Skills Section ======= -->
+    <!-- [수업 내용 적용] 리서치 기사 통계 통계조사 내용을 문단 텍스트(p) 및 기사 링크(a)로 반영하고 수치에 맞춰 진행바 데이터(aria-valuenow) 변경 -->
+    <!-- [원본 템플릿 유지] 진행률을 바 형태로 채워 시각화하는 부트스트랩의 progress 컴포넌트(progress, progress-bar) 구조와 스타일 속성 유지 -->
     <section class="skills" data-aos="fade-up">
       <div class="container">
 
@@ -227,6 +248,9 @@
     </section><!-- End Our Skills Section -->
 
     <!-- ======= Target User Section ======= -->
+    <!-- [수업 내용 적용] 기존 캐러셀 슬라이더(Testimonials) 구조 대신 2열 형태의 고정된 타겟 유저 소개 카드 구조로 개편 및 텍스트 작성 -->
+    <!-- [수업 내용 적용] 2열 정렬을 위한 부트스트랩 그리드 클래스(col-md-6) 및 카드의 상단 테두리/그림자 효과 인라인 스타일(style="...") 추가 -->
+    <!-- [원본 템플릿 유지] 스크롤 애니메이션(data-aos="fade-up") 및 부트스트랩 아이콘 폰트(bi bi-*) 활용 유지 -->
     <section class="testimonials" data-aos="fade-up" style="padding: 40px 0; background-color: #f8f9fa;">
       <div class="container">
 
@@ -267,6 +291,9 @@
 
   </main><!-- End #main -->
 
+  <!-- ======= Footer ======= -->
+  <!-- [수업 내용 적용] 뉴스레터 구독 form/input 구성 요소 및 placeholder 속성 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
+  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
     <div class="footer-newsletter">
@@ -296,7 +323,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="about.html">브랜드 소개</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="services.html">안주 페어링 센터</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="portfolio.html">주류 도감</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="blog.html">자취방 라운지</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="lounge_recommend.html">자취방 라운지</a></li>
             </ul>
           </div>
 
@@ -351,6 +378,7 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
+  <!-- [원본 템플릿 유지] 카운트 업(Purecounter), 애니메이션(AOS), 슬라이드(Swiper) 등 템플릿 작동용 외부 벤더 자바스크립트 및 main.js 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
