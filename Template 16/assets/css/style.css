@@ -1321,6 +1321,7 @@ section {
 }
 
 .portfolio .portfolio-item img {
+  width: 100%;
   transition: all 0.3s ease-in-out;
 }
 

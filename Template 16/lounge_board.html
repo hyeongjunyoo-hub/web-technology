@@ -399,19 +399,14 @@
           return;
         }
 
-        const now = new Date();
-        const formattedDate = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-        
         // Randomly pick a nickname from anonNames for anonymous posting
-        const randomNickname = anonNames[Math.floor(Math.random() * anonNames.length)];
-
         const newPost = {
           id: Date.now(),
-          nickname: randomNickname,
+          nickname: "익명의 사용자_1",
           content: content,
           likes: 0,
           liked: false,
-          date: formattedDate
+          date: ""
         };
 
         posts.unshift(newPost);
