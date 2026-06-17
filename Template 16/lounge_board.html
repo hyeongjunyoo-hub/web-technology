@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- [수업 내용 적용] 자취생 자유게시판 기획안에 맞춰 웹페이지 제목 및 검색 최적화(meta) 직접 수정 -->
   <title>자취생 자유게시판 | SoolPair 술페어</title>
   <meta content="자취생들의 솔직한 홈술 후기, 편의점 야식 꿀조합 레시피 공유 등 익명 소통을 위한 자유게시판" name="description">
   <meta content="술페어, SoolPair, 자취생 자유게시판, 익명게시판, 홈술후기, 혼술소통" name="keywords">
@@ -14,7 +13,6 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
@@ -36,17 +34,13 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
-      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 메인 링크 직접 수정 -->
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
 
-      <!-- [수업 내용 적용] 자취방 라운지를 드롭다운 메뉴로 분리하고, 자유게시판 서브 메뉴 활성화 처리 -->
-      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -72,7 +66,6 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 직접 수정 -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -89,7 +82,6 @@
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Blog Section ======= -->
-    <!-- [수업 내용 적용] 템플릿의 우측 사이드바를 삭제하고 전체(col-lg-12) 화면을 자유게시판 영역으로 확장 구조화 -->
     <section id="blog" class="blog">
       <div class="container" data-aos="fade-up">
 
@@ -98,8 +90,6 @@
           <div class="col-lg-12 entries">
 
             <!-- 자취방 라운지 자유게시판 -->
-            <!-- [수업 내용 적용] 자유게시판 전체 프레임워크와 카드 본문 레이아웃을 직접 설계 -->
-            <!-- [AI 및 확장 문법 활용] 카드의 둥근 모서리 및 인라인 테두리, 그림자 스타일 적용 -->
             <div class="card shadow-sm border-0 mb-4" style="border-radius: 12px; border: 1px solid #eef3ef;">
               <div class="card-header bg-white py-3" style="border-bottom: 1px solid #f2f6f3;">
                 <h5 class="m-0 fw-bold" style="color: #183c28;"><i class="bi bi-chat-left-heart-fill me-2"
@@ -108,15 +98,12 @@
               <div class="card-body">
 
                 <!-- 실시간 게시글 피드 (글목록이 위로 배치) -->
-                <!-- [수업 내용 적용] 동적으로 추가되는 게시글 카드가 삽입될 피드 컨테이너 작성 -->
                 <div id="lounge-feed-container" class="mb-4"
                   style="max-height: 550px; overflow-y: auto; padding-right: 5px;">
                   <!-- JS를 통해 동적으로 게시글 카드가 삽입됩니다. -->
                 </div>
 
                 <!-- 글 쓰는 칸 -->
-                <!-- [수업 내용 적용] 자취생 자유게시글 작성을 위한 폼 및 닉네임 없는 익명 한마디 textarea, 글쓰기 버튼 마크업 직접 생성 -->
-                <!-- [AI 및 확장 문법 활용] 게시글 작성 영역의 둥근 모서리, 리사이즈 방지, 테두리 스타일 등을 추가 인라인 속성으로 제어 -->
                 <div class="p-3 bg-light" style="border-radius: 10px; border: 1px solid #eef3ef;">
                   <form id="lounge-post-form" onsubmit="event.preventDefault();">
                     <div class="mb-3">
@@ -146,8 +133,6 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <!-- [수업 내용 적용] 뉴스레터 구독 form 및 input 요소 직접 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
-  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
     <div class="footer-newsletter">
@@ -232,7 +217,6 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <!-- [원본 템플릿 유지] 카운트 업, 애니메이션, 슬라이드 등 템플릿 작동용 외부 벤더 JS 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -246,8 +230,6 @@
   <script src="assets/js/main.js"></script>
 
   <!-- SoolPair Lounge Board JavaScript Logic -->
-  <!-- [수업 내용 적용] DOMContentLoaded 이벤트 바인딩 및 기초 변수 선언(const), alert 팝업 기능 등 기본 이벤트 처리 적용 -->
-  <!-- [수업 내용 적용] 배열 탐색(find) 및 동적 HTML 카드 생성과 innerHTML 삽입을 통한 자유게시판 피드 렌더링 시스템 구현 -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Free Board Elements

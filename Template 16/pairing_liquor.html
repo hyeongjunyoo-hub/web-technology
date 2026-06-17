@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- [수업 내용 적용] 기획안에 맞춰 웹페이지 제목(title) 및 검색 최적화(meta description, keywords) 직접 수정 -->
   <title>보유 주류 안주 매칭 - SoolPair 술페어</title>
   <meta content="내가 가진 주류와 가장 잘 어울리는 편의점 가성비 안주 추천 매칭 시스템" name="description">
   <meta content="SoolPair, 술페어, 안주 페어링, 편의점 안주, 가성비 술" name="keywords">
@@ -14,9 +13,10 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -31,11 +31,6 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Custom Styles for Anju Pairing Center -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 편의점 안주 꿀조합 매칭을 위한 주류 칩(chip) 및 탭 컨트롤용 CSS 기본 레이아웃 구성
-       - 본인이 직접 수정한 부분: 술페어 브랜드 그린(#2c5e43)과 조화를 이룰 수 있게 칩 활성화 상태(active) 폰트 가독성 설정 조정
-       - 최종적으로 본인이 판단하고 결정한 부분: 다양한 모바일 브라우저에서의 여백 크기(padding: 6px 14px) 및 트랜지션 애니메이션 속도 확정
-  -->
   <style>
     .category-tab {
       background-color: #f4f7f6;
@@ -48,17 +43,20 @@
       transition: all 0.2s ease;
       cursor: pointer;
     }
+
     .category-tab:hover {
       background-color: #e2ede8;
       color: #2c5e43;
       border-color: #2c5e43;
     }
+
     .category-tab.active {
       background-color: #2c5e43;
       border-color: #2c5e43;
       color: #fff;
       box-shadow: 0 4px 10px rgba(44, 94, 67, 0.2);
     }
+
     .food-chip {
       border-radius: 50px !important;
       font-size: 14px !important;
@@ -70,12 +68,14 @@
       background-color: #fff !important;
       color: #444 !important;
     }
+
     .food-chip:hover {
       background-color: #eef7f2 !important;
       border-color: #2c5e43 !important;
       color: #2c5e43 !important;
       transform: translateY(-1px);
     }
+
     .food-chip.active-chip {
       background-color: #2c5e43 !important;
       border-color: #2c5e43 !important;
@@ -84,21 +84,25 @@
       box-shadow: 0 4px 12px rgba(44, 94, 67, 0.25) !important;
       transform: scale(1.03);
     }
+
     #liquor-chips-wrapper::-webkit-scrollbar {
       width: 6px;
     }
+
     #liquor-chips-wrapper::-webkit-scrollbar-track {
       background: #f1f1f1;
       border-radius: 10px;
     }
+
     #liquor-chips-wrapper::-webkit-scrollbar-thumb {
       background: #c2cfc9;
       border-radius: 10px;
     }
+
     #liquor-chips-wrapper::-webkit-scrollbar-thumb:hover {
       background: #a3b5ad;
     }
-    
+
     /* Toast Notification style */
     .toast-notification {
       position: fixed;
@@ -111,7 +115,7 @@
       border-radius: 50px;
       font-size: 14.5px;
       font-weight: 600;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
       z-index: 9999;
       opacity: 0;
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -119,6 +123,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .toast-notification.show {
       transform: translateX(-50%) translateY(0);
       opacity: 1;
@@ -129,17 +134,13 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스(d-flex, align-items-center)를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
-      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 링크(a) 수정 -->
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
 
-      <!-- [수업 내용 적용] 기획안에 맞춰 드롭다운을 제거하고 로그인, 장바구니 등 신규 링크 및 리스트(ul, li) 구성 수정 -->
-      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼(bi bi-list mobile-nav-toggle) 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -165,7 +166,6 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 수정 -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -182,12 +182,6 @@
     </section><!-- End Breadcrumbs Section -->
 
     <!-- ======= 안주 페어링 매칭 도구 섹션 ======= -->
-    <!-- [수업 내용 적용] 주류 리스트 타이틀 및 검색/카테고리 선택 폼, 그리고 우측 결과 카드 플레이스홀더를 HTML 구조로 설계 -->
-    <!-- [AI 및 확장 문법 활용]
-         - AI를 사용한 부분: 선택 주류와 편의점 안주 매칭의 추천 결과 레이아웃(궁합 지수 바, 조리 시간 예상 게이지 바) HTML 구조 생성
-         - 본인이 직접 수정한 부분: 결과 카드 내 세부 요소(조리 시간 수치 표시용 텍스트 및 안주 가격) 디자인 수정
-         - 최종적으로 본인이 판단하고 결정한 부분: 모바일 및 데스크톱 뷰에서의 결과판 노출 여부(display 제어) 로직 최종 판단 적용
-    -->
     <section class="services section-bg" style="padding: 60px 0; background-color: #f8fcf9;">
       <div class="container" data-aos="fade-up">
 
@@ -201,9 +195,12 @@
         <div class="row">
           <!-- 주류 선택 패널 (왼쪽 7열) -->
           <div class="col-lg-7 mb-4">
-            <div style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #eef2f0;">
-              <h3 style="font-size: 17px; font-weight: 700; color: #2c5e43; margin-bottom: 15px; border-bottom: 2px solid #2c5e43; padding-bottom: 8px;"><i class="bi bi-list-ul me-2"></i>보유 주류 선택</h3>
-              
+            <div
+              style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); border: 1px solid #eef2f0;">
+              <h3
+                style="font-size: 17px; font-weight: 700; color: #2c5e43; margin-bottom: 15px; border-bottom: 2px solid #2c5e43; padding-bottom: 8px;">
+                <i class="bi bi-list-ul me-2"></i>보유 주류 선택</h3>
+
               <!-- 카테고리 탭 -->
               <div class="d-flex flex-wrap gap-1 mb-3 pb-2" style="border-bottom: 1px solid #f0f0f0;">
                 <button class="category-tab active" data-category="all">전체</button>
@@ -212,7 +209,8 @@
                 <button class="category-tab" data-category="liqueur">🍹 리큐르/기타</button>
               </div>
 
-              <div id="liquor-chips-wrapper" class="d-flex flex-wrap gap-2" style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
+              <div id="liquor-chips-wrapper" class="d-flex flex-wrap gap-2"
+                style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
                 <!-- JS를 통해 12종의 주류 칩 버튼들이 렌더링됩니다 -->
               </div>
             </div>
@@ -220,64 +218,87 @@
 
           <!-- 매칭 결과 패널 (오른쪽 5열) -->
           <div class="col-lg-5 mb-4">
-            <div id="pairing-result-panel" style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #eef2f0; border-top: 5px solid #2c5e43; min-height: 440px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: all 0.3s; position: relative;">
-              
+            <div id="pairing-result-panel"
+              style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); border: 1px solid #eef2f0; border-top: 5px solid #2c5e43; min-height: 440px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; transition: all 0.3s; position: relative;">
+
               <!-- 초기 대기 상태 화면 -->
               <div id="result-placeholder" style="color: #888;">
-                <div style="font-size: 60px; color: #2c5e43; opacity: 0.15; margin-bottom: 15px;"><i class="bi bi-patch-check"></i></div>
+                <div style="font-size: 60px; color: #2c5e43; opacity: 0.15; margin-bottom: 15px;"><i
+                    class="bi bi-patch-check"></i></div>
                 <h4 style="font-size: 16px; font-weight: 700; color: #1e4356; margin-bottom: 8px;">보유하신 주류를 선택해주세요</h4>
-                <p style="font-size: 13.5px; margin-bottom: 0; line-height: 1.6;">왼쪽 리스트에서 보유 중인 주류를 누르시면<br>가장 잘 어울리는 편의점 안주 추천 카드가 열립니다.</p>
+                <p style="font-size: 13.5px; margin-bottom: 0; line-height: 1.6;">왼쪽 리스트에서 보유 중인 주류를 누르시면<br>가장 잘 어울리는
+                  편의점 안주 추천 카드가 열립니다.</p>
               </div>
 
               <!-- 결과 렌더링 화면 (초기엔 display: none) -->
               <div id="result-content" style="display: none; width: 100%; text-align: left;">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <span id="result-liquor-badge" style="background-color: #ffe6d9; color: #ff8c00; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px;">🥃 잭 다니엘</span>
-                  <span style="font-size: 11px; color: #aaa; font-weight: 600;"><i class="bi bi-shield-check me-1"></i>SoolPair 매칭 인증</span>
+                  <span id="result-liquor-badge"
+                    style="background-color: #ffe6d9; color: #ff8c00; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 50px;">🥃
+                    잭 다니엘</span>
+                  <span style="font-size: 11px; color: #aaa; font-weight: 600;"><i
+                      class="bi bi-shield-check me-1"></i>SoolPair 매칭 인증</span>
                 </div>
-                
-                <h3 id="result-food-title" style="font-size: 23px; font-weight: 700; color: #2c5e43; margin-bottom: 3px;">숯불 매콤 닭꼬치</h3>
-                <h5 id="result-food-category" style="font-size: 13px; color: #777; font-family: 'Outfit', sans-serif; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px;">🍖 육류/안주</h5>
-                
+
+                <h3 id="result-food-title"
+                  style="font-size: 23px; font-weight: 700; color: #2c5e43; margin-bottom: 3px;">숯불 매콤 닭꼬치</h3>
+                <h5 id="result-food-category"
+                  style="font-size: 13px; color: #777; font-family: 'Outfit', sans-serif; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px;">
+                  🍖 육류/안주</h5>
+
                 <!-- 궁합 지수 프로그레스바 -->
                 <div class="mb-3">
-                  <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; font-weight: 600; color: #555;">
+                  <div class="d-flex justify-content-between mb-1"
+                    style="font-size: 12.5px; font-weight: 600; color: #555;">
                     <span>🤝 페어링 매칭 궁합 지수</span>
                     <span id="result-compatibility-score" style="color: #ff689b; font-weight: 700;">97%</span>
                   </div>
                   <div class="progress" style="height: 7px; background-color: #f0f0f0; border-radius: 10px;">
-                    <div id="result-compatibility-bar" class="progress-bar" role="progressbar" style="width: 97%; background: linear-gradient(90deg, #ff8c00, #ff689b); border-radius: 10px;"></div>
+                    <div id="result-compatibility-bar" class="progress-bar" role="progressbar"
+                      style="width: 97%; background: linear-gradient(90deg, #ff8c00, #ff689b); border-radius: 10px;">
+                    </div>
                   </div>
                 </div>
 
                 <!-- 조리 시간 정보 -->
                 <div class="mb-3">
-                  <div class="d-flex justify-content-between mb-1" style="font-size: 12.5px; font-weight: 600; color: #555;">
+                  <div class="d-flex justify-content-between mb-1"
+                    style="font-size: 12.5px; font-weight: 600; color: #555;">
                     <span>🍳 조리 방식 / 조리 시간</span>
                     <span id="result-cooktime-text" style="color: #1e4356; font-weight: 700;">전자레인지 1분 30초</span>
                   </div>
                   <div class="progress" style="height: 7px; background-color: #f0f0f0; border-radius: 10px;">
-                    <div id="result-cooktime-bar" class="progress-bar" role="progressbar" style="width: 25%; background-color: #1e4356; border-radius: 10px;"></div>
+                    <div id="result-cooktime-bar" class="progress-bar" role="progressbar"
+                      style="width: 25%; background-color: #1e4356; border-radius: 10px;"></div>
                   </div>
                 </div>
 
                 <!-- 가격대 정보 -->
-                <div class="mb-3 p-2 d-flex justify-content-between align-items-center" style="background-color: #f8f9fa; border-radius: 8px; border-left: 3px solid #2c5e43;">
-                  <span style="font-size: 12.5px; font-weight: 600; color: #555;"><i class="bi bi-wallet2 me-1"></i>구매 예상가</span>
-                  <span id="result-food-price" style="font-size: 13.5px; font-weight: 700; color: #2c5e43;">약 3,500원</span>
+                <div class="mb-3 p-2 d-flex justify-content-between align-items-center"
+                  style="background-color: #f8f9fa; border-radius: 8px; border-left: 3px solid #2c5e43;">
+                  <span style="font-size: 12.5px; font-weight: 600; color: #555;"><i class="bi bi-wallet2 me-1"></i>구매
+                    예상가</span>
+                  <span id="result-food-price" style="font-size: 13.5px; font-weight: 700; color: #2c5e43;">약
+                    3,500원</span>
                 </div>
 
                 <hr style="border-top: 1px dashed #ddd; margin: 15px 0;">
 
-                <h4 style="font-size: 13.5px; font-weight: 700; color: #1e4356; margin-bottom: 6px;"><i class="bi bi-chat-quote-fill me-1" style="color: #2c5e43;"></i>전문가 코멘트</h4>
-                <div style="background-color: #fbfdfc; padding: 12px 15px; border-radius: 8px; border: 1px solid #eef6f2; margin-bottom: 20px;">
+                <h4 style="font-size: 13.5px; font-weight: 700; color: #1e4356; margin-bottom: 6px;"><i
+                    class="bi bi-chat-quote-fill me-1" style="color: #2c5e43;"></i>전문가 코멘트</h4>
+                <div
+                  style="background-color: #fbfdfc; padding: 12px 15px; border-radius: 8px; border: 1px solid #eef6f2; margin-bottom: 20px;">
                   <p id="result-food-comment" style="font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 0;">
                     달콤한 콜라를 믹스한 '잭콕'과 숯불 향이 가득 밴 매콤한 닭꼬치를 매칭하면 단맛과 매운맛, 버번위스키 특유의 오크 향이 기가 막히게 어우러집니다.
                   </p>
                 </div>
 
                 <div class="text-center">
-                  <a href="portfolio.html" class="btn w-100" style="background-color: transparent; color: #2c5e43; border: 2px solid #2c5e43; font-weight: 700; font-size: 13.5px; border-radius: 30px; padding: 11px; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#2c5e43'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2c5e43';"><i class="bi bi-journal-text me-1"></i>주류 도감 상세 보기</a>
+                  <a href="portfolio.html" class="btn w-100"
+                    style="background-color: transparent; color: #2c5e43; border: 2px solid #2c5e43; font-weight: 700; font-size: 13.5px; border-radius: 30px; padding: 11px; transition: all 0.2s;"
+                    onmouseover="this.style.backgroundColor='#2c5e43'; this.style.color='#fff';"
+                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2c5e43';"><i
+                      class="bi bi-journal-text me-1"></i>주류 도감 상세 보기</a>
                 </div>
               </div>
 
@@ -293,8 +314,6 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <!-- [수업 내용 적용] 뉴스레터 구독 form/input 구성 요소 및 placeholder 속성 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
-  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
     <div class="footer-newsletter">
@@ -375,10 +394,10 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <!-- [원본 템플릿 유지] 카운트 업(Purecounter), 애니메이션(AOS), 슬라이드(Swiper) 등 템플릿 작동용 외부 벤더 자바스크립트 및 main.js 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -392,13 +411,8 @@
   <script src="assets/js/main.js"></script>
 
   <!-- SoolPair Services interactive scripts -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 12종 가성비 주류와 편의점 안주 매칭 데이터사전(pairingDB) 연동 및 실시간 칩 클릭 매칭과 카테고리별 필터링 알고리즘 설계
-       - 본인이 직접 수정한 부분: 실제 마트/편의점 기준 안주 가격 정정 및 주종별 도수(ABV) 텍스트 렌더링 세부 텍스트 수정
-       - 최종적으로 본인이 판단하고 결정한 부분: 조리 시간 텍스트값 파싱을 통해 프로그레스 바 너비 비율(timePercent)을 동적으로 매칭하는 조건 분기 구현 최종 결정
-  -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // 12종 보유주류와 페어링 편의점 안주 데이터 사전
       const pairingDB = {
         '산토리 가쿠빈': {
@@ -536,10 +550,10 @@
       };
 
       const liquorChipsWrapper = document.getElementById('liquor-chips-wrapper');
-      
+
       const resultPlaceholder = document.getElementById('result-placeholder');
       const resultContent = document.getElementById('result-content');
-      
+
       const resultLiquorBadge = document.getElementById('result-liquor-badge');
       const resultFoodTitle = document.getElementById('result-food-title');
       const resultFoodCategory = document.getElementById('result-food-category');
@@ -549,7 +563,7 @@
       const resultCooktimeBar = document.getElementById('result-cooktime-bar');
       const resultFoodPrice = document.getElementById('result-food-price');
       const resultFoodComment = document.getElementById('result-food-comment');
-      
+
 
 
       let currentSelectedLiquor = '';
@@ -566,12 +580,12 @@
           chipButton.innerHTML = `${item.emoji} ${liquorName}`;
 
           // 클릭 시 안주 추천 결과 출력
-          chipButton.addEventListener('click', function() {
+          chipButton.addEventListener('click', function () {
             // 다른 칩들의 액티브 해제
             document.querySelectorAll('#liquor-chips-wrapper button').forEach(btn => {
               btn.classList.remove('active-chip');
             });
-            
+
             // 현재 칩 활성화
             chipButton.classList.add('active-chip');
             currentSelectedLiquor = liquorName;
@@ -597,7 +611,7 @@
         resultLiquorBadge.innerHTML = `${item.emoji} ${liquorName}`;
         resultFoodTitle.innerText = item.foodName;
         resultFoodCategory.innerText = item.foodCategory;
-        
+
         // 조리시간 계산 및 게이지 렌더링
         resultCooktimeText.innerText = item.cookTime;
         let timePercent = 10;
@@ -607,7 +621,7 @@
         else if (item.cookTime.includes('3분 30초')) timePercent = 60;
         else if (item.cookTime.includes('조리 없음') || item.cookTime.includes('냉장')) timePercent = 10;
         resultCooktimeBar.style.width = `${timePercent}%`;
-        
+
         // 가격 및 코멘트
         resultFoodPrice.innerText = item.price;
         resultFoodComment.innerText = item.comment;
@@ -643,7 +657,7 @@
 
       // 카테고리 탭 클릭 리스너
       document.querySelectorAll('.category-tab').forEach(tab => {
-        tab.addEventListener('click', function() {
+        tab.addEventListener('click', function () {
           document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
           this.classList.add('active');
           activeCategory = this.getAttribute('data-category');

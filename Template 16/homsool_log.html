@@ -4,8 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <!-- [수업 내용 적용] 기획안에 맞춰 웹페이지 제목(title) 및 검색 최적화(meta description, keywords) 직접 수정 -->
   <title>나만의 홈술로그 | SoolPair 술페어</title>
   <meta content="자취생을 위한 달력 도장 형태의 홈술 기록지 및 절약 금액 대시보드" name="description">
   <meta content="술페어, SoolPair, 홈술로그, 홈술 기록, 절약 계산기, 위스키 도장, 와인 도장, 리큐르 도장" name="keywords">
@@ -14,7 +12,6 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
@@ -33,11 +30,6 @@
   <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- Custom CSS for Homsool Log -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 스탬프 선택창, 31일 반응형 그리드 캘린더 레이아웃 및 대시보드 통계용 차트 카드 디자인 CSS 설계
-       - 본인이 직접 수정한 부분: 위스키/와인/리큐르 테마별 캘린더 내 원형 스탬프 배경 컬러값 매핑 조정
-       - 최종적으로 본인이 판단하고 결정한 부분: 모바일 기기에서의 캘린더 그리드 비율(1fr*7) 및 도장 크기 반응형 미디어 쿼리 최종 확정
-  -->
   <style>
     /* Stamp Selector styling */
     .stamp-container {
@@ -310,7 +302,6 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스(d-flex, align-items-center)를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
@@ -318,9 +309,6 @@
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
-
-      <!-- [수업 내용 적용] 기획안에 맞춰 드롭다운을 제거하고 로그인, 장바구니 등 신규 링크 및 리스트(ul, li) 구성 수정 -->
-      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼(bi bi-list mobile-nav-toggle) 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -346,7 +334,6 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 수정 -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -362,109 +349,99 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Homsool Log Section ======= -->
-    <!-- [수업 내용 적용] 홈술로그 캘린더 구역과 주종 통계 및 건강 관리 가이드 등의 대시보드 구조 직접 레이아웃 설계 -->
-    <!-- [AI 및 확장 문법 활용]
-         - AI를 사용한 부분: 31일 달력 그리드 영역 및 범례 차트 대시보드 통계 카드들의 레이아웃 컨테이너 구조 빌드
-         - 본인이 직접 수정한 부분: 대시보드 영역 내 텍스트 컬러 지정(fw-bold, text-muted) 및 가이드 설명 내용 보강
-         - 최종적으로 본인이 판단하고 결정한 부분: 건강 가이드 및 통계 카드 로딩 시 적용되는 AOS 애니메이션 효과 최종 판단 적용
-    -->
-    <section class="homsool-log py-5">
-      <div class="container" data-aos="fade-up">
+    <!-- ======= Homsool Log Section ======= -->tion class="homsool-log py-5">
+    <div class="container" data-aos="fade-up">
 
-        <div class="section-title text-center pb-2">
-          <h2 class="fw-bold" style="color: #183c28;">🗓️ 나만의 홈술로그</h2>
-          <p class="text-muted">도장을 쾅! 오늘 홈술한 주종을 스탬프로 찍고, 한 달간의 홈술 통계를 한눈에 돌아보세요.</p>
-        </div>
-
-        <div class="row mt-4">
-          <!-- 왼쪽: 캘린더 그리드 -->
-          <div class="col-lg-8 mb-4 mb-lg-0">
-            <div class="card border-0 shadow-sm p-4" style="border-radius: 16px; border: 1px solid #eef3ef;">
-              <!-- 가이드 및 도장선택 -->
-              <div class="mb-4">
-                <h5 class="fw-bold mb-3" style="color: #183c28;"><i
-                    class="bi bi-patch-check-fill text-success me-2"></i>1단계: 찍을 도장 선택</h5>
-                <div class="stamp-container d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
-                  <div class="stamp-item active" data-type="whiskey" onclick="selectStamp('whiskey')">
-                    <span class="stamp-emoji">🥃</span>
-                    <span class="stamp-label">위스키</span>
-                  </div>
-                  <div class="stamp-item" data-type="wine" onclick="selectStamp('wine')">
-                    <span class="stamp-emoji">🍷</span>
-                    <span class="stamp-label">와인</span>
-                  </div>
-                  <div class="stamp-item" data-type="liqueur" onclick="selectStamp('liqueur')">
-                    <span class="stamp-emoji">🍹</span>
-                    <span class="stamp-label">리큐르</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 달력 -->
-              <div>
-                <h5 class="fw-bold mb-3" style="color: #183c28;"><i
-                    class="bi bi-patch-check-fill text-success me-2"></i>2단계: 달력 날짜를 클릭하여 도장 찍기</h5>
-                <div class="calendar-grid" id="calendarGrid">
-                  <!-- JS로 1일부터 31일까지 카드들이 생성됩니다 -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 오른쪽: 대시보드 통계 -->
-          <div class="col-lg-4">
-            <div class="dashboard-card shadow-sm mb-4">
-              <span class="dashboard-title">🥃 이번 달 주종 소비 비율</span>
-
-              <!-- 비율 차트 바 -->
-              <div class="ratio-bar-wrapper" id="ratioBar">
-                <!-- JS로 세그먼트 생성 -->
-              </div>
-
-              <!-- 범례 -->
-              <div class="d-flex flex-column gap-2 mb-2" id="ratioLegend">
-                <!-- JS로 범례 텍스트 생성 -->
-              </div>
-            </div>
-
-            <!-- 홈술 건강 관리 가이드 박스 -->
-            <div class="dashboard-card shadow-sm">
-              <span class="dashboard-title">⚠️ 홈술 건강 관리 가이드</span>
-
-              <!-- 동적 알림 영역 -->
-              <div id="healthAlertArea" class="p-3 rounded-3 mb-3 text-center"
-                style="font-size: 13px; line-height: 1.5; border: 1px solid #e2e8f0; background-color: #f8fafc;">
-                <!-- JS에서 동적 바인딩 -->
-              </div>
-
-              <!-- 공통 건강 정보 가이드 -->
-              <div class="pt-3 border-top" style="font-size: 13px; line-height: 1.6; color: #475569;">
-                <h6 class="fw-bold mb-2 text-dark" style="font-size: 13.5px;"><i
-                    class="bi bi-heart-pulse-fill text-danger me-1"></i>과음 시 신체적 위험성</h6>
-                <ul class="ps-3 mb-0 text-secondary" style="font-size: 12px; line-height: 1.6;">
-                  <li class="mb-2"><strong class="text-dark">뇌세포 손상</strong>: 지속적인 과음은 뇌세포 파괴를 유도하여 인지 기능 저하와 기억력 감퇴를
-                    유발합니다.</li>
-                  <li class="mb-2"><strong class="text-dark">간 질환 발생</strong>: 알코올성 지방간에서 시작하여 심할 경우 간염, 간경변증으로 진행될 위험이
-                    큽니다.</li>
-                  <li class="mb-2"><strong class="text-dark">소화기계 염증</strong>: 위장 점막을 직접 자극하여 만성 위염, 위궤양, 역류성 식도염을
-                    초래합니다.</li>
-                  <li><strong class="text-dark">심혈관계 악영향</strong>: 부정맥 및 고혈압 발생률이 높아지며 심장 근육에 무리를 주게 됩니다.</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+      <div class="section-title text-center pb-2">
+        <h2 class="fw-bold" style="color: #183c28;">🗓️ 나만의 홈술로그</h2>
+        <p class="text-muted">도장을 쾅! 오늘 홈술한 주종을 스탬프로 찍고, 한 달간의 홈술 통계를 한눈에 돌아보세요.</p>
       </div>
+
+      <div class="row mt-4">
+        <!-- 왼쪽: 캘린더 그리드 -->
+        <div class="col-lg-8 mb-4 mb-lg-0">
+          <div class="card border-0 shadow-sm p-4" style="border-radius: 16px; border: 1px solid #eef3ef;">
+            <!-- 가이드 및 도장선택 -->
+            <div class="mb-4">
+              <h5 class="fw-bold mb-3" style="color: #183c28;"><i
+                  class="bi bi-patch-check-fill text-success me-2"></i>1단계: 찍을 도장 선택</h5>
+              <div class="stamp-container d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
+                <div class="stamp-item active" data-type="whiskey" onclick="selectStamp('whiskey')">
+                  <span class="stamp-emoji">🥃</span>
+                  <span class="stamp-label">위스키</span>
+                </div>
+                <div class="stamp-item" data-type="wine" onclick="selectStamp('wine')">
+                  <span class="stamp-emoji">🍷</span>
+                  <span class="stamp-label">와인</span>
+                </div>
+                <div class="stamp-item" data-type="liqueur" onclick="selectStamp('liqueur')">
+                  <span class="stamp-emoji">🍹</span>
+                  <span class="stamp-label">리큐르</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 달력 -->
+            <div>
+              <h5 class="fw-bold mb-3" style="color: #183c28;"><i
+                  class="bi bi-patch-check-fill text-success me-2"></i>2단계: 달력 날짜를 클릭하여 도장 찍기</h5>
+              <div class="calendar-grid" id="calendarGrid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 대시보드 통계 -->
+        <div class="col-lg-4">
+          <div class="dashboard-card shadow-sm mb-4">
+            <span class="dashboard-title">🥃 이번 달 주종 소비 비율</span>
+
+            <!-- 비율 차트 바 -->
+            <div class="ratio-bar-wrapper" id="ratioBar">
+              <!-- JS로 세그먼트 생성 -->
+            </div>
+
+            <!-- 범례 -->
+            <div class="d-flex flex-column gap-2 mb-2" id="ratioLegend">
+              <!-- JS로 범례 텍스트 생성 -->
+            </div>
+          </div>
+
+          <!-- 홈술 건강 관리 가이드 박스 -->
+          <div class="dashboard-card shadow-sm">
+            <span class="dashboard-title">⚠️ 홈술 건강 관리 가이드</span>
+
+            <!-- 동적 알림 영역 -->
+            <div id="healthAlertArea" class="p-3 rounded-3 mb-3 text-center"
+              style="font-size: 13px; line-height: 1.5; border: 1px solid #e2e8f0; background-color: #f8fafc;">
+              <!-- JS에서 동적 바인딩 -->
+            </div>
+
+            <!-- 공통 건강 정보 가이드 -->
+            <div class="pt-3 border-top" style="font-size: 13px; line-height: 1.6; color: #475569;">
+              <h6 class="fw-bold mb-2 text-dark" style="font-size: 13.5px;"><i
+                  class="bi bi-heart-pulse-fill text-danger me-1"></i>과음 시 신체적 위험성</h6>
+              <ul class="ps-3 mb-0 text-secondary" style="font-size: 12px; line-height: 1.6;">
+                <li class="mb-2"><strong class="text-dark">뇌세포 손상</strong>: 지속적인 과음은 뇌세포 파괴를 유도하여 인지 기능 저하와 기억력 감퇴를
+                  유발합니다.</li>
+                <li class="mb-2"><strong class="text-dark">간 질환 발생</strong>: 알코올성 지방간에서 시작하여 심할 경우 간염, 간경변증으로 진행될 위험이
+                  큽니다.</li>
+                <li class="mb-2"><strong class="text-dark">소화기계 염증</strong>: 위장 점막을 직접 자극하여 만성 위염, 위궤양, 역류성 식도염을
+                  초래합니다.</li>
+                <li><strong class="text-dark">심혈관계 악영향</strong>: 부정맥 및 고혈압 발생률이 높아지며 심장 근육에 무리를 주게 됩니다.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
     </section><!-- End Homsool Log Section -->
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <!-- [수업 내용 적용] 뉴스레터 구독 form/input 구성 요소 및 placeholder 속성 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
-  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
     <div class="footer-newsletter">
       <div class="container">
@@ -539,7 +516,6 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <!-- [원본 템플릿 유지] 카운트 업(Purecounter), 애니메이션(AOS), 슬라이드(Swiper) 등 템플릿 작동용 외부 벤더 자바스크립트 및 main.js 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -552,16 +528,6 @@
   <script src="assets/js/main.js"></script>
 
   <!-- JavaScript logic for Homsool Log -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 위스키/와인/리큐르 주종 스탬프 객체 정의, 31일 달력 카드 그리드 동적 드로잉 및 클릭 시 스탬프 추가/삭제 양방향 토글 함수 생성
-       - 본인이 직접 수정한 부분: 실 판매 주류 정보 매핑(짐빔 화이트, 디아블로, 피치트리 등) 및 마트 특가/시중가 데이터 연계 정정
-       - 최종적으로 본인이 판단하고 결정한 부분: 스탬프 데이터 유지를 위해 localStorage 활용 방안 결정 및 도장 개수에 따른 건강 등급 분류(6개 초과 시 '주의', 12개 초과 시 '위험') 조건 범위 최종 확정
-  -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 주종별 실시간 소비 비율 계산 및 대시보드 내 텍스트/그래프 바 너비 업데이트 렌더링 스크립트 설계
-       - 본인이 직접 수정한 부분: 총 절약 금액 합산 연산 공식 검수 및 천 단위 콤마(toLocaleString) 수동 반영
-       - 최종적으로 본인이 판단하고 결정한 부분: 기록된 주종이 없을 때의 제로 디바이드(NaN%) 오류 방지를 위한 예외 처리 분기 최종 확정
-  -->
   <script>
     // Configuration for stamp types
     const STAMP_TYPES = {
@@ -695,9 +661,6 @@
         counts[log.type]++;
         totalStamps++;
       }
-
-
-
       // Update Health Warning Alert Box
       const healthAlertArea = document.getElementById('healthAlertArea');
       if (healthAlertArea) {

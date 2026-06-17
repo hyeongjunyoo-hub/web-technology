@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- [수업 내용 적용] 기획안에 맞춰 웹페이지 제목(title) 및 검색 최적화(meta description, keywords) 직접 수정 -->
   <title>칵테일 비율 계산기 - SoolPair 술페어</title>
   <meta content="자취방에서 즐기는 가성비 칵테일 황금비율 계산기 서비스" name="description">
   <meta content="SoolPair, 술페어, 칵테일 계산기, 황금비율, 하이볼 제조, 홈술 레시피" name="keywords">
@@ -14,7 +13,6 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- [원본 템플릿 유지] 템플릿 고유의 구글 폰트, 부트스트랩 CSS, 외부 CSS 라이브러리 연동 -->
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
@@ -32,11 +30,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 칵테일 강도 조절 버튼 그룹, 가로 바 형식의 배합 비율 시각화 그래프 및 결과 저장 성공 알림용 Toast 디자인 CSS 마크업 빌드
-       - 본인이 직접 수정한 부분: 강도 선택 상태에 따른 액티브 보더 및 텍스트 하이라이트 색상 보정
-       - 최종적으로 본인이 판단하고 결정한 부분: 모바일 브라우저의 너비 변화에 따른 그래프 바 라운딩 값 및 그림자 강도 최종 조율
-  -->
   <style>
     .login-section {
       padding: 80px 0;
@@ -73,7 +66,8 @@
       display: block;
     }
 
-    .form-control, .form-select {
+    .form-control,
+    .form-select {
       border-radius: 8px;
       border: 1px solid #dcdcdc;
       padding: 12px 15px;
@@ -81,7 +75,8 @@
       transition: all 0.3s;
     }
 
-    .form-control:focus, .form-select:focus {
+    .form-control:focus,
+    .form-select:focus {
       border-color: #2c5e43;
       box-shadow: 0 0 0 0.2rem rgba(44, 94, 67, 0.15);
       outline: none;
@@ -114,7 +109,7 @@
       overflow: hidden;
       display: flex;
       margin: 15px 0;
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .ratio-liquor {
@@ -176,17 +171,13 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <!-- [원본 템플릿 유지] fixed-top 레이아웃 및 Flexbox 유틸리티 클래스(d-flex, align-items-center)를 사용한 템플릿 헤더 구조 -->
   <header id="header" class="fixed-top d-flex align-items-center ">
     <div class="container d-flex justify-content-between align-items-center">
 
-      <!-- [수업 내용 적용] 브랜드명 텍스트 변경(SoolPair) 및 링크(a) 수정 -->
       <div class="logo">
         <h1 class="text-light"><a href="index.html"><span>SoolPair</span></a></h1>
       </div>
 
-      <!-- [수업 내용 적용] 기획안에 맞춰 드롭다운을 제거하고 로그인, 장바구니 등 신규 링크 및 리스트(ul, li) 구성 수정 -->
-      <!-- [원본 템플릿 유지] 모바일 환경의 내비게이션 반응형 레이아웃 및 토글 버튼(bi bi-list mobile-nav-toggle) 기능 유지 -->
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -212,7 +203,6 @@
   <main id="main">
 
     <!-- ======= Breadcrumbs Section ======= -->
-    <!-- [수업 내용 적용] breadcrumbs 섹션 경로 및 한글 타이틀 수정 -->
     <section class="breadcrumbs">
       <div class="container">
 
@@ -229,17 +219,11 @@
     </section><!-- End Breadcrumbs Section -->
 
     <!-- ======= Calculator Section ======= -->
-    <!-- [수업 내용 적용] 주류 선택 드롭다운 리스트(select/option) 및 취기 강도 선택 버튼, 그리고 결과 카드 플레이스홀더를 HTML 구조로 설계 -->
-    <!-- [AI 및 확장 문법 활용]
-         - AI를 사용한 부분: 선택 조건(주종, 강도)별 믹서 음료 텍스트 바인딩 및 술/믹서의 비중을 가로 그래프로 표현하기 위한 바 레이아웃 설계
-         - 본인이 직접 수정한 부분: 실시간 결과 카드의 테두리 섀도 및 스펙 정보의 가독성 개선
-         - 최종적으로 본인이 판단하고 결정한 부분: 모바일 기기에서의 결과창 스크롤 포커싱(scrollIntoView) 구현 여부 최종 결정 적용
-    -->
     <section class="login-section" data-aos="fade-up">
       <div class="container">
         <div class="login-card">
           <h3>🍹 황금비율 계산기</h3>
-          
+
           <div class="form-group">
             <label for="liquorSelect">주류 선택</label>
             <select id="liquorSelect" class="form-select">
@@ -271,8 +255,9 @@
 
           <!-- 계산 결과 표출 영역 -->
           <div id="calculator-result">
-            <h4 style="font-size: 15.5px; font-weight: 700; color: #2c5e43; margin-bottom: 12px;"><i class="bi bi-recipe"></i> 📐 황금 배합 레시피</h4>
-            
+            <h4 style="font-size: 15.5px; font-weight: 700; color: #2c5e43; margin-bottom: 12px;"><i
+                class="bi bi-recipe"></i> 📐 황금 배합 레시피</h4>
+
             <div class="p-3" style="background-color: #f8faf9; border-radius: 10px; border: 1px solid #e2ece7;">
               <div class="d-flex justify-content-between mb-2" style="font-size: 14px; font-weight: 600; color: #444;">
                 <span>🥃 베이스 술 용량</span>
@@ -286,28 +271,31 @@
                 <span>🧊 필요 얼음 개수</span>
                 <span id="ice-count" style="font-weight: 700; color: #666;">3 ~ 4 개</span>
               </div>
-              
+
               <!-- 비율 바 -->
               <div class="ratio-bar-wrapper">
                 <div id="bar-liquor" class="ratio-liquor" style="width: 29%;">술 29%</div>
                 <div id="bar-mixer" class="ratio-mixer" style="width: 71%;">음료 71%</div>
               </div>
-              
+
               <div style="font-size: 12px; color: #888; text-align: center; margin-top: 5px;">
                 * 얼음은 비율 계산 부피에서 제외됩니다.
               </div>
             </div>
 
-            <div class="mt-3" style="background-color: #fffbeb; border: 1px solid #ffeeba; padding: 12px 15px; border-radius: 8px;">
-              <h5 style="font-size: 13.5px; font-weight: 700; color: #856404; margin-bottom: 5px;"><i class="bi bi-lightbulb-fill me-1"></i>자취방 제조 꿀팁</h5>
+            <div class="mt-3"
+              style="background-color: #fffbeb; border: 1px solid #ffeeba; padding: 12px 15px; border-radius: 8px;">
+              <h5 style="font-size: 13.5px; font-weight: 700; color: #856404; margin-bottom: 5px;"><i
+                  class="bi bi-lightbulb-fill me-1"></i>자취방 제조 꿀팁</h5>
               <p id="recipe-tip" style="font-size: 12.5px; color: #66521a; line-height: 1.5; margin-bottom: 0;">
                 피치트리는 토닉워터와 궁합이 환상적입니다. 잔에 레몬 슬라이스를 가볍게 즙을 짜서 넣으면 맛이 배가됩니다.
               </p>
             </div>
-            
-            <button id="btn-add-to-cart-calc" class="btn btn-calc mt-3"><i class="bi bi-cart-plus me-1"></i>계산된 주류 장바구니 담기</button>
+
+            <button id="btn-add-to-cart-calc" class="btn btn-calc mt-3"><i class="bi bi-cart-plus me-1"></i>계산된 주류 장바구니
+              담기</button>
           </div>
-          
+
         </div>
       </div>
     </section>
@@ -321,8 +309,6 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <!-- [수업 내용 적용] 뉴스레터 구독 form/input 구성 요소 및 placeholder 속성 수정, 푸터 텍스트/링크 정보 기획안에 맞게 수정 -->
-  <!-- [원본 템플릿 유지] 푸터 영역의 전체적인 3단/4단 컬럼 그리드 배치 및 AOS 스크롤 애니메이션 효과 유지 -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
 
     <div class="footer-newsletter">
@@ -406,7 +392,6 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <!-- [원본 템플릿 유지] 카운트 업(Purecounter), 애니메이션(AOS), 슬라이드(Swiper) 등 템플릿 작동용 외부 벤더 자바스크립트 및 main.js 파일 연동 -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -418,21 +403,8 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <!-- 칵테일 동적 계산 스크립트 -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 12종 주류 레시피 믹싱 가이드 데이터베이스(liquorRecipes) 구축 및 선택한 강도(light, medium, strong)별 술/음료 용량(ml) 자동 추출 로직 설계
-       - 본인이 직접 수정한 부분: 실 판매 기준 12종의 명칭 정정 및 믹싱에 어울리는 현실적인 하이볼 팁 설명 문구 수정
-       - 최종적으로 본인이 판단하고 결정한 부분: URL 파라미터(Query String) 파싱을 통해 주류 도감에서 유입 시 해당 술이 자동 선택되도록 유도하는 로직 최종 확정
-  -->
-  <!-- [AI 및 확장 문법 활용]
-       - AI를 사용한 부분: 추출된 용량을 기반으로 술과 음료의 상대 비율(%)을 계산하고 결과 바 그래프의 width 속성 및 텍스트를 실시간 업데이트하는 렌더링 함수 구현
-       - 본인이 직접 수정한 부분: 소수점 이하 비율 버림 처리(Math.floor) 및 그래프 내 텍스트 정렬 보정
-       - 최종적으로 본인이 판단하고 결정한 부분: 장바구니 저장 시(localStorage) 중복 추가 건에 대한 수량 가산 로직 최종 판단 적용
-  -->
-  <!-- [수업 내용 적용] 장바구니 담기 클릭 이벤트 바인딩 및 토스트 팝업 제어 등 기초 JS 적용 -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // 12종 주류 칵테일 가이드 데이터베이스
       const liquorRecipes = {
         'Suntory': {
@@ -558,16 +530,16 @@
       };
 
       const liquorSelect = document.getElementById('liquorSelect');
-      
+
       const baseVolume = document.getElementById('base-volume');
       const mixerLabel = document.getElementById('mixer-label');
       const mixerVolume = document.getElementById('mixer-volume');
       const iceCount = document.getElementById('ice-count');
       const recipeTip = document.getElementById('recipe-tip');
-      
+
       const barLiquor = document.getElementById('bar-liquor');
       const barMixer = document.getElementById('bar-mixer');
-      
+
       const btnAddToCartCalc = document.getElementById('btn-add-to-cart-calc');
       const cartToast = document.getElementById('cart-toast');
       const cartToastMessage = document.getElementById('cart-toast-message');
@@ -576,7 +548,7 @@
 
       // --- 1. 취기 강도 선택 버튼 핸들링 ---
       document.querySelectorAll('.btn-strength').forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
           document.querySelectorAll('.btn-strength').forEach(b => b.classList.remove('active'));
           this.classList.add('active');
           currentStrength = this.getAttribute('data-strength');
@@ -589,33 +561,33 @@
         const liquorKey = liquorSelect.value;
         const servings = 1;
         const recipe = liquorRecipes[liquorKey];
-        
+
         if (!recipe) return;
-        
+
         const strengthData = recipe[currentStrength];
-        
+
         const totalLiquor = strengthData.liquor * servings;
         const totalMixer = strengthData.mixer * servings;
-        
+
         // 텍스트 기입
         baseVolume.innerText = `${totalLiquor} ml`;
         mixerLabel.innerText = `🥤 추천 믹서 용량 (${recipe.mixerName})`;
         mixerVolume.innerText = `${totalMixer} ml`;
-        
+
         // 얼음 개수
         iceCount.innerText = `${strengthData.ice} 개 (1잔당 기준)`;
-        
+
         // 제조 꿀팁
         recipeTip.innerHTML = `<strong>[${recipe.name} 팁]</strong> ${recipe.mixerTip}`;
-        
+
         // 비율 바 업데이트
         const totalVol = totalLiquor + totalMixer;
         const liquorPercent = Math.round((totalLiquor / totalVol) * 100);
         const mixerPercent = 100 - liquorPercent;
-        
+
         barLiquor.style.width = `${liquorPercent}%`;
         barLiquor.innerText = `술 ${liquorPercent}%`;
-        
+
         barMixer.style.width = `${mixerPercent}%`;
         barMixer.innerText = `음료 ${mixerPercent}%`;
       }
@@ -626,7 +598,7 @@
       function parseQueryString() {
         const urlParams = new URLSearchParams(window.location.search);
         const liquorParam = urlParams.get('liquor');
-        
+
         if (liquorParam && liquorRecipes[liquorParam]) {
           liquorSelect.value = liquorParam;
         }
@@ -634,15 +606,15 @@
       }
 
       // --- 4. 장바구니 담기 기능 연동 ---
-      btnAddToCartCalc.addEventListener('click', function() {
+      btnAddToCartCalc.addEventListener('click', function () {
         const liquorKey = liquorSelect.value;
         const recipe = liquorRecipes[liquorKey];
         if (!recipe) return;
-        
+
         const servings = 1;
 
         let cart = JSON.parse(localStorage.getItem('soolpair_cart') || '[]');
-        
+
         const existingIdx = cart.findIndex(x => x.title === recipe.name);
         if (existingIdx > -1) {
           cart[existingIdx].qty += servings;
@@ -656,7 +628,7 @@
             qty: servings
           });
         }
-        
+
         localStorage.setItem('soolpair_cart', JSON.stringify(cart));
 
         // 토스트 알림
